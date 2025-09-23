@@ -1,0 +1,9 @@
+/home/usuario/robotica_G3/ejercicio9/CMakeFiles/ejemplo1.dir
+/home/usuario/robotica_G3/ejercicio9/CMakeFiles/edit_cache.dir
+/home/usuario/robotica_G3/ejercicio9/CMakeFiles/rebuild_cache.dir
+/home/usuario/robotica_G3/ejercicio9/CMakeFiles/list_install_components.dir
+/home/usuario/robotica_G3/ejercicio9/CMakeFiles/install.dir
+/home/usuario/robotica_G3/ejercicio9/CMakeFiles/install/local.dir
+/home/usuario/robotica_G3/ejercicio9/CMakeFiles/install/strip.dir
+/home/usuario/robotica_G3/ejercicio9/CMakeFiles/ejemplo1_autogen_timestamp_deps.dir
+/home/usuario/robotica_G3/ejercicio9/CMakeFiles/ejemplo1_autogen.dir
