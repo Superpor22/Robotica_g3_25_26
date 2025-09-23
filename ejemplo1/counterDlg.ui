@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Counter</class>
+ <widget class="QWidget" name="Counter">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>418</width>
+    <height>354</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Counter</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="6" column="0" colspan="2">
+    <widget class="QSlider" name="horizontalSlider">
+     <property name="maximum">
+      <number>1000</number>
+     </property>
+     <property name="value">
+      <number>500</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QPushButton" name="stopButton">
+     <property name="text">
+      <string>STOP</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QPushButton" name="resetButton">
+     <property name="text">
+      <string>RESET</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="2">
+    <widget class="QLCDNumber" name="periodo"/>
+   </item>
+   <item row="0" column="0" colspan="3">
+    <widget class="QLCDNumber" name="contador">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>443</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

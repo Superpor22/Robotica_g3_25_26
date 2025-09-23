@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/usuario/robotica_G3/ejemplo1/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
