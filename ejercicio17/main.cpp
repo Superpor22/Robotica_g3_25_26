@@ -25,4 +25,6 @@ int main()
         std::cout << graph.at(i).links.size()<< std::endl;
     }
 
+    //Realizado por el G3
+
 }
