@@ -18,4 +18,11 @@ int main()
             value.links.emplace_back( rand()%100);
     }
 
+    std::cout << graph.at(60).links.size()<< std::endl;
+
+    for (int i = 0; i < 100; i++)
+    {
+        std::cout << graph.at(i).links.size()<< std::endl;
+    }
+
 }
