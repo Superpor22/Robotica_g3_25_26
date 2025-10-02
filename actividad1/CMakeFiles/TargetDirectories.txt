@@ -5,8 +5,8 @@
 /home/usuario/robotica_G3/actividad1/CMakeFiles/install/local.dir
 /home/usuario/robotica_G3/actividad1/CMakeFiles/install/strip.dir
 /home/usuario/robotica_G3/actividad1/generated/CMakeFiles/ICES__home_usuario_robotica_G3_actividad1_generated.dir
-/home/usuario/robotica_G3/actividad1/generated/CMakeFiles/ICE_DifferentialRobot_target.dir
-/home/usuario/robotica_G3/actividad1/generated/CMakeFiles/ICE_Laser_target.dir
+/home/usuario/robotica_G3/actividad1/generated/CMakeFiles/ICE_Lidar3D_target.dir
+/home/usuario/robotica_G3/actividad1/generated/CMakeFiles/ICE_OmniRobot_target.dir
 /home/usuario/robotica_G3/actividad1/generated/CMakeFiles/ICE_GenericBase_target.dir
 /home/usuario/robotica_G3/actividad1/generated/CMakeFiles/chocachoca.dir
 /home/usuario/robotica_G3/actividad1/generated/CMakeFiles/edit_cache.dir

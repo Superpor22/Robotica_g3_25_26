@@ -69,35 +69,35 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "ICES__home_usuario_robotica_G3_actividad1_generated::@21bfa6e54ac71a0c1a55",
-					"jsonFile" : "target-ICES__home_usuario_robotica_G3_actividad1_generated-2e7878edf9d368c946af.json",
+					"jsonFile" : "target-ICES__home_usuario_robotica_G3_actividad1_generated-cf09f9d6b277a9c11335.json",
 					"name" : "ICES__home_usuario_robotica_G3_actividad1_generated",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
-					"id" : "ICE_DifferentialRobot_target::@21bfa6e54ac71a0c1a55",
-					"jsonFile" : "target-ICE_DifferentialRobot_target-25c6279e5519f554032d.json",
-					"name" : "ICE_DifferentialRobot_target",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 1,
 					"id" : "ICE_GenericBase_target::@21bfa6e54ac71a0c1a55",
-					"jsonFile" : "target-ICE_GenericBase_target-a0b0373d444ae14887fb.json",
+					"jsonFile" : "target-ICE_GenericBase_target-a9f5621596054f64ebf0.json",
 					"name" : "ICE_GenericBase_target",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
-					"id" : "ICE_Laser_target::@21bfa6e54ac71a0c1a55",
-					"jsonFile" : "target-ICE_Laser_target-601add9dcadf9723de20.json",
-					"name" : "ICE_Laser_target",
+					"id" : "ICE_Lidar3D_target::@21bfa6e54ac71a0c1a55",
+					"jsonFile" : "target-ICE_Lidar3D_target-ed19db56f778d8ef166f.json",
+					"name" : "ICE_Lidar3D_target",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ICE_OmniRobot_target::@21bfa6e54ac71a0c1a55",
+					"jsonFile" : "target-ICE_OmniRobot_target-6f747443caeb22fc22c9.json",
+					"name" : "ICE_OmniRobot_target",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "chocachoca::@21bfa6e54ac71a0c1a55",
-					"jsonFile" : "target-chocachoca-2bb9ab280d0e7793aca4.json",
+					"jsonFile" : "target-chocachoca-56e85f97c4b9d15b0122.json",
 					"name" : "chocachoca",
 					"projectIndex" : 0
 				},
@@ -111,7 +111,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "chocachoca_autogen_timestamp_deps::@21bfa6e54ac71a0c1a55",
-					"jsonFile" : "target-chocachoca_autogen_timestamp_deps-fcaed0fe0f95176fe6ae.json",
+					"jsonFile" : "target-chocachoca_autogen_timestamp_deps-1e039fd02239afe21c20.json",
 					"name" : "chocachoca_autogen_timestamp_deps",
 					"projectIndex" : 0
 				}
@@ -127,6 +127,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 8
+		"minor" : 6
 	}
 }

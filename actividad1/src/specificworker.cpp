@@ -17,6 +17,10 @@
  *    along with RoboComp.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "specificworker.h"
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cppitertools/groupby.hpp>
 
 SpecificWorker::SpecificWorker(const ConfigLoader& configLoader, TuplePrx tprx, bool startup_check) : GenericWorker(configLoader, tprx)
 {
@@ -82,19 +86,24 @@ void SpecificWorker::compute()
 {
 	try
 	{
-		auto data = laser_proxy->getLaserData();
-		qInfo() << data.size();
+		auto data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 5000, 1);
+		qInfo() << data.points.size();
 
-		int i = data.size()/2 -5;
+		auto& puntos = data.points;  // Usamos `puntos` como el contenedor con los datos obtenidos
 
-		auto data2 = data[i];
+		RoboCompLidar3D::TPoints salida;
+	    // Agrupar por phi y obtener el mínimo de r por grupo en una línea, usando push_back para almacenar en el vector
+	    for (auto&& group : iter::groupby(puntos, [](const auto& p)
+	    {
+	    	float factor = std::pow(10, 2);  // Potencia de 10 para mover el punto decimal
+			return std::round(p.phi * factor) / factor;  // Redondear y devolver con la cantidad deseada de decimales
+	    })) {
+	        auto min_r = *std::min_element(group.second.begin(), group.second.end(),
+	            [](const auto& p1, const auto& p2) { return p1.r < p2.r; });
+	        salida.emplace_back(group.first, min_r.r);
+	    }
 
-		for(auto x = data.begin() + i; x < data.end() - i; x++)
-		{
-			std::cout << x->dist << std::endl;
-		}
-
-		std::cout << "-----------------------------------" << std::endl;
+		qInfo() <<"##############>" << salida.size();
 
 	} catch (const Ice::Exception &e) {std::cout << e << " " << "Conexión con Laser" << std::endl;}
 
@@ -160,3 +169,14 @@ int SpecificWorker::startup_check()
 // RoboCompLaser::LaserConfData
 // RoboCompLaser::TData
 
+
+// int i = data.size()/2 -5;
+//
+// auto data2 = data[i];
+//
+// for(auto x = data.begin() + i; x < data.end() - i; x++)
+// {
+// 	std::cout << x->dist << std::endl;
+// }
+//
+// std::cout << "-----------------------------------" << std::endl;

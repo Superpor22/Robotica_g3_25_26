@@ -3,9 +3,7 @@
   /home/usuario/robocomp/core/classes/ConfigLoader/ConfigLoader.h \
   /home/usuario/robocomp/core/classes/ConfigLoader/ConfigLoader.tpp \
   /home/usuario/robocomp/core/classes/grafcetStep/GRAFCETStep.h \
-  /home/usuario/robotica_G3/actividad1/generated/DifferentialRobot.h \
   /home/usuario/robotica_G3/actividad1/generated/GenericBase.h \
-  /home/usuario/robotica_G3/actividad1/generated/Laser.h \
   /usr/include/GL/gl.h \
   /usr/include/Ice/AsyncResult.h \
   /usr/include/Ice/BatchRequestQueueF.h \

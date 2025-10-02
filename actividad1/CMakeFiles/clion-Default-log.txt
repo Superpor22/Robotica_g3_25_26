@@ -5,31 +5,8 @@ CMake Warning at CMakeLists.txt:5 (MESSAGE):
 
 
 -- Using g++ 13 or higher, setting the C++23 standard.
--- COMPILING WITH QT6
--- Configuring for x86_64 architecture
--- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so
--- Could NOT find XKB (missing: XKB_LIBRARY XKB_INCLUDE_DIR) (Required is at least version "0.5.0")
--- Ice version: 3.7.10
--- Found the following Ice libraries:
---   Ice++11 (required)
---   IceStorm++11 (required)
--- Found Ice: /usr/bin/slice2cpp (found version "3.7.10")
--- RoboComp root is now set to /home/robocomp1/robocomp//
--- 
--- Ice version: 3.7.10
--- Found the following Ice libraries:
---   Ice (required)
---   IceStorm (required)
--- The following Ice libraries were not found:
---   IceUtil (optional)
--- Found Ice: /usr/bin/slice2cpp (found version "3.7.10")
--- Generating ICE files in directory: /home/usuario/robotica_G3/actividad1/generated
--- Adding rule to generate /home/usuario/robotica_G3/actividad1/generated/DifferentialRobot.ice from /home/robocomp1/robocomp//interfaces/IDSLs/DifferentialRobot.idsl
--- Adding rule to generate /home/usuario/robotica_G3/actividad1/generated/Laser.ice from /home/robocomp1/robocomp//interfaces/IDSLs/Laser.idsl
--- Adding rule to generate /home/usuario/robotica_G3/actividad1/generated/GenericBase.ice from /home/robocomp1/robocomp//interfaces/IDSLs/GenericBase.idsl
--- BU ice=>h/cpp: Adding rule to generate DifferentialRobot.h and DifferentialRobot.cpp from /home/usuario/robotica_G3/actividad1/generated/DifferentialRobot.ice
--- BU ice=>h/cpp: Adding rule to generate Laser.h and Laser.cpp from /home/usuario/robotica_G3/actividad1/generated/Laser.ice
--- BU ice=>h/cpp: Adding rule to generate GenericBase.h and GenericBase.cpp from /home/usuario/robotica_G3/actividad1/generated/GenericBase.ice
--- Configuring done (0.1s)
--- Generating done (0.0s)
--- Build files have been written to: /home/usuario/robotica_G3/actividad1
+CMake Error at generated/CMakeLists.txt:19 (MESSAGE):
+  Couldn't find RoboComp in /home/robocomp/robocomp/! Exiting...
+
+
+-- Configuring incomplete, errors occurred!
