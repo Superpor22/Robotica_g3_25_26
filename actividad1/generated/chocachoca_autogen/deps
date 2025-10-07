@@ -13,6 +13,7 @@ chocachoca_autogen/timestamp: \
 	/home/usuario/robocomp/cmake/robocomp.cmake \
 	/home/usuario/robocomp/core/classes/ConfigLoader/ConfigLoader.h \
 	/home/usuario/robocomp/core/classes/ConfigLoader/ConfigLoader.tpp \
+	/home/usuario/robocomp/core/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
 	/home/usuario/robocomp/core/classes/grafcetStep/GRAFCETStep.h \
 	/home/usuario/robotica_G3/actividad1/generated/CMakeLists.txt \
 	/home/usuario/robotica_G3/actividad1/generated/GenericBase.h \

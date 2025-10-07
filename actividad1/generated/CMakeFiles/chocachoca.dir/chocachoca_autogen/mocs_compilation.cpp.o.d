@@ -972,6 +972,9 @@ generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiversion.h \
  /home/usuario/robotica_G3/actividad1/generated/chocachoca_autogen/include/ui_mainUI.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QFrame \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
  /home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.h \
  /home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.h \
  /usr/include/c++/13/fstream \
@@ -1085,4 +1088,5 @@ generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QScreen \
  /home/usuario/robotica_G3/actividad1/generated/chocachoca_autogen/VNU7RW3YIC/moc_specificworker.cpp \
  /home/usuario/robotica_G3/actividad1/generated/chocachoca_autogen/VNU7RW3YIC/../../../src/specificworker.h \
- /home/usuario/robotica_G3/actividad1/generated/genericworker.h
+ /home/usuario/robotica_G3/actividad1/generated/genericworker.h \
+ /home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h

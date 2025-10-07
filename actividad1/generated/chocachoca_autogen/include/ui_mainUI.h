@@ -11,6 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -18,12 +20,23 @@ QT_BEGIN_NAMESPACE
 class Ui_guiDlg
 {
 public:
+    QVBoxLayout *verticalLayout;
+    QFrame *frame;
 
     void setupUi(QWidget *guiDlg)
     {
         if (guiDlg->objectName().isEmpty())
             guiDlg->setObjectName("guiDlg");
         guiDlg->resize(800, 600);
+        verticalLayout = new QVBoxLayout(guiDlg);
+        verticalLayout->setObjectName("verticalLayout");
+        frame = new QFrame(guiDlg);
+        frame->setObjectName("frame");
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+
+        verticalLayout->addWidget(frame);
+
 
         retranslateUi(guiDlg);
 

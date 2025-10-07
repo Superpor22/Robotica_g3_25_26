@@ -33,6 +33,7 @@
 
 #include <genericworker.h>
 
+#include <abstract_graphic_viewer/abstract_graphic_viewer.h>
 
 /**
  * \brief Class SpecificWorker implements the core functionality of the component.
@@ -83,12 +84,26 @@ public slots:
      */
 	int startup_check();
 
+	void new_target_slot(QPointF);
+
+	void draw_lidar(const RoboCompLidar3D::TPoints &points, QGraphicsScene* scene);
+
 private:
 
 	/**
      * \brief Flag indicating whether startup checks are enabled.
      */
 	bool startup_check_flag;
+
+	// graphics
+	QRectF dimensions;
+	AbstractGraphicViewer *viewer;
+	const int ROBOT_LENGTH = 400;
+	QGraphicsPolygonItem *robot_polygon;
+
+	std::optional<RoboCompLidar3D::TPoints> data_filter( const RoboCompLidar3D::TPoints &puntos);
+
+
 
 signals:
 	//void customSignal();

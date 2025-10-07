@@ -1255,6 +1255,8 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QtGui \
  /home/usuario/robotica_G3/actividad1/generated/chocachoca_autogen/include/ui_mainUI.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QFrame \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
  /home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.h \
  /usr/include/x86_64-linux-gnu/qt6/QtStateMachine/QState \
@@ -1273,4 +1275,18 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: \
  /home/usuario/robotica_G3/actividad1/generated/Lidar3D.h \
  /home/usuario/robotica_G3/actividad1/generated/OmniRobot.h \
  /home/usuario/robotica_G3/actividad1/generated/../src/specificworker.h \
- /home/usuario/robotica_G3/actividad1/generated/genericworker.h
+ /home/usuario/robotica_G3/actividad1/generated/genericworker.h \
+ /home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsScene \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QMouseEvent \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QResizeEvent \
+ /usr/include/x86_64-linux-gnu/qt6/QtOpenGLWidgets/QOpenGLWidget \
+ /usr/include/x86_64-linux-gnu/qt6/QtOpenGLWidgets/qopenglwidget.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtOpenGLWidgets/qtopenglwidgetsglobal.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtOpenGLWidgets/qtopenglwidgetsexports.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QScrollBar \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsPolygonItem

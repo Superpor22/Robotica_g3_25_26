@@ -21,6 +21,7 @@
 #include <vector>
 #include <algorithm>
 #include <cppitertools/groupby.hpp>
+#include <cppitertools/itertools.hpp>
 
 SpecificWorker::SpecificWorker(const ConfigLoader& configLoader, TuplePrx tprx, bool startup_check) : GenericWorker(configLoader, tprx)
 {
@@ -72,6 +73,16 @@ void SpecificWorker::initialize()
 {
     std::cout << "initialize worker" << std::endl;
 
+	this->dimensions = QRectF(-6000, -3000, 12000, 6000);
+	viewer = new AbstractGraphicViewer(this->frame, this->dimensions);
+	this->resize(900,450);
+	viewer->show();
+	const auto rob = viewer->add_robot(ROBOT_LENGTH, ROBOT_LENGTH, 0, 190, QColor("Blue"));
+	robot_polygon = std::get<0>(rob);
+
+	connect(viewer, &AbstractGraphicViewer::new_mouse_coordinates, this, &SpecificWorker::new_target_slot);
+
+
     //initializeCODE
 
     /////////GET PARAMS, OPEND DEVICES....////////
@@ -86,24 +97,14 @@ void SpecificWorker::compute()
 {
 	try
 	{
-		auto data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 5000, 1);
+		auto data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 15000, 1);
 		qInfo() << data.points.size();
 
 		auto& puntos = data.points;  // Usamos `puntos` como el contenedor con los datos obtenidos
 
-		RoboCompLidar3D::TPoints salida;
-	    // Agrupar por phi y obtener el mínimo de r por grupo en una línea, usando push_back para almacenar en el vector
-	    for (auto&& group : iter::groupby(puntos, [](const auto& p)
-	    {
-	    	float factor = std::pow(10, 2);  // Potencia de 10 para mover el punto decimal
-			return std::round(p.phi * factor) / factor;  // Redondear y devolver con la cantidad deseada de decimales
-	    })) {
-	        auto min_r = *std::min_element(group.second.begin(), group.second.end(),
-	            [](const auto& p1, const auto& p2) { return p1.r < p2.r; });
-	        salida.emplace_back(group.first, min_r.r);
-	    }
+		const auto filter_data= data_filter(puntos);
 
-		qInfo() <<"##############>" << salida.size();
+		draw_lidar(filter_data.value(), &viewer->scene);
 
 	} catch (const Ice::Exception &e) {std::cout << e << " " << "Conexión con Laser" << std::endl;}
 
@@ -141,6 +142,50 @@ int SpecificWorker::startup_check()
 	return 0;
 }
 
+void SpecificWorker::new_target_slot(QPointF punto)
+{
+	qInfo() << punto;
+}
+
+void SpecificWorker::draw_lidar(const  RoboCompLidar3D::TPoints &points, QGraphicsScene* scene)
+{
+	static std::vector<QGraphicsItem*> draw_points;
+	for (const auto &p : draw_points)
+	{
+		scene->removeItem(p);
+		delete p;
+	}
+	draw_points.clear();
+
+	const QColor color("LightGreen");
+	const QPen pen(color, 10);
+	//const QBrush brush(color, Qt::SolidPattern);
+	for (const auto &p : points)
+	{
+		const auto dp = scene->addRect(-25, -25, 50, 50, pen);
+		dp->setPos(p.x, p.y);
+		draw_points.push_back(dp);   // add to the list of points to be deleted next time
+	}
+}
+
+std::optional<RoboCompLidar3D::TPoints> SpecificWorker::data_filter(const RoboCompLidar3D::TPoints& puntos)
+{
+	if (puntos.empty()) return {};
+
+	RoboCompLidar3D::TPoints salida; salida.reserve(puntos.size());
+
+	// Agrupar por phi y obtener el mínimo de r por grupo en una línea, usando push_back para almacenar en el vector
+	for (auto&& [angle, group] : iter::groupby(puntos, [](const auto& p)
+	{
+		float factor = std::pow(10.0f, 2);  // Potencia de 10 para mover el punto decimal
+		return std::floor(p.phi * factor) / factor;  // Redondear y devolver con la cantidad deseada de decimales
+	})) {
+		auto min_r = std::min_element(std::begin(group), std::end(group),
+			[](const auto& p1, const auto& p2) { return p1.r < p2.r; });
+		salida.emplace_back(RoboCompLidar3D::TPoint{.x = min_r->x, .y = min_r->y, .phi = min_r->phi});
+	}
+	return salida;
+}
 
 
 /**************************************/
