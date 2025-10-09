@@ -38,6 +38,9 @@
 /**
  * \brief Class SpecificWorker implements the core functionality of the component.
  */
+
+enum class State {IDLE, FORWARD, TURN, FOLLOW_WALL, SPIRAL};
+
 class SpecificWorker : public GenericWorker
 {
 Q_OBJECT
@@ -88,6 +91,14 @@ public slots:
 
 	void draw_lidar(const RoboCompLidar3D::TPoints &points, QGraphicsScene* scene);
 
+	std::tuple<State, float, float> FORWARD_method();
+
+	std::tuple<State, float, float> TURN_method();
+
+std::optional<float> get_min_distance(const RoboCompLidar3D::TPoints& points);
+
+
+
 private:
 
 	/**
@@ -103,6 +114,7 @@ private:
 
 	std::optional<RoboCompLidar3D::TPoints> data_filter( const RoboCompLidar3D::TPoints &puntos);
 
+	State state = State::FORWARD;  // Estado inicial, por ejemplo
 
 
 signals:

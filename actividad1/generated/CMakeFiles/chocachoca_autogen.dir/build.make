@@ -72,7 +72,7 @@ generated/chocachoca_autogen/timestamp: /usr/lib/qt6/libexec/moc
 generated/chocachoca_autogen/timestamp: /usr/lib/qt6/libexec/uic
 generated/chocachoca_autogen/timestamp: generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/usuario/robotica_G3/actividad1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target chocachoca"
-	cd /home/usuario/robotica_G3/actividad1/generated && /usr/bin/cmake -E cmake_autogen /home/usuario/robotica_G3/actividad1/generated/CMakeFiles/chocachoca_autogen.dir/AutogenInfo.json ""
+	cd /home/usuario/robotica_G3/actividad1/generated && /usr/bin/cmake -E cmake_autogen /home/usuario/robotica_G3/actividad1/generated/CMakeFiles/chocachoca_autogen.dir/AutogenInfo.json Debug
 	cd /home/usuario/robotica_G3/actividad1/generated && /usr/bin/cmake -E touch /home/usuario/robotica_G3/actividad1/generated/chocachoca_autogen/timestamp
 
 chocachoca_autogen: generated/CMakeFiles/chocachoca_autogen

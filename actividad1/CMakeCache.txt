@@ -22,13 +22,10 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=
+CMAKE_BUILD_TYPE:STRING=Debug
 
 //Enable colored diagnostics throughout.
 CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
-
-//Enable/Disable color output during build.
-CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //CXX compiler
 CMAKE_CXX_COMPILER:STRING=/usr/bin/c++
@@ -438,7 +435,7 @@ Ice_SLICE2OBJC_EXECUTABLE:FILEPATH=/usr/bin/slice2objc
 Ice_SLICE2PHP_EXECUTABLE:FILEPATH=/usr/bin/slice2php
 
 //Ice slice2py executable
-Ice_SLICE2PY_EXECUTABLE:FILEPATH=/home/usuario/software/pip_venv/bin/slice2py
+Ice_SLICE2PY_EXECUTABLE:FILEPATH=/usr/bin/slice2py
 
 //Ice slice2rb executable
 Ice_SLICE2RB_EXECUTABLE:FILEPATH=/usr/bin/slice2rb
@@ -541,7 +538,7 @@ Qt6_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt6
 RC_COMPONENT_DEVEL_PATH:STRING=/home/usuario/robotica_G3/actividad1
 
 //component install path
-RC_COMPONENT_INSTALL_PATH:STRING=/home/usuario/robocomp
+RC_COMPONENT_INSTALL_PATH:STRING=/home/robocomp/robocomp/
 
 //component base path
 RC_COMPONENT_PATH:STRING=/home/usuario/robotica_G3/actividad1
@@ -602,8 +599,6 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=28
 //Patch version of cmake used to create the current loaded cache
 CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
-//ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
-CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=/usr/bin/cmake
 //Path to cpack program executable.
