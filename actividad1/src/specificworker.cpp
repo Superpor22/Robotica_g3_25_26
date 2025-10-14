@@ -95,10 +95,6 @@ void SpecificWorker::initialize()
 void SpecificWorker::compute()
 {
 
-	//Lectura de datos del lidar
-
-
-
 	try
 	{
 		// read data
@@ -106,7 +102,7 @@ void SpecificWorker::compute()
 		qInfo() << data.points.size();
 		auto& puntos = data.points;  // Usamos `puntos` como el contenedor con los datos obtenidos
 		const auto filter_data= data_filter(puntos);
-		//draw_lidar(filter_data.value(), &viewer->scene);
+		draw_lidar(filter_data.value(), &viewer->scene);
 
 		std::tuple<State,float,float> result;
 
@@ -119,10 +115,10 @@ void SpecificWorker::compute()
 			result = FORWARD_method(filter_data);
 			break;
 		case State::TURN:
-			result = TURN_method();
+			result = TURN_method(filter_data);
 			break;
 		case State::FOLLOW_WALL:
-			//result = FOLLOW_WALL_method();
+			result = FOLLOW_WALL_method(filter_data);
 			break;
 		case State::SPIRAL:
 			//result = SPIRAL_method();
@@ -133,42 +129,9 @@ void SpecificWorker::compute()
 		float adv = std::get<1>(result);
 		float rot = std::get<2>(result);
 
+		printf("------------------Estado actual: %d\n", std::get<0>(result));
 
-			if (not filter_data.has_value())
-			{
-				state = State::IDLE;
-				adv = 0.0f;
-				rot = 0.0f; //return {State::IDLE, 0.0f, 0.0f};
-			} else {
-				const auto &points = filter_data.value();
-				draw_lidar(points, &viewer->scene);
-
-				auto min_dist = get_min_distance(points);
-				if (not min_dist.has_value()){qWarning()<< "No hay puntos mínimos"; }//return{};}
-				for (auto i: iter::range(10))
-					printf("----------------Minima distancia: %f\n", min_dist.value()[i].r);
-
-				if (min_dist.value()[0].r < 700)
-				{
-					state = State::TURN;
-					adv = 0.0f;
-					rot = 0.6f;
-				}
-				else
-				{
-					state = State::FORWARD;
-					adv = 1000.0f;
-					rot = 0.0f;
-				}
-				// 	// Objeto cerca → gira
-				// 	//return {State::TURN, 0.0f, 0.6f};
-				//
-				// 	// Movimiento hacia adelante
-				// 	//return {State::FORWARD, 1000.0f, 0.0f};
-				// 	state = State::FORWARD;
-				// 	adv = 1000.0f;
-				// 	rot = 0.0f;
-			}
+		omnirobot_proxy->setSpeedBase(0, adv, rot);  // Asumiendo robot omnidireccional
 
 	} catch (const Ice::Exception &e)
 	{
@@ -176,19 +139,6 @@ void SpecificWorker::compute()
 		//std::cout << e << std::endl;
 		//return {State::IDLE, 0.0f, 0.0f};
 	}
-
-
-	printf("------------------Estado actual: %d\n", std::get<0>(result));
-	//
-	// state = std::get<0>(result);
-	// float adv = std::get<1>(result);
-	// float rot = std::get<2>(result);
-
-	try
-	{
-		omnirobot_proxy->setSpeedBase(0, adv, rot);  // Asumiendo robot omnidireccional
-	}catch (const Ice::Exception &e){}
-
 
 }
 
@@ -259,25 +209,30 @@ std::optional<RoboCompLidar3D::TPoints> SpecificWorker::get_min_distance(const R
 	// )->r;
 }
 
-std::tuple<State, float, float> SpecificWorker::FORWARD_method(const auto &points)
+std::tuple<State, float, float> SpecificWorker::FORWARD_method(const std::optional<RoboCompLidar3D::TPoints> &points)
 {
 	try
 	{
 		//std::min_element(points.begin()+offset, points.end()-offset,[](){});
-		// auto data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 15000, 1);
-		// // const auto filtered = data_filter(data.points);
-		// if (not filtered.has_value()) return {State::IDLE, 0.0f, 0.0f};
-		//
-		// const auto &points = filtered.value();
-		// draw_lidar(points, &viewer->scene);
-		//
-		// auto min_dist = get_min_distance(points);
-		// if (not min_dist.has_value()){qWarning()<< "No hay puntos mínimos"; return{};}
-		//
-		// printf("----------------Minima distancia: %f\n", min_dist.value());
 
-		if (min_dist.value() < 400)  // Objeto cerca → gira
-			return {State::TURN, 0.0f, 0.6f};
+		auto min_dist = get_min_distance(points.value());
+		if (not min_dist.has_value()){qWarning()<< "No hay puntos mínimos"; return{};}
+
+		for (auto i: iter::range(10))
+			printf("----------------Minima distancia: %f\n", min_dist.value()[i].r);
+
+		int rand = std::rand() % 2;
+		if (min_dist.value()[0].r < 700)  // Objeto cerca → gira
+		{
+			// if (rand == 0 )
+			// {
+				return {State::FOLLOW_WALL, 0.0f, 0.0f};
+			// }
+			// else if(rand == 1)
+			// {
+			// 	return {State::TURN, 0.0f, 0.7f};
+			// }
+		}
 
 		// Movimiento hacia adelante
 		return {State::FORWARD, 1000.0f, 0.0f};
@@ -289,27 +244,25 @@ std::tuple<State, float, float> SpecificWorker::FORWARD_method(const auto &point
 	}
 }
 
-std::tuple<State, float, float> SpecificWorker::TURN_method()
+std::tuple<State, float, float> SpecificWorker::TURN_method(const std::optional<RoboCompLidar3D::TPoints> &points)
 {
 	try
 	{
-		auto data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 15000, 1);
-		const auto filtered = data_filter(data.points);
-		if (!filtered.has_value()) return {State::IDLE, 0.0f, 0.0f};
 
-		const auto &points = filtered.value();
-		draw_lidar(points, &viewer->scene);
-
-		auto min_dist = get_min_distance(points);
+		auto min_dist = get_min_distance(points.value());
 		if (not min_dist.has_value()){qWarning()<< "No hay puntos mínimos"; return{};}
-		qInfo() << "TURN - Distancia mínima: " << min_dist.value();
+		qInfo() << "TURN - Distancia mínima: " << min_dist.value()[0].r;
 
 		// Si ya no hay obstáculo cerca, volvemos a FORWARD
-		if (min_dist.value() > 500)
+		if (min_dist.value()[0].r > 400)
 			return {State::FORWARD, 1000.0f, 0.0f};  // Podemos avanzar
 
 		// Si sigue habiendo obstáculo, seguir girando
-		return {State::TURN, 0.0f, 0.7f};  // Desplazamiento lateral + rotación
+		qInfo() << "------------------ Menor ángulo: " << min_dist.value()[0].phi;
+		if (min_dist.value()[0].phi < 0)
+			return {State::TURN, 0.0f, 0.7f};
+		else
+			return {State::TURN, 0.0f, -0.7f};  // Desplazamiento lateral + rotación
 	}
 	catch(const Ice::Exception &e)
 	{
@@ -317,6 +270,94 @@ std::tuple<State, float, float> SpecificWorker::TURN_method()
 		return {State::IDLE, 0.0f, 0.0f};
 	}
 }
+
+std::tuple<State, float, float> SpecificWorker::FOLLOW_WALL_method(const std::optional<RoboCompLidar3D::TPoints> &points)
+{
+		try
+		{
+			auto min_dist = get_min_distance(points.value());
+			if (not min_dist.has_value())
+			{
+				qWarning() << "No hay puntos mínimos";
+				return {State::IDLE, 0.0f, 0.0f};
+			}
+
+			const auto& closest = min_dist.value()[0];
+			qInfo() << "FOLLOW_WALL - r:" << closest.r << " phi:" << closest.phi;
+
+			// Si la distancia mínima es suficientemente grande, volvemos a FORWARD
+			if (closest.r > 800)
+				return {State::FORWARD, 1000.0f, 0.0f};
+
+			// Si está perpendicular a la pared (phi ≈ 0), giramos para engancharnos al borde
+			if (std::abs(closest.phi) < 0.1)  // ~5.7 grados
+			{
+				qInfo() << "Perpendicular a la pared -> girando para bordear";
+				if (closest.x < 0)  // obstáculo está a la izquierda
+					return {State::FOLLOW_WALL, 0.0f, -0.5f};  // giramos a la derecha
+				else
+					return {State::FOLLOW_WALL, 0.0f, 0.5f};   // giramos a la izquierda
+			}
+
+			// Si está alineado con la pared (phi ≈ ±π/2), avanzamos
+			if (std::abs(std::abs(closest.phi) - M_PI_2) < 0.2)
+			{
+				qInfo() << "Pared al costado -> avanzando";
+				return {State::FOLLOW_WALL, 700.0f, 0.0f};
+			}
+
+			// Si aún no está bien alineado, sigue girando suavemente
+			if (closest.phi < 0)
+				return {State::FOLLOW_WALL, 0.0f, 0.3f};  // gira a izquierda
+			else
+				return {State::FOLLOW_WALL, 0.0f, -0.3f}; // gira a derecha
+		}
+		catch(const Ice::Exception &e)
+		{
+			std::cout << e << std::endl;
+			return {State::IDLE, 0.0f, 0.0f};
+		}
+	}
+
+	// try
+	// {
+	//
+	// 	auto min_dist = get_min_distance(points.value());
+	// 	if (not min_dist.has_value()){qWarning()<< "No hay puntos mínimos"; return{};}
+	// 	qInfo() << "FW - Distancia mínima: " << min_dist.value()[0].r;
+	//
+	// 	// Si ya no hay obstáculo cerca, volvemos a FORWARD
+	// 	if (min_dist.value()[0].r > 400)
+	// 		return {State::FORWARD, 1000.0f, 0.0f};  // Podemos avanzar
+	//
+	// 	// Si sigue habiendo obstáculo, seguir girando
+	// 	qInfo() << "------------------ Menor ángulo: " << min_dist.value()[0].phi;
+	// 	if (min_dist.value()[0].phi < 0)
+	// 	{
+	// 		if (min_dist.value()[0].phi == -std::numbers::pi / 2)
+	// 		{
+	// 			return {State::FORWARD, 0.0f, 0.0f};
+	// 		}else
+	// 		{
+	// 			return {State::FOLLOW_WALL, 0.0f, 0.7f};
+	// 		}
+	// 	}
+	// 	else
+	// 		if (min_dist.value()[0].phi == std::numbers::pi / 2)
+	// 		{
+	// 			return {State::FORWARD, 0.0f, 0.0f};
+	// 		}else
+	// 		{
+	// 			return {State::FOLLOW_WALL, 0.0f, -0.7f};
+	// 		}
+	// }
+	// catch(const Ice::Exception &e)
+	// {
+	// 	std::cout << e << std::endl;
+	// 	return {State::IDLE, 0.0f, 0.0f};
+	// }
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
