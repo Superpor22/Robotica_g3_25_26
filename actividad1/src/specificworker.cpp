@@ -22,7 +22,7 @@
 #include <algorithm>
 #include <ranges>
 #include <cppitertools/groupby.hpp>
-#include <cppitertools/itertools.hpp>
+#include <cppitertools/range.hpp>
 
 SpecificWorker::SpecificWorker(const ConfigLoader& configLoader, TuplePrx tprx, bool startup_check) : GenericWorker(configLoader, tprx)
 {
@@ -97,88 +97,99 @@ void SpecificWorker::compute()
 
 	//Lectura de datos del lidar
 
+
+
 	try
 	{
+		// read data
 		auto data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 15000, 1);
 		qInfo() << data.points.size();
-
 		auto& puntos = data.points;  // Usamos `puntos` como el contenedor con los datos obtenidos
-
 		const auto filter_data= data_filter(puntos);
+		//draw_lidar(filter_data.value(), &viewer->scene);
 
-		draw_lidar(filter_data.value(), &viewer->scene);
+		std::tuple<State,float,float> result;
 
-	} catch (const Ice::Exception &e) {std::cout << e << " " << "Conexión con Laser" << std::endl;}
+		switch (state)
+		{
+		case State::IDLE:
+			//result = IDLE_method();
+			break;
+		case State::FORWARD:
+			result = FORWARD_method(filter_data);
+			break;
+		case State::TURN:
+			result = TURN_method();
+			break;
+		case State::FOLLOW_WALL:
+			//result = FOLLOW_WALL_method();
+			break;
+		case State::SPIRAL:
+			//result = SPIRAL_method();
+			break;
+		}
 
-	//Movimiento autónomo
+		state = std::get<0>(result);
+		float adv = std::get<1>(result);
+		float rot = std::get<2>(result);
 
-	std::tuple<State,float,float> result;
 
-	FORWARD_method();
+			if (not filter_data.has_value())
+			{
+				state = State::IDLE;
+				adv = 0.0f;
+				rot = 0.0f; //return {State::IDLE, 0.0f, 0.0f};
+			} else {
+				const auto &points = filter_data.value();
+				draw_lidar(points, &viewer->scene);
 
-	switch (state)
+				auto min_dist = get_min_distance(points);
+				if (not min_dist.has_value()){qWarning()<< "No hay puntos mínimos"; }//return{};}
+				for (auto i: iter::range(10))
+					printf("----------------Minima distancia: %f\n", min_dist.value()[i].r);
+
+				if (min_dist.value()[0].r < 700)
+				{
+					state = State::TURN;
+					adv = 0.0f;
+					rot = 0.6f;
+				}
+				else
+				{
+					state = State::FORWARD;
+					adv = 1000.0f;
+					rot = 0.0f;
+				}
+				// 	// Objeto cerca → gira
+				// 	//return {State::TURN, 0.0f, 0.6f};
+				//
+				// 	// Movimiento hacia adelante
+				// 	//return {State::FORWARD, 1000.0f, 0.0f};
+				// 	state = State::FORWARD;
+				// 	adv = 1000.0f;
+				// 	rot = 0.0f;
+			}
+
+	} catch (const Ice::Exception &e)
 	{
-	case State::IDLE:
-		//result = IDLE_method();
-		break;
-	case State::FORWARD:
-		result = FORWARD_method();
-		break;
-	case State::TURN:
-		result = TURN_method();
-		break;
-	case State::FOLLOW_WALL:
-		//result = FOLLOW_WALL_method();
-		break;
-	case State::SPIRAL:
-		//result = SPIRAL_method();
-		break;
+		std::cout << e << " " << "Conexión con Laser" << std::endl;
+		//std::cout << e << std::endl;
+		//return {State::IDLE, 0.0f, 0.0f};
 	}
 
+
 	printf("------------------Estado actual: %d\n", std::get<0>(result));
+	//
+	// state = std::get<0>(result);
+	// float adv = std::get<1>(result);
+	// float rot = std::get<2>(result);
 
-	state = std::get<0>(result);
-	float adv = std::get<1>(result);
-	float rot = std::get<2>(result);
-
-	omnirobot_proxy->setSpeedBase(0, adv, rot);  // Asumiendo robot omnidireccional
-
-
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-
-void SpecificWorker::emergency()
-{
-    std::cout << "Emergency worker" << std::endl;
-    //emergencyCODE
-    //
-    //if (SUCCESSFUL) //The componet is safe for continue
-    //  emmit goToRestore()
-}
+	try
+	{
+		omnirobot_proxy->setSpeedBase(0, adv, rot);  // Asumiendo robot omnidireccional
+	}catch (const Ice::Exception &e){}
 
 
-
-//Execute one when exiting to emergencyState
-void SpecificWorker::restore()
-{
-    std::cout << "Restore worker" << std::endl;
-    //restoreCODE
-    //Restore emergency component
-
-}
-
-
-int SpecificWorker::startup_check()
-{
-	std::cout << "Startup check" << std::endl;
-	QTimer::singleShot(200, QCoreApplication::instance(), SLOT(quit()));
-	return 0;
-}
-
-void SpecificWorker::new_target_slot(QPointF punto)
-{
-	qInfo() << punto;
 }
 
 void SpecificWorker::draw_lidar(const  RoboCompLidar3D::TPoints &points, QGraphicsScene* scene)
@@ -224,42 +235,46 @@ std::optional<RoboCompLidar3D::TPoints> SpecificWorker::data_filter(const RoboCo
 	return salida;
 }
 
-std::optional<float> SpecificWorker::get_min_distance(const RoboCompLidar3D::TPoints& points)
+std::optional<RoboCompLidar3D::TPoints> SpecificWorker::get_min_distance(const RoboCompLidar3D::TPoints& points)
 {
 	if (points.empty()) return {};
 
 	RoboCompLidar3D::TPoints salida;
 	salida.reserve(points.size());
-
 	for (auto&& [angle, group] : iter::groupby(points, [](const auto& p)
 		{float multiplier = std::pow(10.0f, 2); return std::floor(p.phi * multiplier) / multiplier; }))
 	{
 		auto min = std::min_element(std::begin(group), std::end(group),[](const auto& p1, const auto& p2)
 			{ return p1.r < p2.r; });
-		if (min->z > 500 && min->phi > -std::numbers::pi / 2 && min->phi < std::numbers::pi / 2)
+		if (min->phi > -std::numbers::pi / 2 && min->phi < std::numbers::pi / 2)
 			salida.emplace_back(*min);
 	}
+	std::sort(salida.begin(), salida.end(),
+		[](const auto& a, const auto& b) { return a.r < b.r; });
+
+	return salida;
 	// auto res = std::ranges::views::filter(points, [](const auto& p){return p.phi> -M_PI_2 and p.phi < M_PI_2;});
 	// return std::ranges::min_element(res,[](const auto &a, const auto &b)
 	// 	{ return std::hypot(a.x, a.y) < std::hypot(b.x, b.y); }
 	// )->r;
 }
 
-std::tuple<State, float, float> SpecificWorker::FORWARD_method()
+std::tuple<State, float, float> SpecificWorker::FORWARD_method(const auto &points)
 {
 	try
 	{
-		auto data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 15000, 1);
-		const auto filtered = data_filter(data.points);
-		if (not filtered.has_value()) return {State::IDLE, 0.0f, 0.0f};
-
-		const auto &points = filtered.value();
-		draw_lidar(points, &viewer->scene);
-
-		auto min_dist = get_min_distance(points);
-		if (not min_dist.has_value()){qWarning()<< "No hay puntos mínimos"; return{};}
-
-		printf("----------------Minima distancia: %f\n", min_dist.value());
+		//std::min_element(points.begin()+offset, points.end()-offset,[](){});
+		// auto data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 15000, 1);
+		// // const auto filtered = data_filter(data.points);
+		// if (not filtered.has_value()) return {State::IDLE, 0.0f, 0.0f};
+		//
+		// const auto &points = filtered.value();
+		// draw_lidar(points, &viewer->scene);
+		//
+		// auto min_dist = get_min_distance(points);
+		// if (not min_dist.has_value()){qWarning()<< "No hay puntos mínimos"; return{};}
+		//
+		// printf("----------------Minima distancia: %f\n", min_dist.value());
 
 		if (min_dist.value() < 400)  // Objeto cerca → gira
 			return {State::TURN, 0.0f, 0.6f};
@@ -302,6 +317,43 @@ std::tuple<State, float, float> SpecificWorker::TURN_method()
 		return {State::IDLE, 0.0f, 0.0f};
 	}
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+void SpecificWorker::emergency()
+{
+    std::cout << "Emergency worker" << std::endl;
+    //emergencyCODE
+    //
+    //if (SUCCESSFUL) //The componet is safe for continue
+    //  emmit goToRestore()
+}
+
+
+
+//Execute one when exiting to emergencyState
+void SpecificWorker::restore()
+{
+    std::cout << "Restore worker" << std::endl;
+    //restoreCODE
+    //Restore emergency component
+
+}
+
+
+int SpecificWorker::startup_check()
+{
+	std::cout << "Startup check" << std::endl;
+	QTimer::singleShot(200, QCoreApplication::instance(), SLOT(quit()));
+	return 0;
+}
+
+void SpecificWorker::new_target_slot(QPointF punto)
+{
+	qInfo() << punto;
+}
+
 
 
 

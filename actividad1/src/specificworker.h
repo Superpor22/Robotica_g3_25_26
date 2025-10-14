@@ -91,11 +91,11 @@ public slots:
 
 	void draw_lidar(const RoboCompLidar3D::TPoints &points, QGraphicsScene* scene);
 
-	std::tuple<State, float, float> FORWARD_method();
+	std::tuple<State, float, float> FORWARD_method(const auto &points);
 
 	std::tuple<State, float, float> TURN_method();
 
-std::optional<float> get_min_distance(const RoboCompLidar3D::TPoints& points);
+std::optional<RoboCompLidar3D::TPoints> get_min_distance(const RoboCompLidar3D::TPoints& points);
 
 
 
