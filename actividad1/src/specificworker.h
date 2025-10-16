@@ -39,7 +39,6 @@
  * \brief Class SpecificWorker implements the core functionality of the component.
  */
 
-enum class State {IDLE, FORWARD, TURN, FOLLOW_WALL, SPIRAL};
 
 class SpecificWorker : public GenericWorker
 {
@@ -89,19 +88,6 @@ public slots:
 
 	void new_target_slot(QPointF);
 
-	void draw_lidar(const RoboCompLidar3D::TPoints &points, QGraphicsScene* scene);
-
-	std::tuple<State, float, float> FORWARD_method(const std::optional<RoboCompLidar3D::TPoints> &points);
-
-	std::tuple<State, float, float> TURN_method(const std::optional<RoboCompLidar3D::TPoints> &points);
-
-	std::tuple<State, float, float> FOLLOW_WALL_method(const std::optional<RoboCompLidar3D::TPoints> &points);
-
-
-std::optional<RoboCompLidar3D::TPoints> get_min_distance(const RoboCompLidar3D::TPoints& points);
-
-
-
 private:
 
 	/**
@@ -116,9 +102,16 @@ private:
 	QGraphicsPolygonItem *robot_polygon;
 
 	std::optional<RoboCompLidar3D::TPoints> data_filter( const RoboCompLidar3D::TPoints &puntos);
+	enum class State {IDLE, FORWARD, TURN, FOLLOW_WALL, SPIRAL};
 
-	State state = State::FORWARD;  // Estado inicial, por ejemplo
+	int contador_turn = 0;
 
+	void draw_lidar(const RoboCompLidar3D::TPoints &points, QGraphicsScene* scene);
+	std::tuple<State, float, float> FORWARD_method(const RoboCompLidar3D::TPoints& points);
+	std::tuple<State, float, float> TURN_method(const RoboCompLidar3D::TPoints& points);
+	std::tuple<State, float, float> FOLLOW_WALL_method(const RoboCompLidar3D::TPoints& points);
+	std::tuple<State, float, float> SPIRAL_method(const RoboCompLidar3D::TPoints& points);
+	std::optional<RoboCompLidar3D::TPoints> get_min_distance(const RoboCompLidar3D::TPoints& points);
 
 signals:
 	//void customSignal();

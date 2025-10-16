@@ -69,7 +69,6 @@ SpecificWorker::~SpecificWorker()
 	std::cout << "Destroying SpecificWorker" << std::endl;
 }
 
-
 void SpecificWorker::initialize()
 {
     std::cout << "initialize worker" << std::endl;
@@ -95,51 +94,50 @@ void SpecificWorker::initialize()
 void SpecificWorker::compute()
 {
 
-	try
+	// Read data from lidar
+	// data = read_data("helios");
+	RoboCompLidar3D::TData data;
+	try { data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 15000, 1);}
+	catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
+
+	// filter data from 3D to 2D
+	RoboCompLidar3D::TPoints filter_data;
+	if (const auto filter_data_= data_filter(data.points); filter_data_.has_value())
+		filter_data = filter_data_.value();
+	else
+	{	qWarning() << "filter_data_.has_value()"; return;}
+
+	draw_lidar(filter_data, &viewer->scene);
+
+	std::tuple<State,float,float> result;
+	static auto state = State::SPIRAL;  // Estado inicial, por ejemplo
+	switch (state)
 	{
-		// read data
-		auto data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 15000, 1);
-		qInfo() << data.points.size();
-		auto& puntos = data.points;  // Usamos `puntos` como el contenedor con los datos obtenidos
-		const auto filter_data= data_filter(puntos);
-		draw_lidar(filter_data.value(), &viewer->scene);
-
-		std::tuple<State,float,float> result;
-
-		switch (state)
-		{
-		case State::IDLE:
-			//result = IDLE_method();
-			break;
-		case State::FORWARD:
-			result = FORWARD_method(filter_data);
-			break;
-		case State::TURN:
-			result = TURN_method(filter_data);
-			break;
-		case State::FOLLOW_WALL:
-			result = FOLLOW_WALL_method(filter_data);
-			break;
-		case State::SPIRAL:
-			//result = SPIRAL_method();
-			break;
-		}
-
-		state = std::get<0>(result);
-		float adv = std::get<1>(result);
-		float rot = std::get<2>(result);
-
-		printf("------------------Estado actual: %d\n", std::get<0>(result));
-
-		omnirobot_proxy->setSpeedBase(0, adv, rot);  // Asumiendo robot omnidireccional
-
-	} catch (const Ice::Exception &e)
-	{
-		std::cout << e << " " << "Conexión con Laser" << std::endl;
-		//std::cout << e << std::endl;
-		//return {State::IDLE, 0.0f, 0.0f};
+	case State::IDLE:
+		//result = IDLE_method();
+		break;
+	case State::FORWARD:
+		result = FORWARD_method(filter_data);
+		break;
+	case State::TURN:
+		result = TURN_method(filter_data);
+		break;
+	case State::FOLLOW_WALL:
+		result = FOLLOW_WALL_method(filter_data);
+		break;
+	case State::SPIRAL:
+		result = SPIRAL_method(filter_data);
+		break;
 	}
 
+	auto &[st, adv, rot] = result;
+	state = st;
+	qInfo() << "despues de asdfads" << adv << rot ;
+	//state = std::get<0>(result);
+	//float adv = std::get<1>(result);
+	//float rot = std::get<2>(result);
+	try{ omnirobot_proxy->setSpeedBase(0, adv, rot);}
+	catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
 }
 
 void SpecificWorker::draw_lidar(const  RoboCompLidar3D::TPoints &points, QGraphicsScene* scene)
@@ -168,7 +166,6 @@ std::optional<RoboCompLidar3D::TPoints> SpecificWorker::data_filter(const RoboCo
 	if (puntos.empty()) return {};
 
 	RoboCompLidar3D::TPoints salida; salida.reserve(puntos.size());
-
 	// Agrupar por phi y obtener el mínimo de r por grupo en una línea, usando push_back para almacenar en el vector
 	for (auto&& [angle, group] : iter::groupby(puntos, [](const auto& p)
 	{
@@ -177,10 +174,7 @@ std::optional<RoboCompLidar3D::TPoints> SpecificWorker::data_filter(const RoboCo
 	})) {
 		auto min_r = std::min_element(std::begin(group), std::end(group),
 			[](const auto& p1, const auto& p2) { return p1.r < p2.r; });
-		//salida.emplace_back(RoboCompLidar3D::TPoint{.x = min_r->x, .y = min_r->y, .phi = min_r->phi});
-		float r = std::hypot(min_r->x, min_r->y);
-		salida.emplace_back(RoboCompLidar3D::TPoint{.x = min_r->x, .y = min_r->y, .phi = min_r->phi, .r = r});
-
+		salida.emplace_back(*min_r);
 	}
 	return salida;
 }
@@ -196,11 +190,11 @@ std::optional<RoboCompLidar3D::TPoints> SpecificWorker::get_min_distance(const R
 	{
 		auto min = std::min_element(std::begin(group), std::end(group),[](const auto& p1, const auto& p2)
 			{ return p1.r < p2.r; });
-		if (min->phi > -std::numbers::pi / 2 && min->phi < std::numbers::pi / 2)
+		//if (min->phi > -std::numbers::pi / 2 && min->phi < std::numbers::pi / 2)
 			salida.emplace_back(*min);
 	}
-	std::sort(salida.begin(), salida.end(),
-		[](const auto& a, const auto& b) { return a.r < b.r; });
+	//std::sort(salida.begin(), salida.end(),
+	//	[](const auto& a, const auto& b) { return a.r < b.r; });
 
 	return salida;
 	// auto res = std::ranges::views::filter(points, [](const auto& p){return p.phi> -M_PI_2 and p.phi < M_PI_2;});
@@ -209,156 +203,142 @@ std::optional<RoboCompLidar3D::TPoints> SpecificWorker::get_min_distance(const R
 	// )->r;
 }
 
-std::tuple<State, float, float> SpecificWorker::FORWARD_method(const std::optional<RoboCompLidar3D::TPoints> &points)
+std::tuple<SpecificWorker::State, float, float> SpecificWorker::FORWARD_method(const RoboCompLidar3D::TPoints& points)
 {
-	try
+	/// exit condition first
+	//const int offset = points.size()/2 -15;
+	auto min_dist = std::min_element(std::begin(points), std::end(points),[](const auto& p1, const auto& p2)
+			{ return p1.r < p2.r; });
+
+	qInfo() << "Punto actual: " << min_dist->r;
+
+	if (min_dist->r < 800)  // Objeto cerca → gira
 	{
-		//std::min_element(points.begin()+offset, points.end()-offset,[](){});
+		qInfo() << "CHANGE FROM FORWARD TO TURN";
+		return {State::TURN, 0.0f, 0.0f};
+	}
 
-		auto min_dist = get_min_distance(points.value());
-		if (not min_dist.has_value()){qWarning()<< "No hay puntos mínimos"; return{};}
+	/// What I do when I stay
+	return {State::FORWARD, 1000.0f, 0.0f};
 
-		for (auto i: iter::range(10))
-			printf("----------------Minima distancia: %f\n", min_dist.value()[i].r);
+}
 
-		int rand = std::rand() % 2;
-		if (min_dist.value()[0].r < 700)  // Objeto cerca → gira
+std::tuple<SpecificWorker::State, float, float> SpecificWorker::TURN_method(const RoboCompLidar3D::TPoints& points)
+{
+	// exit condition
+
+	/// exit condition first
+	//const int offset = points.size()/2 -15;
+	auto min_dist = std::min_element(std::begin(points), std::end(points),[](const auto& p1, const auto& p2)
+			{ return p1.r < p2.r; });
+
+	// Si ya no hay obstáculo cerca, volvemos a FORWARD
+	if (min_dist->r > 800)
+	{
+		contador_turn = 0;
+		int r = std::rand() % 10;
+		qInfo() << "-------------------R: " << r;
+		if (r < 4)
 		{
-			// if (rand == 0 )
-			// {
-				return {State::FOLLOW_WALL, 0.0f, 0.0f};
-			// }
-			// else if(rand == 1)
-			// {
-			// 	return {State::TURN, 0.0f, 0.7f};
-			// }
+			qInfo() << "CHANGE FROM TURN TO FOLLOW WALL";
+			//return {State::FORWARD, 1000.0f, 0.0f};  // Podemos avanzar
+			return {State::FOLLOW_WALL, 0.0f, 0.0f};
 		}
+		else
+		{
+			qInfo() << "CHANGE FROM TURN TO FORWARD";
+			//return {State::FORWARD, 1000.0f, 0.0f};
+			if (min_dist->phi < 0)
+				return {State::FORWARD, 1000.0f, 0.5f};
+			else
+				return {State::FORWARD, 1000.0f, -0.5f};
+		}
+	}
 
-		// Movimiento hacia adelante
+	qInfo() << "CONTINUE TURNING";
+
+	//What I do if I Stay
+	contador_turn++;
+	if (contador_turn > 15)
+	{
+		return {State::TURN, 0.0f, 1.0f};
+	}
+	qInfo() << "------------------ Menor ángulo: " << min_dist->phi;
+	if (min_dist->phi < 0)
+		return {State::TURN, 0.0f, 0.8f};
+	else
+		return {State::TURN, 0.0f, -0.8f};  // Desplazamiento lateral + rotación
+
+	//return {State::TURN, 0.0f, 0.6f};
+
+}
+
+std::tuple<SpecificWorker::State, float, float> SpecificWorker::FOLLOW_WALL_method(const RoboCompLidar3D::TPoints& points)
+{
+
+	auto min_dist = std::min_element(std::begin(points), std::end(points),[](const auto& p1, const auto& p2)
+		{ return p1.r < p2.r; });
+
+	// Si ya no hay obstáculo cerca, volvemos a FORWARD
+	if (min_dist->r > 770 and min_dist->r < 810)
+	{
+		qInfo() << "CHANGE FROM FOLLOW WALL TO FORWARD";
+		return {State::FOLLOW_WALL, 1000.0f, 0.0f};  // Podemos avanzar
+	}
+
+	qInfo() << "CONTINUE FOLLOWING WALL";
+
+	//What I do if I Stay
+	if (min_dist->r > 810)
+	{
+		if (min_dist->phi < 0)
+		{
+			qInfo() << "FOLLOW WALL 1";
+
+			return {State::FOLLOW_WALL, 600.0f, -0.4f};
+		}
+		else
+		{
+			qInfo() << "FOLLOW WALL 2";
+
+			return {State::FOLLOW_WALL, 600.0f, 0.4f};  // Desplazamiento lateral + rotación
+		}
+	}
+
+	qInfo() << "FOLLOW WALL 3";
+	return {State::FORWARD, 1000.0f, 0.0f};
+}
+
+std::tuple<SpecificWorker::State, float, float> SpecificWorker::SPIRAL_method(const RoboCompLidar3D::TPoints& points)
+{
+	/// exit condition first
+	//const int offset = points.size()/2 -15;
+	auto min_dist = std::min_element(std::begin(points), std::end(points),[](const auto& p1, const auto& p2)
+			{ return p1.r < p2.r; });
+
+	static float bajada = 1.0f;
+	static float subida = 0.f;
+	constexpr float delta_subida = 5.f;
+	constexpr float delta_bajada = 0.001f;
+
+	qInfo() << "Punto actual: " << min_dist->r;
+	if (min_dist -> r < 800)
+	{
 		return {State::FORWARD, 1000.0f, 0.0f};
 	}
-	catch(const Ice::Exception &e)
+	else
 	{
-		std::cout << e << std::endl;
-		return {State::IDLE, 0.0f, 0.0f};
+		bajada -= delta_bajada;
+		subida += delta_subida;
+		bajada = std::clamp(bajada, 0.f, 1.f);
+		subida = std::clamp(subida, 0.f, 1000.f);
+		qInfo() << "-----------------------------Bajada: " << bajada << " subida: " << subida;
+		return {State::SPIRAL, subida, bajada };
 	}
+
+	return {State::FORWARD, 1000.0f, 0.0f};
+
 }
-
-std::tuple<State, float, float> SpecificWorker::TURN_method(const std::optional<RoboCompLidar3D::TPoints> &points)
-{
-	try
-	{
-
-		auto min_dist = get_min_distance(points.value());
-		if (not min_dist.has_value()){qWarning()<< "No hay puntos mínimos"; return{};}
-		qInfo() << "TURN - Distancia mínima: " << min_dist.value()[0].r;
-
-		// Si ya no hay obstáculo cerca, volvemos a FORWARD
-		if (min_dist.value()[0].r > 400)
-			return {State::FORWARD, 1000.0f, 0.0f};  // Podemos avanzar
-
-		// Si sigue habiendo obstáculo, seguir girando
-		qInfo() << "------------------ Menor ángulo: " << min_dist.value()[0].phi;
-		if (min_dist.value()[0].phi < 0)
-			return {State::TURN, 0.0f, 0.7f};
-		else
-			return {State::TURN, 0.0f, -0.7f};  // Desplazamiento lateral + rotación
-	}
-	catch(const Ice::Exception &e)
-	{
-		std::cout << e << std::endl;
-		return {State::IDLE, 0.0f, 0.0f};
-	}
-}
-
-std::tuple<State, float, float> SpecificWorker::FOLLOW_WALL_method(const std::optional<RoboCompLidar3D::TPoints> &points)
-{
-		try
-		{
-			auto min_dist = get_min_distance(points.value());
-			if (not min_dist.has_value())
-			{
-				qWarning() << "No hay puntos mínimos";
-				return {State::IDLE, 0.0f, 0.0f};
-			}
-
-			const auto& closest = min_dist.value()[0];
-			qInfo() << "FOLLOW_WALL - r:" << closest.r << " phi:" << closest.phi;
-
-			// Si la distancia mínima es suficientemente grande, volvemos a FORWARD
-			if (closest.r > 800)
-				return {State::FORWARD, 1000.0f, 0.0f};
-
-			// Si está perpendicular a la pared (phi ≈ 0), giramos para engancharnos al borde
-			if (std::abs(closest.phi) < 0.1)  // ~5.7 grados
-			{
-				qInfo() << "Perpendicular a la pared -> girando para bordear";
-				if (closest.x < 0)  // obstáculo está a la izquierda
-					return {State::FOLLOW_WALL, 0.0f, -0.5f};  // giramos a la derecha
-				else
-					return {State::FOLLOW_WALL, 0.0f, 0.5f};   // giramos a la izquierda
-			}
-
-			// Si está alineado con la pared (phi ≈ ±π/2), avanzamos
-			if (std::abs(std::abs(closest.phi) - M_PI_2) < 0.2)
-			{
-				qInfo() << "Pared al costado -> avanzando";
-				return {State::FOLLOW_WALL, 700.0f, 0.0f};
-			}
-
-			// Si aún no está bien alineado, sigue girando suavemente
-			if (closest.phi < 0)
-				return {State::FOLLOW_WALL, 0.0f, 0.3f};  // gira a izquierda
-			else
-				return {State::FOLLOW_WALL, 0.0f, -0.3f}; // gira a derecha
-		}
-		catch(const Ice::Exception &e)
-		{
-			std::cout << e << std::endl;
-			return {State::IDLE, 0.0f, 0.0f};
-		}
-	}
-
-	// try
-	// {
-	//
-	// 	auto min_dist = get_min_distance(points.value());
-	// 	if (not min_dist.has_value()){qWarning()<< "No hay puntos mínimos"; return{};}
-	// 	qInfo() << "FW - Distancia mínima: " << min_dist.value()[0].r;
-	//
-	// 	// Si ya no hay obstáculo cerca, volvemos a FORWARD
-	// 	if (min_dist.value()[0].r > 400)
-	// 		return {State::FORWARD, 1000.0f, 0.0f};  // Podemos avanzar
-	//
-	// 	// Si sigue habiendo obstáculo, seguir girando
-	// 	qInfo() << "------------------ Menor ángulo: " << min_dist.value()[0].phi;
-	// 	if (min_dist.value()[0].phi < 0)
-	// 	{
-	// 		if (min_dist.value()[0].phi == -std::numbers::pi / 2)
-	// 		{
-	// 			return {State::FORWARD, 0.0f, 0.0f};
-	// 		}else
-	// 		{
-	// 			return {State::FOLLOW_WALL, 0.0f, 0.7f};
-	// 		}
-	// 	}
-	// 	else
-	// 		if (min_dist.value()[0].phi == std::numbers::pi / 2)
-	// 		{
-	// 			return {State::FORWARD, 0.0f, 0.0f};
-	// 		}else
-	// 		{
-	// 			return {State::FOLLOW_WALL, 0.0f, -0.7f};
-	// 		}
-	// }
-	// catch(const Ice::Exception &e)
-	// {
-	// 	std::cout << e << std::endl;
-	// 	return {State::IDLE, 0.0f, 0.0f};
-	// }
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -371,8 +351,6 @@ void SpecificWorker::emergency()
     //  emmit goToRestore()
 }
 
-
-
 //Execute one when exiting to emergencyState
 void SpecificWorker::restore()
 {
@@ -381,7 +359,6 @@ void SpecificWorker::restore()
     //Restore emergency component
 
 }
-
 
 int SpecificWorker::startup_check()
 {
