@@ -974,6 +974,21 @@ generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QFrame \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLCDNumber \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlcdnumber.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qpushbutton.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSlider \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qslider.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSpacerItem \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSplitter \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsplitter.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
  /home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.h \
  /home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.h \
@@ -1088,5 +1103,6 @@ generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QScreen \
  /home/usuario/robotica_G3/actividad1/generated/chocachoca_autogen/VNU7RW3YIC/moc_specificworker.cpp \
  /home/usuario/robotica_G3/actividad1/generated/chocachoca_autogen/VNU7RW3YIC/../../../src/specificworker.h \
+ /usr/include/c++/13/expected \
  /home/usuario/robotica_G3/actividad1/generated/genericworker.h \
  /home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h

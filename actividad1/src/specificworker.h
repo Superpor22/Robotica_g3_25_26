@@ -31,6 +31,7 @@
 // If you want to reduce the period automatically due to lack of use, you must uncomment the following line
 //#define HIBERNATION_ENABLED
 
+#include <expected>
 #include <genericworker.h>
 
 #include <abstract_graphic_viewer/abstract_graphic_viewer.h>
@@ -103,11 +104,23 @@ private:
 
 	std::optional<RoboCompLidar3D::TPoints> data_filter( const RoboCompLidar3D::TPoints &puntos);
 	enum class State {IDLE, FORWARD, TURN, FOLLOW_WALL, SPIRAL};
+	struct Params
+	{
+		float STOP_THRESHOLD = 700;
+		float LIDAR_RIGHT_SIDE_SECTION = qDegreesToRadians(90);
+		float LIDAR_LEFT_SIDE_SECTION = qDegreesToRadians(-90);
+		float LIDAR_FRONT_SECTION = qDegreesToRadians(10);
+	};
+
+	Params params;
 
 	int contador_turn = 0;
+	float bajada = 0.9f;
+	float subida = 50.f;
 
 	void draw_lidar(const RoboCompLidar3D::TPoints &points, QGraphicsScene* scene);
-	std::tuple<State, float, float> FORWARD_method(const RoboCompLidar3D::TPoints& points);
+std::expected<int, std::string> closest_lidar_index_to_given_angle(const  RoboCompLidar3D::TPoints &points, float angle);
+std::tuple<State, float, float> FORWARD_method(const RoboCompLidar3D::TPoints& points);
 	std::tuple<State, float, float> TURN_method(const RoboCompLidar3D::TPoints& points);
 	std::tuple<State, float, float> FOLLOW_WALL_method(const RoboCompLidar3D::TPoints& points);
 	std::tuple<State, float, float> SPIRAL_method(const RoboCompLidar3D::TPoints& points);

@@ -23,6 +23,7 @@
 #include <ranges>
 #include <cppitertools/groupby.hpp>
 #include <cppitertools/range.hpp>
+#include <expected>
 
 SpecificWorker::SpecificWorker(const ConfigLoader& configLoader, TuplePrx tprx, bool startup_check) : GenericWorker(configLoader, tprx)
 {
@@ -140,26 +141,129 @@ void SpecificWorker::compute()
 	catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
 }
 
-void SpecificWorker::draw_lidar(const  RoboCompLidar3D::TPoints &points, QGraphicsScene* scene)
-{
-	static std::vector<QGraphicsItem*> draw_points;
-	for (const auto &p : draw_points)
-	{
-		scene->removeItem(p);
-		delete p;
-	}
-	draw_points.clear();
+// void SpecificWorker::draw_lidar(const  RoboCompLidar3D::TPoints &points, QGraphicsScene* scene)
+// {
+// 	static std::vector<QGraphicsItem*> draw_points;
+// 	for (const auto &p : draw_points)
+// 	{
+// 		scene->removeItem(p);
+// 		delete p;
+// 	}
+// 	draw_points.clear();
+//
+// 	const QColor color("LightGreen");
+// 	const QPen pen(color, 10);
+// 	//const QBrush brush(color, Qt::SolidPattern);
+// 	for (const auto &p : points)
+// 	{
+// 		const auto dp = scene->addRect(-25, -25, 50, 50, pen);
+// 		dp->setPos(p.x, p.y);
+// 		draw_points.push_back(dp);   // add to the list of points to be deleted next time
+// 	}
+// }
 
-	const QColor color("LightGreen");
-	const QPen pen(color, 10);
-	//const QBrush brush(color, Qt::SolidPattern);
-	for (const auto &p : points)
-	{
-		const auto dp = scene->addRect(-25, -25, 50, 50, pen);
-		dp->setPos(p.x, p.y);
-		draw_points.push_back(dp);   // add to the list of points to be deleted next time
-	}
+void SpecificWorker::draw_lidar(const  RoboCompLidar3D::TPoints &points, QGraphicsScene *scene)
+{
+    static std::vector<QGraphicsItem*> items;   // store items so they can be shown between iterations
+
+    // remove all items drawn in the previous iteration
+    for(auto i: items)
+    {
+        scene->removeItem(i);
+        delete i;
+    }
+    items.clear();
+
+    auto color = QColor(Qt::green);
+    auto brush = QBrush(QColor(Qt::green));
+    for(const auto &p : points)
+    {
+        auto item = scene->addRect(-50, -50, 100, 100, color, brush);
+        item->setPos(p.x, p.y);
+        items.push_back(item);
+    }
+
+    // compute and draw minimum distance point in frontal range
+    auto offset_begin = closest_lidar_index_to_given_angle(points, -params.LIDAR_FRONT_SECTION);
+    auto offset_end = closest_lidar_index_to_given_angle(points, params.LIDAR_FRONT_SECTION);
+    if(not offset_begin or not offset_end)
+    { std::cout << offset_begin.error() << " " << offset_end.error() << std::endl; return ;}    // abandon the ship
+    auto min_point = std::min_element(std::begin(points) + offset_begin.value(), std::begin(points) + offset_end.value(), [](auto &a, auto &b)
+    { return a.distance2d < b.distance2d; });
+    QColor dcolor;
+    if(min_point->distance2d < params.STOP_THRESHOLD)
+        dcolor = QColor(Qt::red);
+    else
+        dcolor = QColor(Qt::magenta);
+    auto ditem = scene->addRect(-100, -100, 200, 200, dcolor, QBrush(dcolor));
+    ditem->setPos(min_point->x, min_point->y);
+    items.push_back(ditem);
+
+    // compute and draw minimum distance point to wall
+    auto wall_res_right = closest_lidar_index_to_given_angle(points, params.LIDAR_RIGHT_SIDE_SECTION);
+    auto wall_res_left = closest_lidar_index_to_given_angle(points, params.LIDAR_LEFT_SIDE_SECTION);
+    if(not wall_res_right or not wall_res_left)   // abandon the ship
+    {
+        qWarning() << "No valid lateral readings" << QString::fromStdString(wall_res_right.error()) << QString::fromStdString(wall_res_left.error());
+        return;
+    }
+    auto right_point = points[wall_res_right.value()];
+    auto left_point = points[wall_res_left.value()];
+    // compare both to get the one with minimum distance
+    auto min_obj = (right_point.distance2d < left_point.distance2d) ? right_point : left_point;
+    auto item = scene->addRect(-100, -100, 200, 200, QColor(QColorConstants::Svg::orange), QBrush(QColor(QColorConstants::Svg::orange)));
+    item->setPos(min_obj.x, min_obj.y);
+    items.push_back(item);
+    // draw a line from the robot to the minimum distance point
+    auto item_line = scene->addLine(QLineF(QPointF(0.f, 0.f), QPointF(min_obj.x, min_obj.y)), QPen(QColorConstants::Svg::orange, 10));
+    items.push_back(item_line);
+
+    // Draw two lines coming out from the robot at angles given by params.LIDAR_OFFSET
+    // Calculate the end points of the lines
+auto res_right = closest_lidar_index_to_given_angle(points, params.LIDAR_FRONT_SECTION);
+auto res_left = closest_lidar_index_to_given_angle(points, -params.LIDAR_FRONT_SECTION);
+    if(not res_right or not res_left)
+    { std::cout << res_right.error() << " " << res_left.error() << std::endl; return ;}
+    // draw two lines at the edges of the range
+    float right_line_length = points[res_right.value()].distance2d;
+    float left_line_length = points[res_left.value()].distance2d;
+    float angle1 = points[res_left.value()].phi;
+    float angle2 = points[res_right.value()].phi;
+    QLineF line_left{QPointF(0.f, 0.f),
+                     robot_polygon->mapToScene(left_line_length * sin(angle1), left_line_length * cos(angle1))};
+    QLineF line_right{QPointF(0.f, 0.f),
+                      robot_polygon->mapToScene(right_line_length * sin(angle2), right_line_length * cos(angle2))};
+    QPen left_pen(Qt::blue, 10); // Blue color pen with thickness 3
+    QPen right_pen(Qt::red, 10); // Blue color pen with thickness 3
+    auto line1 = scene->addLine(line_left, left_pen);
+    auto line2 = scene->addLine(line_right, right_pen);
+    items.push_back(line1);
+    items.push_back(line2);
 }
+
+/**
+ * @brief Calculates the index of the closest lidar point to the given angle.
+ *
+ * This method searches through the provided std::list of lidar points and finds the point
+ * whose angle (phi value) is closest to the specified angle. If a matching point is found,
+ * the index of the point in the std::list is returned. If no point is found that matches the condition,
+ * an error message is returned.
+ *
+ * @param points The collection of lidar points to search through.
+ * @param angle The target angle to find the closest matching point.
+ * @return std::expected<int, std::string> containing the index of the closest lidar point if found,
+ * or an error message if no such point exists.
+ */
+std::expected<int, std::string> SpecificWorker::closest_lidar_index_to_given_angle(const  RoboCompLidar3D::TPoints &points, float angle)
+{
+	// search for the point in points whose phi value is closest to angle
+	auto res = std::ranges::find_if(points, [angle](auto &a){ return a.phi > angle;});
+	if(res != std::end(points))
+		return std::distance(std::begin(points), res);
+	else
+		return std::unexpected("No closest value found in method <closest_lidar_index_to_given_angle>");
+}
+
 
 std::optional<RoboCompLidar3D::TPoints> SpecificWorker::data_filter(const RoboCompLidar3D::TPoints& puntos)
 {
@@ -217,6 +321,12 @@ std::tuple<SpecificWorker::State, float, float> SpecificWorker::FORWARD_method(c
 		qInfo() << "CHANGE FROM FORWARD TO TURN";
 		return {State::TURN, 0.0f, 0.0f};
 	}
+	if (min_dist->r > 1350)
+	{
+		bajada = 0.9f;
+		subida = 50.f;
+		return {State::SPIRAL, 0.0f, 0.0f};
+	}
 
 	/// What I do when I stay
 	return {State::FORWARD, 1000.0f, 0.0f};
@@ -238,7 +348,7 @@ std::tuple<SpecificWorker::State, float, float> SpecificWorker::TURN_method(cons
 		contador_turn = 0;
 		int r = std::rand() % 10;
 		qInfo() << "-------------------R: " << r;
-		if (r < 4)
+		if (r < 5)
 		{
 			qInfo() << "CHANGE FROM TURN TO FOLLOW WALL";
 			//return {State::FORWARD, 1000.0f, 0.0f};  // Podemos avanzar
@@ -295,13 +405,13 @@ std::tuple<SpecificWorker::State, float, float> SpecificWorker::FOLLOW_WALL_meth
 		{
 			qInfo() << "FOLLOW WALL 1";
 
-			return {State::FOLLOW_WALL, 600.0f, -0.4f};
+			return {State::FOLLOW_WALL, 400.0f, -0.4f};
 		}
 		else
 		{
 			qInfo() << "FOLLOW WALL 2";
 
-			return {State::FOLLOW_WALL, 600.0f, 0.4f};  // Desplazamiento lateral + rotación
+			return {State::FOLLOW_WALL, 400.0f, 0.4f};  // Desplazamiento lateral + rotación
 		}
 	}
 
@@ -316,9 +426,7 @@ std::tuple<SpecificWorker::State, float, float> SpecificWorker::SPIRAL_method(co
 	auto min_dist = std::min_element(std::begin(points), std::end(points),[](const auto& p1, const auto& p2)
 			{ return p1.r < p2.r; });
 
-	static float bajada = 1.0f;
-	static float subida = 0.f;
-	constexpr float delta_subida = 5.f;
+	constexpr float delta_subida = 3.f;
 	constexpr float delta_bajada = 0.001f;
 
 	qInfo() << "Punto actual: " << min_dist->r;

@@ -248,6 +248,7 @@ chocachoca_autogen/timestamp: \
 	/usr/include/c++/13/debug/debug.h \
 	/usr/include/c++/13/deque \
 	/usr/include/c++/13/exception \
+	/usr/include/c++/13/expected \
 	/usr/include/c++/13/ext/aligned_buffer.h \
 	/usr/include/c++/13/ext/alloc_traits.h \
 	/usr/include/c++/13/ext/atomicity.h \

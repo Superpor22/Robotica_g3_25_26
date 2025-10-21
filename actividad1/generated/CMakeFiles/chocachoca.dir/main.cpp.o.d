@@ -1256,6 +1256,13 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: \
  /home/usuario/robotica_G3/actividad1/generated/chocachoca_autogen/include/ui_mainUI.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QFrame \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLCDNumber \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QPushButton \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSlider \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSpacerItem \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QSplitter \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QVBoxLayout \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
  /home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.h \
@@ -1275,6 +1282,7 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: \
  /home/usuario/robotica_G3/actividad1/generated/Lidar3D.h \
  /home/usuario/robotica_G3/actividad1/generated/OmniRobot.h \
  /home/usuario/robotica_G3/actividad1/generated/../src/specificworker.h \
+ /usr/include/c++/13/expected \
  /home/usuario/robotica_G3/actividad1/generated/genericworker.h \
  /home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
