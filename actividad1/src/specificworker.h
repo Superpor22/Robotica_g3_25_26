@@ -23,7 +23,6 @@
 */
 
 
-
 #ifndef SPECIFICWORKER_H
 #define SPECIFICWORKER_H
 

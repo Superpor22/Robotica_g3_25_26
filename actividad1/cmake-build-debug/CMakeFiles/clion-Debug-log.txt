@@ -13,6 +13,7 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- Using g++ 13 or higher, setting the C++23 standard.
 -- COMPILING WITH QT6
 -- Configuring for x86_64 architecture
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 -- Could NOT find XKB (missing: XKB_LIBRARY XKB_INCLUDE_DIR) (Required is at least version "0.5.0")
 -- Ice version: 3.7.10
 -- Found the following Ice libraries:
@@ -41,6 +42,6 @@ CMake Warning (dev) at generated/CMakeLists.txt:59 (INSTALL):
   command to set the policy and suppress this warning.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
--- Configuring done (0.1s)
+-- Configuring done (0.2s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/usuario/robotica_G3/actividad1

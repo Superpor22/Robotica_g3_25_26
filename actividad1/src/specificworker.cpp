@@ -75,7 +75,7 @@ void SpecificWorker::initialize()
     std::cout << "initialize worker" << std::endl;
 
 	this->dimensions = QRectF(-6000, -3000, 12000, 6000);
-	viewer = new AbstractGraphicViewer(this->frame, this->dimensions);
+	this->viewer = new AbstractGraphicViewer(this->frame, this->dimensions);
 	this->resize(900,450);
 	viewer->show();
 	const auto rob = viewer->add_robot(ROBOT_LENGTH, ROBOT_LENGTH, 0, 190, QColor("Blue"));
@@ -321,10 +321,11 @@ std::tuple<SpecificWorker::State, float, float> SpecificWorker::FORWARD_method(c
 		qInfo() << "CHANGE FROM FORWARD TO TURN";
 		return {State::TURN, 0.0f, 0.0f};
 	}
-	if (min_dist->r > 1350)
+	if (min_dist->r > 1100)
 	{
-		bajada = 0.9f;
-		subida = 50.f;
+		bajada = 0.6f;
+		subida = 1000.f;
+		qInfo() << "-----------------------------Bajada_FORWARD: " << bajada << " subida: " << subida;
 		return {State::SPIRAL, 0.0f, 0.0f};
 	}
 
@@ -405,13 +406,13 @@ std::tuple<SpecificWorker::State, float, float> SpecificWorker::FOLLOW_WALL_meth
 		{
 			qInfo() << "FOLLOW WALL 1";
 
-			return {State::FOLLOW_WALL, 400.0f, -0.4f};
+			return {State::FOLLOW_WALL, 800.0f, -0.4f};
 		}
 		else
 		{
 			qInfo() << "FOLLOW WALL 2";
 
-			return {State::FOLLOW_WALL, 400.0f, 0.4f};  // Desplazamiento lateral + rotación
+			return {State::FOLLOW_WALL, 800.0f, 0.4f};  // Desplazamiento lateral + rotación
 		}
 	}
 
@@ -421,6 +422,9 @@ std::tuple<SpecificWorker::State, float, float> SpecificWorker::FOLLOW_WALL_meth
 
 std::tuple<SpecificWorker::State, float, float> SpecificWorker::SPIRAL_method(const RoboCompLidar3D::TPoints& points)
 {
+
+	qInfo() << "-----------------------------Bajada_SPIRAL: " << bajada << " subida: " << subida;
+
 	/// exit condition first
 	//const int offset = points.size()/2 -15;
 	auto min_dist = std::min_element(std::begin(points), std::end(points),[](const auto& p1, const auto& p2)
