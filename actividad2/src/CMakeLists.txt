@@ -1,11 +1,16 @@
 # Sources set
 LIST(APPEND SOURCES
   ../src/specificworker.cpp
+        ../src/hungarian.cpp
+        ../src/room_detector.cpp
 )
+
 
 # Headers set
 LIST(APPEND HEADERS
   ../src/specificworker.h
+        ../src/hungarian.h
+        ../src/room_detector.h
 )
 
 set(CMAKE_CXX_STANDARD 23)

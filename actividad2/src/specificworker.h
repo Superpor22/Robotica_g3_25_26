@@ -36,6 +36,9 @@
 #include <expected>
 #include <genericworker.h>
 #include <abstract_graphic_viewer/abstract_graphic_viewer.h>
+#include <Eigen/Geometry>
+#include "hungarian.h"
+#include "room_detector.h"
 
 
 /**
@@ -62,6 +65,31 @@ public:
 	 * Cleans up allocated resources and prints a destruction message.
 	 */
 	~SpecificWorker();
+
+	struct NominalRoom
+	{
+		float width; //  mm
+		float length;
+		Corners corners;
+		explicit NominalRoom(const float width_=10000.f, const float length_=5000.f, Corners  corners_ = {}) noexcept :
+					width(width_), length(length_), corners(std::move(corners_)){} ;
+		Corners transform_corners_to(const Eigen::Affine2d &transform) const  // for room to robot pass the inverse of robot_pose
+		{
+			Corners transformed_corners;
+			for(const auto &[p, _, __] : corners)
+			{
+				auto ep = Eigen::Vector2d{p.x(), p.y()};
+				Eigen::Vector2d tp = transform * ep;
+				transformed_corners.emplace_back(QPointF{static_cast<float>(tp.x()), static_cast<float>(tp.y())}, 0.f, 0.f);
+			}
+			return transformed_corners;
+		}
+	};
+	NominalRoom room{10000.f, 5000.f,
+				{{QPointF{-5000.f, -2500.f}, 0.f, 0.f},
+					   {QPointF{5000.f, -2500.f}, 0.f, 0.f},
+					   {QPointF{5000.f, 2500.f}, 0.f, 0.f},
+					   {QPointF{-5000.f, 2500.f}, 0.f, 0.f}}};
 
 
 public slots:
@@ -113,6 +141,12 @@ private:
 	AbstractGraphicViewer *viewer;
 	const int ROBOT_LENGTH = 400;
 	QGraphicsPolygonItem *robot_polygon;
+	QGraphicsPolygonItem *robot_room_draw;
+
+	AbstractGraphicViewer *viewer_room;
+	Eigen::Affine2d robot_pose;
+	rc::Room_Detector room_detector;
+	rc::Hungarian hungarian;
 
 	enum class State {IDLE, FORWARD, TURN, FOLLOW_WALL, SPIRAL};
 
@@ -139,6 +173,7 @@ private:
 		float LIDAR_RIGHT_SIDE_SECTION = qDegreesToRadians(90);
 		float LIDAR_LEFT_SIDE_SECTION = qDegreesToRadians(-90);
 		float LIDAR_FRONT_SECTION = qDegreesToRadians(10);
+		float ROBOT_LENGTH = 400;
 	};
 	Params params;
 

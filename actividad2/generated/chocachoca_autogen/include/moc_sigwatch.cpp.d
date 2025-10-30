@@ -1,4 +1,4 @@
-/home/usuario/robotica_G3/Robotica_g3_25_26/actividad2/generated/chocachoca_autogen/include/moc_sigwatch.cpp: /home/robocomp/robocomp/classes/sigwatch/sigwatch.h \
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad2/generated/chocachoca_autogen/include/moc_sigwatch.cpp: /home/usuario/robocomp/classes/sigwatch/sigwatch.h \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad2/generated/chocachoca_autogen/moc_predefs.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \

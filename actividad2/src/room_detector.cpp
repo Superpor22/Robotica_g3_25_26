@@ -166,14 +166,6 @@ namespace rc
     {
         return Eigen::Vector2d{p.x(), p.y()};
     }
-    Eigen::Vector2d Room_Detector::to_eigen(const cv::Point2d  &p)
-    {
-        return Eigen::Vector2d{p.x, p.y};
-    }
-    QPointF Room_Detector::to_qpointf(const cv::Point2d  &p)
-    {
-        return QPointF{p.x, p.y};
-    }
     double Room_Detector::euc_distance_between_points(const QPointF &p1, const QPointF &p2)
     {
         return sqrt((p1.x()-p2.x())*(p1.x()-p2.x())+(p1.y()-p2.y())*(p1.y()-p2.y()));

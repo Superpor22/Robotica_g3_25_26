@@ -7,7 +7,6 @@
 
 #include <vector>
 #include <Eigen/Geometry>
-#include <opencv2/core.hpp>
 #include <QtCore>
 #include <ranges>
 #include "common_types.h"
@@ -47,8 +46,6 @@ namespace rc   // aka RoboComp
 
             // local data
              Eigen::Vector2d to_eigen(const QPointF &p);
-             Eigen::Vector2d to_eigen(const cv::Point2d &p);
-             QPointF to_qpointf(const cv::Point2d &p);
     };
 
 

@@ -127,6 +127,19 @@ void SpecificWorker::initialize()
 	const auto rob = viewer->add_robot(ROBOT_LENGTH, ROBOT_LENGTH, 0, 190, QColor("Blue"));
 	robot_polygon = std::get<0>(rob);
 
+	viewer_room = new AbstractGraphicViewer(this->frame_room, dimensions);
+	auto [rr, re] = viewer_room->add_robot(params.ROBOT_LENGTH, params.ROBOT_LENGTH, 0, 100, QColor("Blue"));
+	robot_room_draw = rr;
+
+	// draw room in viewer_room
+	viewer_room->scene.addRect(dimensions, QPen(Qt::black, 30));
+	viewer_room->show();
+
+	// initialise robot pose
+	robot_pose.setIdentity();
+	robot_pose.translate(Eigen::Vector2d(0.0,0.0));
+
+
 	connect(viewer, &AbstractGraphicViewer::new_mouse_coordinates, this, &SpecificWorker::new_target_slot);
 }
 
