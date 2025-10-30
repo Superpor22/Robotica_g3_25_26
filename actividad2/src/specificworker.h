@@ -97,6 +97,10 @@ public slots:
 	 */
 	void new_target_slot(QPointF);
 
+	/**
+	*
+	*/
+	std::tuple<State,float,float> state_machine(State state, RoboCompLidar3D::TPoints filter_data);
 private:
 
 	/**

@@ -45,6 +45,8 @@
 
 #define BASIC_PERIOD 100
 
+#define USE_QTGUI
+
 using TuplePrx = std::tuple<RoboCompLidar3D::Lidar3DPrxPtr,RoboCompOmniRobot::OmniRobotPrxPtr>;
 
 
