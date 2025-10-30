@@ -100,7 +100,7 @@ public slots:
 	/**
 	*
 	*/
-	std::tuple<State,float,float> state_machine(State state, RoboCompLidar3D::TPoints filter_data);
+
 private:
 
 	/**
@@ -114,6 +114,10 @@ private:
 	const int ROBOT_LENGTH = 400;
 	QGraphicsPolygonItem *robot_polygon;
 
+	enum class State {IDLE, FORWARD, TURN, FOLLOW_WALL, SPIRAL};
+
+	std::tuple<State,float,float> state_machine(State state, const RoboCompLidar3D::TPoints& filter_data);
+
 	/**
 	 * @brief Filters 3D lidar points to a 2D representation.
 	 * @param puntos Collection of 3D lidar points.
@@ -124,7 +128,7 @@ private:
 	/**
 	 * @brief Enum representing the different robot states.
 	 */
-	enum class State {IDLE, FORWARD, TURN, FOLLOW_WALL, SPIRAL};
+
 
 	/**
 	 * @brief Structure containing lidar-related parameters for movement and thresholds.

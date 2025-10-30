@@ -16,9 +16,7 @@
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QSplitter>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -27,63 +25,76 @@ QT_BEGIN_NAMESPACE
 class Ui_guiDlg
 {
 public:
-    QVBoxLayout *verticalLayout_3;
-    QSplitter *splitter;
-    QFrame *frame;
-    QFrame *frame_2;
+    QVBoxLayout *verticalLayout_6;
     QVBoxLayout *verticalLayout_5;
-    QVBoxLayout *verticalLayout_4;
+    QHBoxLayout *horizontalLayout_17;
+    QFrame *frame;
+    QFrame *frame_room;
+    QFrame *frame_2;
+    QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout_18;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_7;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
     QLCDNumber *lcdNumber_mindist;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_2;
     QLCDNumber *lcdNumber_minangle;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_3;
+    QLCDNumber *lcdNumber_minangle_2;
+    QHBoxLayout *horizontalLayout_8;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_4;
     QLCDNumber *lcdNumber_adv;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_5;
     QLCDNumber *lcdNumber_rot;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *label_3;
-    QLCDNumber *lcdNumber_error;
     QHBoxLayout *horizontalLayout;
     QLabel *label_state_name;
     QLabel *label_state;
-    QHBoxLayout *horizontalLayout_8;
-    QLabel *label_7;
-    QLabel *label_handness;
-    QSpacerItem *verticalSpacer;
-    QVBoxLayout *verticalLayout;
-    QLabel *label_8;
-    QHBoxLayout *horizontalLayout_7;
-    QSlider *horizontalSlider_wall_distance;
-    QLCDNumber *lcdNumber_wall_distance;
+    QSpacerItem *horizontalSpacer;
     QPushButton *pushButton_stop;
 
     void setupUi(QWidget *guiDlg)
     {
         if (guiDlg->objectName().isEmpty())
             guiDlg->setObjectName("guiDlg");
-        guiDlg->resize(1044, 678);
-        verticalLayout_3 = new QVBoxLayout(guiDlg);
-        verticalLayout_3->setObjectName("verticalLayout_3");
-        splitter = new QSplitter(guiDlg);
-        splitter->setObjectName("splitter");
-        splitter->setOrientation(Qt::Horizontal);
-        frame = new QFrame(splitter);
+        guiDlg->resize(1224, 559);
+        verticalLayout_6 = new QVBoxLayout(guiDlg);
+        verticalLayout_6->setObjectName("verticalLayout_6");
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setObjectName("verticalLayout_5");
+        horizontalLayout_17 = new QHBoxLayout();
+        horizontalLayout_17->setObjectName("horizontalLayout_17");
+        frame = new QFrame(guiDlg);
         frame->setObjectName("frame");
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(frame->sizePolicy().hasHeightForWidth());
         frame->setSizePolicy(sizePolicy);
-        frame->setMinimumSize(QSize(600, 0));
+        frame->setMinimumSize(QSize(500, 300));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
-        splitter->addWidget(frame);
-        frame_2 = new QFrame(splitter);
+
+        horizontalLayout_17->addWidget(frame);
+
+        frame_room = new QFrame(guiDlg);
+        frame_room->setObjectName("frame_room");
+        sizePolicy.setHeightForWidth(frame_room->sizePolicy().hasHeightForWidth());
+        frame_room->setSizePolicy(sizePolicy);
+        frame_room->setMinimumSize(QSize(500, 300));
+        frame_room->setFrameShape(QFrame::StyledPanel);
+        frame_room->setFrameShadow(QFrame::Raised);
+
+        horizontalLayout_17->addWidget(frame_room);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_17);
+
+        frame_2 = new QFrame(guiDlg);
         frame_2->setObjectName("frame_2");
         QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
@@ -92,10 +103,14 @@ public:
         frame_2->setSizePolicy(sizePolicy1);
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
-        verticalLayout_5 = new QVBoxLayout(frame_2);
-        verticalLayout_5->setObjectName("verticalLayout_5");
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setObjectName("verticalLayout_4");
+        verticalLayout_2 = new QVBoxLayout(frame_2);
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        horizontalLayout_18 = new QHBoxLayout();
+        horizontalLayout_18->setObjectName("horizontalLayout_18");
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName("verticalLayout");
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setObjectName("horizontalLayout_7");
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         label = new QLabel(frame_2);
@@ -112,7 +127,7 @@ public:
         horizontalLayout_2->addWidget(lcdNumber_mindist);
 
 
-        verticalLayout_4->addLayout(horizontalLayout_2);
+        horizontalLayout_7->addLayout(horizontalLayout_2);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName("horizontalLayout_3");
@@ -128,8 +143,29 @@ public:
         horizontalLayout_3->addWidget(lcdNumber_minangle);
 
 
-        verticalLayout_4->addLayout(horizontalLayout_3);
+        horizontalLayout_7->addLayout(horizontalLayout_3);
 
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName("horizontalLayout_6");
+        label_3 = new QLabel(frame_2);
+        label_3->setObjectName("label_3");
+
+        horizontalLayout_6->addWidget(label_3);
+
+        lcdNumber_minangle_2 = new QLCDNumber(frame_2);
+        lcdNumber_minangle_2->setObjectName("lcdNumber_minangle_2");
+        lcdNumber_minangle_2->setFont(font);
+
+        horizontalLayout_6->addWidget(lcdNumber_minangle_2);
+
+
+        horizontalLayout_7->addLayout(horizontalLayout_6);
+
+
+        verticalLayout->addLayout(horizontalLayout_7);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setObjectName("horizontalLayout_8");
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName("horizontalLayout_4");
         label_4 = new QLabel(frame_2);
@@ -143,7 +179,7 @@ public:
         horizontalLayout_4->addWidget(lcdNumber_adv);
 
 
-        verticalLayout_4->addLayout(horizontalLayout_4);
+        horizontalLayout_8->addLayout(horizontalLayout_4);
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName("horizontalLayout_5");
@@ -158,22 +194,10 @@ public:
         horizontalLayout_5->addWidget(lcdNumber_rot);
 
 
-        verticalLayout_4->addLayout(horizontalLayout_5);
-
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setObjectName("horizontalLayout_6");
-        label_3 = new QLabel(frame_2);
-        label_3->setObjectName("label_3");
-
-        horizontalLayout_6->addWidget(label_3);
-
-        lcdNumber_error = new QLCDNumber(frame_2);
-        lcdNumber_error->setObjectName("lcdNumber_error");
-
-        horizontalLayout_6->addWidget(lcdNumber_error);
+        horizontalLayout_8->addLayout(horizontalLayout_5);
 
 
-        verticalLayout_4->addLayout(horizontalLayout_6);
+        verticalLayout->addLayout(horizontalLayout_8);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
@@ -188,67 +212,29 @@ public:
         horizontalLayout->addWidget(label_state);
 
 
-        verticalLayout_4->addLayout(horizontalLayout);
-
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName("horizontalLayout_8");
-        label_7 = new QLabel(frame_2);
-        label_7->setObjectName("label_7");
-
-        horizontalLayout_8->addWidget(label_7);
-
-        label_handness = new QLabel(frame_2);
-        label_handness->setObjectName("label_handness");
-
-        horizontalLayout_8->addWidget(label_handness);
+        verticalLayout->addLayout(horizontalLayout);
 
 
-        verticalLayout_4->addLayout(horizontalLayout_8);
+        horizontalLayout_18->addLayout(verticalLayout);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        verticalLayout_4->addItem(verticalSpacer);
-
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName("verticalLayout");
-        label_8 = new QLabel(frame_2);
-        label_8->setObjectName("label_8");
-
-        verticalLayout->addWidget(label_8);
-
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setObjectName("horizontalLayout_7");
-        horizontalSlider_wall_distance = new QSlider(frame_2);
-        horizontalSlider_wall_distance->setObjectName("horizontalSlider_wall_distance");
-        horizontalSlider_wall_distance->setMaximum(1000);
-        horizontalSlider_wall_distance->setValue(420);
-        horizontalSlider_wall_distance->setOrientation(Qt::Horizontal);
-
-        horizontalLayout_7->addWidget(horizontalSlider_wall_distance);
-
-        lcdNumber_wall_distance = new QLCDNumber(frame_2);
-        lcdNumber_wall_distance->setObjectName("lcdNumber_wall_distance");
-
-        horizontalLayout_7->addWidget(lcdNumber_wall_distance);
-
-
-        verticalLayout->addLayout(horizontalLayout_7);
-
-
-        verticalLayout_4->addLayout(verticalLayout);
+        horizontalLayout_18->addItem(horizontalSpacer);
 
         pushButton_stop = new QPushButton(frame_2);
         pushButton_stop->setObjectName("pushButton_stop");
         pushButton_stop->setCheckable(true);
 
-        verticalLayout_4->addWidget(pushButton_stop);
+        horizontalLayout_18->addWidget(pushButton_stop);
 
 
-        verticalLayout_5->addLayout(verticalLayout_4);
+        verticalLayout_2->addLayout(horizontalLayout_18);
 
-        splitter->addWidget(frame_2);
 
-        verticalLayout_3->addWidget(splitter);
+        verticalLayout_5->addWidget(frame_2);
+
+
+        verticalLayout_6->addLayout(verticalLayout_5);
 
 
         retranslateUi(guiDlg);
@@ -258,17 +244,14 @@ public:
 
     void retranslateUi(QWidget *guiDlg)
     {
-        guiDlg->setWindowTitle(QCoreApplication::translate("guiDlg", "chocachoca", nullptr));
-        label->setText(QCoreApplication::translate("guiDlg", "min  dist", nullptr));
-        label_2->setText(QCoreApplication::translate("guiDlg", "min  angle", nullptr));
+        guiDlg->setWindowTitle(QCoreApplication::translate("guiDlg", "Localiser", nullptr));
+        label->setText(QCoreApplication::translate("guiDlg", "X", nullptr));
+        label_2->setText(QCoreApplication::translate("guiDlg", "Y", nullptr));
+        label_3->setText(QCoreApplication::translate("guiDlg", "angle", nullptr));
         label_4->setText(QCoreApplication::translate("guiDlg", "adv", nullptr));
         label_5->setText(QCoreApplication::translate("guiDlg", "rot", nullptr));
-        label_3->setText(QCoreApplication::translate("guiDlg", "error", nullptr));
         label_state_name->setText(QCoreApplication::translate("guiDlg", "state:", nullptr));
         label_state->setText(QCoreApplication::translate("guiDlg", "TextLabel", nullptr));
-        label_7->setText(QCoreApplication::translate("guiDlg", "Handness:", nullptr));
-        label_handness->setText(QString());
-        label_8->setText(QCoreApplication::translate("guiDlg", "wall distance:", nullptr));
         pushButton_stop->setText(QCoreApplication::translate("guiDlg", "Stop", nullptr));
     } // retranslateUi
 

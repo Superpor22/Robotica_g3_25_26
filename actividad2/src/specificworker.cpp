@@ -130,26 +130,6 @@ void SpecificWorker::initialize()
 	connect(viewer, &AbstractGraphicViewer::new_mouse_coordinates, this, &SpecificWorker::new_target_slot);
 }
 
-std::tuple<State,float,float> SpecificWorker::state_machine(State state, RoboCompLidar3D::TPoints filter_data){
-	switch (state)
-	{
-	case State::IDLE:
-		//result = IDLE_method();
-		break;
-	case State::FORWARD:
-		return FORWARD_method(filter_data);
-		break;
-	case State::TURN:
-		return TURN_method(filter_data);
-		break;
-	case State::FOLLOW_WALL:
-		return FOLLOW_WALL_method(filter_data);
-		break;
-	case State::SPIRAL:
-		return SPIRAL_method(filter_data);
-		break;
-	}
-}
 
 /**
  * @brief Main control loop that reads lidar data, processes it, and determines the robot’s motion state.
@@ -204,12 +184,35 @@ void SpecificWorker::compute()
 
 	draw_lidar(filter_data, &viewer->scene);
 
-	std::tuple<State,float,float> result;
-	static auto state = State::SPIRAL;  // Estado inicial
+	//std::tuple<State,float,float> result;
+	//static auto state = State::SPIRAL;  // Estado inicial
 	//auto &[st, adv, rot] = state_machine(state, filter_data); // Machine states method
 	//state = st;
-	try{ omnirobot_proxy->setSpeedBase(0, adv, rot);}
-	catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
+	//try{ omnirobot_proxy->setSpeedBase(0, adv, rot);}
+	//catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
+}
+
+std::tuple<SpecificWorker::State,float,float> SpecificWorker::state_machine(State state, const RoboCompLidar3D::TPoints &filter_data)
+{
+	switch (state)
+	{
+	case State::IDLE:
+		//result = IDLE_method();
+		break;
+	case State::FORWARD:
+		return FORWARD_method(filter_data);
+		break;
+	case State::TURN:
+		return TURN_method(filter_data);
+		break;
+	case State::FOLLOW_WALL:
+		return FOLLOW_WALL_method(filter_data);
+		break;
+	case State::SPIRAL:
+		return SPIRAL_method(filter_data);
+		break;
+	}
+	return {};
 }
 
 /**
