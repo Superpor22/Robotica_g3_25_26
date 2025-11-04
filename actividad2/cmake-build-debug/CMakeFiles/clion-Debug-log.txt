@@ -1,4 +1,16 @@
 /snap/clion/393/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /home/usuario/robotica_G3/Robotica_g3_25_26/actividad2 -B /home/usuario/robotica_G3/Robotica_g3_25_26/actividad2
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
 CMake Warning at CMakeLists.txt:5 (MESSAGE):
   ROBOCOMP variable not set.  Using the default value:
   /home/robocomp/robocomp
@@ -13,7 +25,9 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- Using g++ 13 or higher, setting the C++23 standard.
 -- COMPILING WITH QT6
 -- Configuring for x86_64 architecture
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 -- Could NOT find XKB (missing: XKB_LIBRARY XKB_INCLUDE_DIR) (Required is at least version "0.5.0")
+-- opencv_calib3dopencv_coreopencv_dnnopencv_features2dopencv_flannopencv_highguiopencv_imgcodecsopencv_imgprocopencv_mlopencv_objdetectopencv_photoopencv_stitchingopencv_videoopencv_videoioopencv_alphamatopencv_arucoopencv_barcodeopencv_bgsegmopencv_bioinspiredopencv_ccalibopencv_cvvopencv_datasetsopencv_dnn_objdetectopencv_dnn_superresopencv_dpmopencv_faceopencv_freetypeopencv_fuzzyopencv_hdfopencv_hfsopencv_img_hashopencv_intensity_transformopencv_line_descriptoropencv_mccopencv_optflowopencv_phase_unwrappingopencv_plotopencv_qualityopencv_rapidopencv_regopencv_rgbdopencv_saliencyopencv_shapeopencv_stereoopencv_structured_lightopencv_superresopencv_surface_matchingopencv_textopencv_trackingopencv_videostabopencv_vizopencv_wechat_qrcodeopencv_ximgprocopencv_xobjdetectopencv_xphoto
 -- Ice version: 3.7.10
 -- Found the following Ice libraries:
 --   Ice++11 (required)
@@ -41,6 +55,6 @@ CMake Warning (dev) at generated/CMakeLists.txt:59 (INSTALL):
   command to set the policy and suppress this warning.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
--- Configuring done (0.1s)
+-- Configuring done (0.3s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/usuario/robotica_G3/Robotica_g3_25_26/actividad2

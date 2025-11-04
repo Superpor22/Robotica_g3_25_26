@@ -24,6 +24,8 @@
 #include <cppitertools/groupby.hpp>
 #include <cppitertools/range.hpp>
 #include <expected>
+#include <cppitertools/enumerate.hpp>
+#include <IceUtil/StringUtil.h>
 
 /**
  * @brief Constructor for the SpecificWorker class.
@@ -137,6 +139,7 @@ void SpecificWorker::initialize()
 
 	// initialise robot pose
 	robot_pose.setIdentity();
+
 	robot_pose.translate(Eigen::Vector2d(0.0,0.0));
 
 
@@ -183,20 +186,49 @@ void SpecificWorker::initialize()
 void SpecificWorker::compute()
 {
 	// Read data from lidar
-	// data = read_data("helios");
-	RoboCompLidar3D::TData data;
-	try { data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 15000, 1);}
-	catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
+	auto filter_data = read_data();
 
-	// filter data from 3D to 2D
-	RoboCompLidar3D::TPoints filter_data;
-	if (const auto filter_data_= data_filter(data.points); filter_data_.has_value())
-		filter_data = filter_data_.value();
-	else
-	{	qWarning() << "filter_data_.has_value()"; return;}
+	// Part A - Draw corners
+	auto measured_corners = room_detector.compute_corners(filter_data, &viewer->scene);
 
-	draw_lidar(filter_data, &viewer->scene);
+	// Part B -
+	room.transform_corners_to(robot_pose);
 
+	auto match = hungarian.match(measured_corners, room.transform_corners_to(robot_pose.inverse()), 1000);
+
+	for ( auto &m : match )
+	{
+		qDebug() << std::get<0>(std::get<0>(m)).x() << " " << std::get<0>(std::get<0>(m)).y();
+		qDebug() << std::get<0>(std::get<1>(m)).x() << " " << std::get<0>(std::get<1>(m)).y();
+	}
+	qDebug() << "------------------------------------------------";
+
+	Eigen::MatrixXd W(match.size() * 2, 3);
+	Eigen::VectorXd b(match.size() * 2);
+	for (const auto &[i,m] : match | iter::enumerate )
+	{
+		auto &[cm, cn, d] = m;
+		auto &[cmc, _, __] = cm;
+		auto &[cnc, ___, ____] = cn;
+
+		W(i,0) = 1.0;
+		W(i,1) = 0.0;
+
+		if (i%2 == 0)
+		{
+			W(i,2) = -cmc.y();
+			b(i) = cnc.x() - cmc.x();
+		}
+		else
+		{
+			W(i,2) = cmc.x();
+			b(i) = cnc.y() - cmc.y();
+		}
+	}
+
+	auto r = (W.transpose() * W).inverse() * W.transpose() * b;
+	robot_pose.translate(Eigen::Vector2d(r(0), r(1), 0));
+	robot_pose.rotate(r(2));
 	//std::tuple<State,float,float> result;
 	//static auto state = State::SPIRAL;  // Estado inicial
 	//auto &[st, adv, rot] = state_machine(state, filter_data); // Machine states method
@@ -226,6 +258,25 @@ std::tuple<SpecificWorker::State,float,float> SpecificWorker::state_machine(Stat
 		break;
 	}
 	return {};
+}
+
+RoboCompLidar3D::TPoints SpecificWorker::read_data()
+{
+	// data = read_data("helios");
+	RoboCompLidar3D::TData data;
+	try { data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 15000, 1);}
+	catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return{};}
+
+	// filter data from 3D to 2D
+	RoboCompLidar3D::TPoints filter_data;
+	if (const auto filter_data_= data_filter(data.points); filter_data_.has_value())
+		filter_data = filter_data_.value();
+	else
+	{	qWarning() << "filter_data_.has_value()"; return {};}
+
+	draw_lidar(filter_data, &viewer->scene);
+
+	return filter_data;
 }
 
 /**

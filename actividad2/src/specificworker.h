@@ -138,12 +138,11 @@ private:
 
 	// Graphics-related members
 	QRectF dimensions;
-	AbstractGraphicViewer *viewer;
+	AbstractGraphicViewer *viewer, *viewer_room;
 	const int ROBOT_LENGTH = 400;
 	QGraphicsPolygonItem *robot_polygon;
 	QGraphicsPolygonItem *robot_room_draw;
 
-	AbstractGraphicViewer *viewer_room;
 	Eigen::Affine2d robot_pose;
 	rc::Room_Detector room_detector;
 	rc::Hungarian hungarian;
@@ -151,8 +150,9 @@ private:
 	enum class State {IDLE, FORWARD, TURN, FOLLOW_WALL, SPIRAL};
 
 	std::tuple<State,float,float> state_machine(State state, const RoboCompLidar3D::TPoints& filter_data);
+RoboCompLidar3D::TPoints read_data();
 
-	/**
+/**
 	 * @brief Filters 3D lidar points to a 2D representation.
 	 * @param puntos Collection of 3D lidar points.
 	 * @return Optional filtered 2D lidar points.

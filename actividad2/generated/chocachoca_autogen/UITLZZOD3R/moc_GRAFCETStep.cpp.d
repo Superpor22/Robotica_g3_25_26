@@ -1,4 +1,4 @@
-/home/usuario/robotica_G3/Robotica_g3_25_26/actividad2/generated/chocachoca_autogen/UITLZZOD3R/moc_GRAFCETStep.cpp: /home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.h \
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad2/generated/chocachoca_autogen/UITLZZOD3R/moc_GRAFCETStep.cpp: /home/robocomp/robocomp/classes/grafcetStep/GRAFCETStep.h \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad2/generated/chocachoca_autogen/moc_predefs.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
