@@ -21,5 +21,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 LIST(APPEND LIBS ${LIBS})
 
 # no-char8_t to avoid a problem with ICE Connection lib.
-add_definitions(-fmax-errors=1 -fno-char8_t -std=c++23)
+add_definitions(-O4 -fmax-errors=1 -fno-char8_t -std=c++23)
 

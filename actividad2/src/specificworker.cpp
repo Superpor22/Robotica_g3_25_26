@@ -142,7 +142,7 @@ void SpecificWorker::initialize()
 
 	robot_pose.translate(Eigen::Vector2d(0.0,0.0));
 
-
+	setPeriod("compute",50);
 	connect(viewer, &AbstractGraphicViewer::new_mouse_coordinates, this, &SpecificWorker::new_target_slot);
 }
 
@@ -191,44 +191,70 @@ void SpecificWorker::compute()
 	// Part A - Draw corners
 	auto measured_corners = room_detector.compute_corners(filter_data, &viewer->scene);
 
-	// Part B -
-	room.transform_corners_to(robot_pose);
+	// Part B
+	// // Print measured corners and nominal corners
+	// qDebug() << "Measured_corners ------------------------------------------------";
+	// for (auto &&c : measured_corners)
+	// {
+	// 	std::cout << std::get<0>(c).x() << " " << std::get<0>(c).y() << std::endl;
+	// }
+	// qDebug() << "Robot_corners ------------------------------------------------";
+	//
+	auto robot_corners = room.transform_corners_to(robot_pose.inverse());
+	//
+	// for (auto &&c : robot_corners)
+	// {
+	// 	std::cout << std::get<0>(c).x() << " " << std::get<0>(c).y() << std::endl;
+	// }
+	//
+	// qDebug() << "------------------------------------------------";
+	//
 
-	auto match = hungarian.match(measured_corners, room.transform_corners_to(robot_pose.inverse()), 1000);
+	auto match = hungarian.match(measured_corners, robot_corners, 1000);
+
+	if (match.empty())
+		qDebug() << "No match found";
 
 	for ( auto &m : match )
 	{
-		qDebug() << std::get<0>(std::get<0>(m)).x() << " " << std::get<0>(std::get<0>(m)).y();
-		qDebug() << std::get<0>(std::get<1>(m)).x() << " " << std::get<0>(std::get<1>(m)).y();
+		qDebug() << std::get<0>(std::get<0>(m)).x() << " - " << std::get<0>(std::get<0>(m)).y();
+		qDebug() << std::get<0>(std::get<1>(m)).x() << " - " << std::get<0>(std::get<1>(m)).y();
 	}
+
 	qDebug() << "------------------------------------------------";
 
 	Eigen::MatrixXd W(match.size() * 2, 3);
 	Eigen::VectorXd b(match.size() * 2);
-	for (const auto &[i,m] : match | iter::enumerate )
+	for (auto &&[i,m]: match | iter::enumerate )
 	{
-		auto &[cm, cn, d] = m;
-		auto &[cmc, _, __] = cm;
-		auto &[cnc, ___, ____] = cn;
+		auto &[meas_c, nom_c, _] = m;
+		auto &[p_meas, __, ___] = meas_c;
+		auto &[p_nom, ____, _____] = nom_c;
 
-		W(i,0) = 1.0;
-		W(i,1) = 0.0;
+		b(2 * i)     = p_nom.x() - p_meas.x();
 
-		if (i%2 == 0)
-		{
-			W(i,2) = -cmc.y();
-			b(i) = cnc.x() - cmc.x();
-		}
-		else
-		{
-			W(i,2) = cmc.x();
-			b(i) = cnc.y() - cmc.y();
-		}
+		b(2 * i + 1) = p_nom.y() - p_meas.y();
+		W.block<1, 3>(2 * i, 0)     << 1.0, 0.0, -p_meas.y();
+		W.block<1, 3>(2 * i + 1, 0) << 0.0, 1.0, p_meas.x();
 	}
 
-	auto r = (W.transpose() * W).inverse() * W.transpose() * b;
-	robot_pose.translate(Eigen::Vector2d(r(0), r(1), 0));
-	robot_pose.rotate(r(2));
+	// estimate new pose with pseudoinverse
+	const Eigen::Vector3d r = (W.transpose() * W).inverse() * W.transpose() * b;
+	std::cout << r << std::endl;
+	qInfo() << "--------------------";
+
+	if (r.array().isNaN().any())
+		return;
+
+	robot_pose.translate(Eigen::Vector2d(r(0), r(1)));
+	robot_pose.rotate(r[2]);
+
+
+
+	robot_room_draw->setPos(robot_pose.translation().x(), robot_pose.translation().y());
+	const double angle = std::atan2(robot_pose.rotation()(1, 0), robot_pose.rotation()(0, 0));
+	robot_room_draw->setRotation(qRadiansToDegrees(angle));
+
 	//std::tuple<State,float,float> result;
 	//static auto state = State::SPIRAL;  // Estado inicial
 	//auto &[st, adv, rot] = state_machine(state, filter_data); // Machine states method
@@ -264,7 +290,7 @@ RoboCompLidar3D::TPoints SpecificWorker::read_data()
 {
 	// data = read_data("helios");
 	RoboCompLidar3D::TData data;
-	try { data = lidar3d_proxy->getLidarDataWithThreshold2d("helios", 15000, 1);}
+	try { data = lidar3d_proxy->getLidarDataWithThreshold2d("pearl", 12000, 1);}
 	catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return{};}
 
 	// filter data from 3D to 2D

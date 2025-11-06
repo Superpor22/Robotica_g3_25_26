@@ -3,15 +3,15 @@
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
   CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o \
-  CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o \
+  CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o \
   CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o \
   CMakeFiles/chocachoca.dir/__/src/hungarian.cpp.o \
   CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o \
   CMakeFiles/chocachoca.dir/__/src/ransac_line_detector.cpp.o \
-  CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o \
-  CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o \
-  CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o \
-  CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o \
+  CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o \
+  CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o \
+  CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o \
+  CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o \
   CMakeFiles/chocachoca.dir/main.cpp.o \
   CMakeFiles/chocachoca.dir/genericworker.cpp.o \
   CMakeFiles/chocachoca.dir/Lidar3D.cpp.o \
@@ -167,7 +167,7 @@
 
 CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o:
 
-CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o:
+CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o:
 
 CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o:
 
@@ -177,13 +177,13 @@ CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o:
 
 CMakeFiles/chocachoca.dir/__/src/ransac_line_detector.cpp.o:
 
-CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o:
+CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o:
 
-CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o:
+CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o:
 
-CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o:
+CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o:
 
-CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o:
+CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o:
 
 CMakeFiles/chocachoca.dir/main.cpp.o:
 
