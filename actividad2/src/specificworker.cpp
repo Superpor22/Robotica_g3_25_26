@@ -255,12 +255,12 @@ void SpecificWorker::compute()
 	const double angle = std::atan2(robot_pose.rotation()(1, 0), robot_pose.rotation()(0, 0));
 	robot_room_draw->setRotation(qRadiansToDegrees(angle));
 
-	//std::tuple<State,float,float> result;
-	//static auto state = State::SPIRAL;  // Estado inicial
-	//auto &[st, adv, rot] = state_machine(state, filter_data); // Machine states method
-	//state = st;
-	//try{ omnirobot_proxy->setSpeedBase(0, adv, rot);}
-	//catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
+	std::tuple<State,float,float> result;
+	static auto state = State::SPIRAL;  // Estado inicial
+	const auto &[st, adv, rot] = state_machine(state, filter_data); // Machine states method
+	state = st;
+	try{ omnirobot_proxy->setSpeedBase(0, adv, rot);}
+	catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
 }
 
 std::tuple<SpecificWorker::State,float,float> SpecificWorker::state_machine(State state, const RoboCompLidar3D::TPoints &filter_data)
@@ -664,6 +664,11 @@ std::tuple<SpecificWorker::State, float, float> SpecificWorker::SPIRAL_method(co
 
 	qInfo() << "-----------------------------Bajada_SPIRAL: " << bajada << " subida: " << subida;
 
+	if (points.empty())
+	{
+		qInfo() << __FUNCTION__ << "No points";
+		return {State::SPIRAL, 0.0f, 0.0f};
+	}
 	auto min_dist = std::min_element(std::begin(points), std::end(points),[](const auto& p1, const auto& p2)
 			{ return p1.r < p2.r; });
 

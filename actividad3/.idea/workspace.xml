@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="chocachoca" targetName="ICE_GenericBase_target" />
+      <config projectName="chocachoca" targetName="ICE_OmniRobot_target" />
+      <config projectName="chocachoca" targetName="ICE_Lidar3D_target" />
+      <config projectName="chocachoca" targetName="chocachoca" />
+      <config projectName="chocachoca" targetName="ICE_Camera360RGB_target" />
+      <config projectName="chocachoca" targetName="ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-G &quot;Unix Makefiles&quot;" BUILD_OPTIONS="-j21" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="af02c26e-21b2-4b8d-a327-745b7d0e470d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/QtSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoxyFile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md.new" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/chocachoca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/config.new" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/config.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/config.toml.new" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad2_generated.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad2_generated.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad2_generated.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad2_generated.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad2_generated.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad2_generated.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actual_actividad2_generated.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actual_actividad2_generated.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actual_actividad2_generated.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actual_actividad2_generated.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actual_actividad2_generated.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actual_actividad2_generated.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_actividad1_generated.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_actividad1_generated.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_actividad1_generated.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_actividad1_generated.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_actividad1_generated.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICES__home_usuario_robotica_G3_actividad1_generated.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_DifferentialRobot_target.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_DifferentialRobot_target.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_DifferentialRobot_target.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_DifferentialRobot_target.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_DifferentialRobot_target.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_DifferentialRobot_target.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_GenericBase_target.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_GenericBase_target.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_GenericBase_target.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_GenericBase_target.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_GenericBase_target.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_GenericBase_target.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Laser_target.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Laser_target.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Laser_target.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Laser_target.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Laser_target.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Laser_target.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Lidar3D_target.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Lidar3D_target.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Lidar3D_target.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Lidar3D_target.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Lidar3D_target.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_Lidar3D_target.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_OmniRobot_target.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_OmniRobot_target.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_OmniRobot_target.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_OmniRobot_target.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_OmniRobot_target.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/ICE_OmniRobot_target.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/DifferentialRobot.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/DifferentialRobot.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/Laser.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/Laser.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/hungarian.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/hungarian.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/ransac_line_detector.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/ransac_line_detector.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/compiler_depend.internal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/flags.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/rapplication/rapplication.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp1/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp1/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp1/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp1/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp1/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp1/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp1/robocomp/classes/rapplication/rapplication.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp1/robocomp/classes/rapplication/rapplication.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp1/robocomp/classes/sigwatch/sigwatch.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/robocomp1/robocomp/classes/sigwatch/sigwatch.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/link.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/link.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/main.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/main.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/AutogenInfo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/AutogenUsed.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/ParseCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.internal" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeFiles/progress.marks" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/DifferentialRobot.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/DifferentialRobot.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/DifferentialRobot.ice" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/GenericBase.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/GenericBase.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/GenericBase.ice" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/Laser.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/Laser.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/Laser.ice" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/Lidar3D.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/Lidar3D.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/Lidar3D.ice" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/OmniRobot.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/OmniRobot.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/OmniRobot.ice" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/4B7W4TDGLD/moc_abstract_graphic_viewer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/4B7W4TDGLD/moc_abstract_graphic_viewer.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/EWIEGA46WW/moc_genericworker.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/EWIEGA46WW/moc_genericworker.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/UITLZZOD3R/moc_GRAFCETStep.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/UITLZZOD3R/moc_GRAFCETStep.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/VNU7RW3YIC/moc_specificworker.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/VNU7RW3YIC/moc_specificworker.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/deps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/include/moc_sigwatch.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/include/moc_sigwatch.cpp.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/include/ui_mainUI.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/moc_predefs.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/mocs_compilation.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/chocachoca_autogen/timestamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/genericworker.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/genericworker.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/localiser.cdsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CMakeLists.txt.new" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common_types.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/copiaMainUI.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/door_detector.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/door_detector.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hungarian.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hungarian.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image_processor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mainUI.ui" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mainUI.ui.new" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/munkres.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nominal_room.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/qcustomplot.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/qcustomplot.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ransac_line_detector.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ransac_line_detector.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/room_detector.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/room_detector.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/specificworker.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/specificworker.cpp.new" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/specificworker.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/specificworker.h.new" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/time_series_plotter.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/time_series_plotter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sub.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subcognitive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/bin/chocachoca" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/bin/chocachoca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/etc/config" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/etc/config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad2_generated.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad2_generated.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/ICE_GenericBase_target.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/ICE_GenericBase_target.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/ICE_Lidar3D_target.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/ICE_Lidar3D_target.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/ICE_OmniRobot_target.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/ICE_OmniRobot_target.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/__/src/hungarian.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/__/src/hungarian.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/__/src/ransac_line_detector.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/__/src/ransac_line_detector.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/AutogenInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/AutogenInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/AutogenUsed.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/AutogenUsed.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/ParseCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/ParseCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/chocachoca_autogen/deps" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/chocachoca_autogen/deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/chocachoca_autogen/moc_predefs.h" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/chocachoca_autogen/moc_predefs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/generated/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/generated/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad2/src/specificworker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad2/src/specificworker.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JairoFarfanC&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Superpor22/Robotica_g3_25_26.git&quot;,
+    &quot;accountId&quot;: &quot;46e91ef3-ca56-40bf-9f0e-23593100d022&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2025" />
+    <option name="minorVersion" value="2.4" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="35Nljz0pcsocfS3HrbKjycmdeL3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.chocachoca.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="CMake Application.chocachoca">
+    <configuration name="ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ICE_Camera360RGB_target" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="ICE_Camera360RGB_target" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ICE_GenericBase_target" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="ICE_GenericBase_target" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ICE_Lidar3D_target" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="ICE_Lidar3D_target" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ICE_OmniRobot_target" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="ICE_OmniRobot_target" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="chocachoca" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="etc/config" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="chocachoca" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="chocachoca" RUN_TARGET_NAME="chocachoca">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.chocachoca" />
+      <item itemvalue="CMake Application.ICE_Camera360RGB_target" />
+      <item itemvalue="CMake Application.ICE_GenericBase_target" />
+      <item itemvalue="CMake Application.ICE_Lidar3D_target" />
+      <item itemvalue="CMake Application.ICE_OmniRobot_target" />
+      <item itemvalue="CMake Application.ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated" />
+    </list>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="af02c26e-21b2-4b8d-a327-745b7d0e470d" name="Changes" comment="" />
+      <created>1762958548898</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762958548898</updated>
+      <workItem from="1762958549974" duration="372000" />
+      <workItem from="1762959357476" duration="334000" />
+      <workItem from="1762964036316" duration="773000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+</project>
