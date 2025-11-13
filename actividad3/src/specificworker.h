@@ -151,11 +151,13 @@ class SpecificWorker final : public GenericWorker
 
         // draw
         void draw_lidar(const RoboCompLidar3D::TPoints &filtered_points, std::optional<Eigen::Vector2d> center, QGraphicsScene *scene);
+        void draw_doors(const Doors &doors, QGraphicsScene *scene);
 
         // aux
         RoboCompLidar3D::TPoints read_data();
-    std::optional<RoboCompLidar3D::TPoints> data_filter(const RoboCompLidar3D::TPoints& puntos);
-    std::expected<int, std::string> closest_lidar_index_to_given_angle(const auto &points, float angle);
+        void draw_lidar(const RoboCompLidar3D::TPoints& points, QGraphicsScene* scene);
+        std::optional<RoboCompLidar3D::TPoints> data_filter(const RoboCompLidar3D::TPoints& puntos);
+        std::expected<int, std::string> closest_lidar_index_to_given_angle(const  RoboCompLidar3D::TPoints &points, float angle);
         RoboCompLidar3D::TPoints filter_same_phi(const RoboCompLidar3D::TPoints &points);
         RoboCompLidar3D::TPoints filter_isolated_points(const RoboCompLidar3D::TPoints &points, float d);
         void print_match(const Match &match, const float error =1.f) const;
@@ -189,6 +191,7 @@ class SpecificWorker final : public GenericWorker
         Eigen::Vector3d solve_pose(const Corners &corners, const Match &match);
         void predict_robot_pose();
         std::tuple<float, float> robot_controller(const Eigen::Vector2f &target);
+
 
 
 signals:

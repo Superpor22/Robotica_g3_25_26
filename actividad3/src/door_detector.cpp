@@ -10,7 +10,33 @@
 
 Doors DoorDetector::detect(const RoboCompLidar3D::TPoints &points, QGraphicsScene *scene)
 {
-   return {};
+    Peaks peaks;
+    for (const auto &p: points | iter::sliding_window(2))
+    {
+        const auto &p1 = p[0];
+        const auto &p2 = p[1];
+        auto d = abs(p2.distance2d - p1.distance2d);
+        const auto &shorter = (p1.distance2d < p2.distance2d) ? p1 : p2;
+        if (d > 1000)
+            peaks.emplace_back(Eigen::Vector2f{shorter.x, shorter.y}, shorter.phi);
+    }
+
+    // Non-maximum-suppression
+
+
+    // doors
+    Doors doors;
+    for (const auto &c : iter::combinations(peaks, 2))
+    {
+        const auto &[p1, phi1] = c[0];
+        const auto &[p2, phi2] = c[1];
+        const float dist = (p1 - p2).norm();
+        if (800 < dist and dist < 1200)
+        {
+            doors.emplace_back(Door(p1, phi1, p2, phi2));
+        }
+    }
+    return doors;
 }
 
 // Method to use the Doors vector to filter out the LiDAR points that como from a room outside the current one

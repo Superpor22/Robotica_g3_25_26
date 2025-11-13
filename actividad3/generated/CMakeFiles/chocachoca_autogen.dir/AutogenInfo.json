@@ -263,9 +263,21 @@
 			null
 		],
 		[
+			"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/door_detector.h",
+			"MU",
+			"VNU7RW3YIC/moc_door_detector.cpp",
+			null
+		],
+		[
 			"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/hungarian.h",
 			"MU",
 			"VNU7RW3YIC/moc_hungarian.cpp",
+			null
+		],
+		[
+			"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/qcustomplot.h",
+			"MU",
+			"VNU7RW3YIC/moc_qcustomplot.cpp",
 			null
 		],
 		[
@@ -284,6 +296,12 @@
 			"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/specificworker.h",
 			"MU",
 			"VNU7RW3YIC/moc_specificworker.cpp",
+			null
+		],
+		[
+			"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/time_series_plotter.h",
+			"MU",
+			"VNU7RW3YIC/moc_time_series_plotter.cpp",
 			null
 		]
 	],
@@ -405,7 +423,17 @@
 			null
 		],
 		[
+			"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/door_detector.cpp",
+			"MU",
+			null
+		],
+		[
 			"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/hungarian.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/qcustomplot.cpp",
 			"MU",
 			null
 		],
@@ -421,6 +449,11 @@
 		],
 		[
 			"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/specificworker.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/time_series_plotter.cpp",
 			"MU",
 			null
 		]

@@ -1110,20 +1110,7 @@ generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Lidar3D.h \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/OmniRobot.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QScreen \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/VNU7RW3YIC/moc_specificworker.cpp \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/VNU7RW3YIC/../../../src/specificworker.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/genericworker.h \
- /home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
- /usr/include/c++/13/expected \
- /home/usuario/robocomp/classes/doublebuffer/DoubleBuffer.h \
- /usr/include/c++/13/shared_mutex \
- /home/usuario/robocomp/classes/threadpool/threadpool.h \
- /usr/include/c++/13/queue /usr/include/c++/13/bits/stl_queue.h \
- /usr/include/c++/13/thread \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/VNU7RW3YIC/../../../src/time_series_plotter.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QColor \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QVector \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QElapsedTimer \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/VNU7RW3YIC/moc_qcustomplot.cpp \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/VNU7RW3YIC/../../../src/qcustomplot.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSharedPointer \
@@ -1314,6 +1301,21 @@ generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtPrintSupport/qtprintsupportversion.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QElapsedTimer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimeZone \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/VNU7RW3YIC/moc_specificworker.cpp \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/VNU7RW3YIC/../../../src/specificworker.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/genericworker.h \
+ /home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
+ /usr/include/c++/13/expected \
+ /home/usuario/robocomp/classes/doublebuffer/DoubleBuffer.h \
+ /usr/include/c++/13/shared_mutex \
+ /home/usuario/robocomp/classes/threadpool/threadpool.h \
+ /usr/include/c++/13/queue /usr/include/c++/13/bits/stl_queue.h \
+ /usr/include/c++/13/thread \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/VNU7RW3YIC/../../../src/time_series_plotter.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QColor \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QVector \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QElapsedTimer \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/VNU7RW3YIC/../../../src/qcustomplot.h \
  /usr/include/c++/13/execution \
  /usr/include/c++/13/pstl/glue_execution_defs.h \
  /usr/include/c++/13/pstl/algorithm_impl.h \

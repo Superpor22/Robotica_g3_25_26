@@ -369,6 +369,30 @@ OmniRobot.cpp.s:
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.s
 .PHONY : OmniRobot.cpp.s
 
+__/src/door_detector.o: __/src/door_detector.cpp.o
+.PHONY : __/src/door_detector.o
+
+# target to build an object file
+__/src/door_detector.cpp.o:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.o
+.PHONY : __/src/door_detector.cpp.o
+
+__/src/door_detector.i: __/src/door_detector.cpp.i
+.PHONY : __/src/door_detector.i
+
+# target to preprocess a source file
+__/src/door_detector.cpp.i:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.i
+.PHONY : __/src/door_detector.cpp.i
+
+__/src/door_detector.s: __/src/door_detector.cpp.s
+.PHONY : __/src/door_detector.s
+
+# target to generate assembly for a file
+__/src/door_detector.cpp.s:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.s
+.PHONY : __/src/door_detector.cpp.s
+
 __/src/hungarian.o: __/src/hungarian.cpp.o
 .PHONY : __/src/hungarian.o
 
@@ -392,6 +416,30 @@ __/src/hungarian.s: __/src/hungarian.cpp.s
 __/src/hungarian.cpp.s:
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/hungarian.cpp.s
 .PHONY : __/src/hungarian.cpp.s
+
+__/src/qcustomplot.o: __/src/qcustomplot.cpp.o
+.PHONY : __/src/qcustomplot.o
+
+# target to build an object file
+__/src/qcustomplot.cpp.o:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.o
+.PHONY : __/src/qcustomplot.cpp.o
+
+__/src/qcustomplot.i: __/src/qcustomplot.cpp.i
+.PHONY : __/src/qcustomplot.i
+
+# target to preprocess a source file
+__/src/qcustomplot.cpp.i:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.i
+.PHONY : __/src/qcustomplot.cpp.i
+
+__/src/qcustomplot.s: __/src/qcustomplot.cpp.s
+.PHONY : __/src/qcustomplot.s
+
+# target to generate assembly for a file
+__/src/qcustomplot.cpp.s:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.s
+.PHONY : __/src/qcustomplot.cpp.s
 
 __/src/ransac_line_detector.o: __/src/ransac_line_detector.cpp.o
 .PHONY : __/src/ransac_line_detector.o
@@ -464,6 +512,30 @@ __/src/specificworker.s: __/src/specificworker.cpp.s
 __/src/specificworker.cpp.s:
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.s
 .PHONY : __/src/specificworker.cpp.s
+
+__/src/time_series_plotter.o: __/src/time_series_plotter.cpp.o
+.PHONY : __/src/time_series_plotter.o
+
+# target to build an object file
+__/src/time_series_plotter.cpp.o:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/time_series_plotter.cpp.o
+.PHONY : __/src/time_series_plotter.cpp.o
+
+__/src/time_series_plotter.i: __/src/time_series_plotter.cpp.i
+.PHONY : __/src/time_series_plotter.i
+
+# target to preprocess a source file
+__/src/time_series_plotter.cpp.i:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/time_series_plotter.cpp.i
+.PHONY : __/src/time_series_plotter.cpp.i
+
+__/src/time_series_plotter.s: __/src/time_series_plotter.cpp.s
+.PHONY : __/src/time_series_plotter.s
+
+# target to generate assembly for a file
+__/src/time_series_plotter.cpp.s:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/time_series_plotter.cpp.s
+.PHONY : __/src/time_series_plotter.cpp.s
 
 chocachoca_autogen/mocs_compilation.o: chocachoca_autogen/mocs_compilation.cpp.o
 .PHONY : chocachoca_autogen/mocs_compilation.o
@@ -689,9 +761,15 @@ help:
 	@echo "... OmniRobot.o"
 	@echo "... OmniRobot.i"
 	@echo "... OmniRobot.s"
+	@echo "... __/src/door_detector.o"
+	@echo "... __/src/door_detector.i"
+	@echo "... __/src/door_detector.s"
 	@echo "... __/src/hungarian.o"
 	@echo "... __/src/hungarian.i"
 	@echo "... __/src/hungarian.s"
+	@echo "... __/src/qcustomplot.o"
+	@echo "... __/src/qcustomplot.i"
+	@echo "... __/src/qcustomplot.s"
 	@echo "... __/src/ransac_line_detector.o"
 	@echo "... __/src/ransac_line_detector.i"
 	@echo "... __/src/ransac_line_detector.s"
@@ -701,6 +779,9 @@ help:
 	@echo "... __/src/specificworker.o"
 	@echo "... __/src/specificworker.i"
 	@echo "... __/src/specificworker.s"
+	@echo "... __/src/time_series_plotter.o"
+	@echo "... __/src/time_series_plotter.i"
+	@echo "... __/src/time_series_plotter.s"
 	@echo "... chocachoca_autogen/mocs_compilation.o"
 	@echo "... chocachoca_autogen/mocs_compilation.i"
 	@echo "... chocachoca_autogen/mocs_compilation.s"
