@@ -153,7 +153,9 @@ class SpecificWorker final : public GenericWorker
         void draw_lidar(const RoboCompLidar3D::TPoints &filtered_points, std::optional<Eigen::Vector2d> center, QGraphicsScene *scene);
         void draw_doors(const Doors &doors, QGraphicsScene *scene);
 
-        // aux
+        std::tuple<SpecificWorker::STATE, float, float> state_machine(STATE state, const RoboCompLidar3D::TPoints& filter_data);
+
+    // aux
         RoboCompLidar3D::TPoints read_data();
         void draw_lidar(const RoboCompLidar3D::TPoints& points, QGraphicsScene* scene);
         std::optional<RoboCompLidar3D::TPoints> data_filter(const RoboCompLidar3D::TPoints& puntos);

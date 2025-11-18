@@ -143,14 +143,33 @@ void SpecificWorker::compute()
 	draw_doors(doors, &viewer->scene);
 
 	// corners
-	// const auto &[measured_corners, _] = room_detector.compute_corners(filter_data, &viewer->scene);
+	const auto &[measured_corners, _] =
+		room_detector.compute_corners(filter_data, &viewer->scene);
 
-	// auto robot_corners = nominal_rooms[0].transform_corners_to(robot_pose.inverse());
-	// auto match = hungarian.match(measured_corners, robot_corners, 1000);
-	//
-	// if (match.empty())
-	// 	qDebug() << "No match found";
-	//
+	auto robot_corners = nominal_rooms[0].transform_corners_to(robot_pose.inverse());
+	auto match = hungarian.match(measured_corners, robot_corners, 1000);
+	if (match.empty())
+		qDebug() << "No match found";
+
+	// compute max of  match error
+    float max_match_error = 99999.f;
+    if (not match.empty())
+    {
+        const auto max_error_iter = std::ranges::max_element(match, [](const auto &a, const auto &b)
+            { return std::get<2>(a) < std::get<2>(b); });
+        max_match_error = static_cast<float>(std::get<2>(*max_error_iter));
+        time_series_plotter->addDataPoint(match_error_graph,max_match_error);
+        //print_match(match, max_match_error); //debugging
+    }
+
+   // update robot pose
+   if (localised)
+   {
+   		qInfo() << "bbbbbbbbbbbbbbbbbbbbbbbb";
+		update_robot_pose(measured_corners, match);
+   		localised = false;
+   		qDebug() << "Dentrooooooooooooooooooooooooooooooo";
+   }
 
 	// State machine
 
@@ -186,13 +205,117 @@ void SpecificWorker::compute()
 	// const double angle = std::atan2(robot_pose.rotation()(1, 0), robot_pose.rotation()(0, 0));
 	// robot_room_draw->setRotation(qRadiansToDegrees(angle));
 	//
-	// std::tuple<State,float,float> result;
-	// static auto state = State::SPIRAL;  // Estado inicial
-	// const auto &[st, adv, rot] = state_machine(state, filter_data); // Machine states method
-	// state = st;
-	// try{ omnirobot_proxy->setSpeedBase(0, adv, rot);}
-	// catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
+	std::tuple<STATE,float,float> result;
+	static auto state = STATE::GOTO_ROOM_CENTER;  // Estado inicial
+	qDebug() << match.size() << "-a-a-a-a-a-";
+	if (match.size() < 3) localised = true;
+	const auto &[st, adv, rot] = state_machine(state, filter_data); // Machine states method
+	state = st;
+	try{ omnirobot_proxy->setSpeedBase(0, adv, rot);}
+	catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
 }
+
+SpecificWorker::RetVal SpecificWorker::goto_room_center(const RoboCompLidar3D::TPoints& points)
+{
+	auto center = room_detector.estimate_center_from_walls();
+
+	    // Mostrar el valor calculado del centro
+    if (center.has_value()) {
+        qInfo() << "Centro estimado de la habitación:"
+                << "x =" << center.value().x()
+                << ", y =" << center.value().y();
+    } else {
+        qWarning() << "No se pudo estimar el centro de la habitación";
+        return {STATE::GOTO_ROOM_CENTER, 0.0f, 0.0f};
+    }
+
+	// 1. Comprobar si existe el centro
+	if (!center.has_value())
+	{
+		qWarning() << "No se pudo estimar el centro de la habitación";
+		return {STATE::GOTO_ROOM_CENTER, 0.0f, 0.0f};
+	}
+
+	// 2. Convertir Vector2d → Vector2f
+	Eigen::Vector2f center_f = center.value().cast<float>();
+
+	// 3. Llamar al controlador
+    auto [v, w] = robot_controller(center_f);
+
+	// 4. Devolver estado, avance y rotación
+    return {STATE::GOTO_ROOM_CENTER, v, w};
+
+}
+
+
+std::tuple<float, float> SpecificWorker::robot_controller(const Eigen::Vector2f &target)
+{
+    // ===============================
+    // Parámetros del controlador
+    // ===============================
+    const float Kp = 0.1;                      // Ganancia proporcional
+    static float Kd = 0.0f;                       // Ganancia derivativa
+
+    const float vmax = 300.0f;                     // Velocidad lineal máxima (mm/s)
+
+    const float sigma_theta = M_PI / 4.0f;         // σθ del freno gaussiano (45º)
+    const float d_stop = 500.0f;                   // Distancia para comenzar frenado (mm)
+    const float k_sigmoid = 10.0f;                 // Steepness de la sigmoide
+
+    // Guardamos el error angular anterior para el término derivativo
+    static float prev_theta_e = 0.0f;
+    static QElapsedTimer timer;
+    if (!timer.isValid())
+        timer.start();
+    float dt = timer.restart() / 1000.0f;          // Tiempo en segundos
+
+
+    // ===============================
+    // 1. Distancia al objetivo
+    // ===============================
+    float tx = target.x();
+    float ty = target.y();
+    float d = std::sqrt(tx*tx + ty*ty);
+
+    // ===============================
+    // 2. Error angular
+    // ===============================
+    float theta_e = std::atan2(ty, tx);
+
+    // Normalizar [-PI, PI]
+    while(theta_e >  M_PI) theta_e -= 2 * M_PI;
+    while(theta_e < -M_PI) theta_e += 2 * M_PI;
+
+    // ===============================
+    // 3. Derivada del error angular
+    // ===============================
+    float theta_dot = (theta_e - prev_theta_e) / std::max(0.001f, dt);
+    prev_theta_e = theta_e;
+
+    // ===============================
+    // 4. Control PD de rotación
+    // ===============================
+    float w = Kp * theta_e + Kd * theta_dot;
+
+    // ===============================
+    // 5. Freno gaussiano (ángulo)
+    // ===============================
+    float f_theta = std::exp(-(theta_e*theta_e) / (2.0f * sigma_theta * sigma_theta));
+
+    // ===============================
+    // 6. Freno de distancia (sigmoide)
+    // ===============================
+    float f_d = 1.0f / (1.0f + std::exp(k_sigmoid * (d - d_stop)));
+
+    // ===============================
+    // 7. Velocidad final
+    // ===============================
+    float v = vmax * f_theta * f_d;
+
+    return std::make_tuple(v, w);
+}
+
+
 
 void SpecificWorker::draw_doors(const Doors& doors, QGraphicsScene* scene)
 {
@@ -218,29 +341,29 @@ void SpecificWorker::draw_doors(const Doors& doors, QGraphicsScene* scene)
 
 }
 
-// std::tuple<SpecificWorker::State,float,float> SpecificWorker::state_machine(State state, const RoboCompLidar3D::TPoints &filter_data)
-// {
-// 	switch (state)
-// 	{
-// 	case State::IDLE:
-// 		//result = IDLE_method();
-// 		break;
-// 	case State::FORWARD:
-// 		return FORWARD_method(filter_data);
-// 		break;
-// 	case State::TURN:
-// 		return TURN_method(filter_data);
-// 		break;
-// 	case State::FOLLOW_WALL:
-// 		return FOLLOW_WALL_method(filter_data);
-// 		break;
-// 	case State::SPIRAL:
-// 		return SPIRAL_method(filter_data);
-// 		break;
-// 	}
-// 	return {};
-// }
-//
+std::tuple<SpecificWorker::STATE,float,float> SpecificWorker::state_machine(STATE state, const RoboCompLidar3D::TPoints &filter_data)
+{
+	switch (state)
+	{
+	// case STATE::IDLE:
+	// 	//result = IDLE_method();
+	// 	break;
+	case STATE::GOTO_ROOM_CENTER:
+		return goto_room_center(filter_data);
+		break;
+	// case STATE::TURN:
+	// 	return TURN_method(filter_data);
+	// 	break;
+	// case STATE::FOLLOW_WALL:
+	// 	return FOLLOW_WALL_method(filter_data);
+	// 	break;
+	// case STATE::SPIRAL:
+	// 	return SPIRAL_method(filter_data);
+	// 	break;
+	}
+	return {};
+}
+
 RoboCompLidar3D::TPoints SpecificWorker::read_data()
 {
 	// data = read_data("helios");
@@ -313,6 +436,23 @@ void SpecificWorker::draw_lidar(const  RoboCompLidar3D::TPoints &points, QGraphi
         auto item = scene->addRect(-50, -50, 100, 100, color, brush);
         item->setPos(p.x, p.y);
         items.push_back(item);
+    }
+
+	// --- Dibujar el centro de la habitación ---
+    auto center = room_detector.estimate_center_from_walls();
+    if(center.has_value())
+    {
+        auto center_item = scene->addEllipse(-150, -150, 300, 300, QPen(Qt::cyan), QBrush(Qt::cyan));
+        center_item->setPos(center.value().x(), center.value().y());
+        items.push_back(center_item);
+
+        // opcional: dibujar un texto con coordenadas
+        auto text_item = scene->addText(QString("Center\nx=%1 y=%2")
+                                        .arg(center.value().x())
+                                        .arg(center.value().y()));
+        text_item->setDefaultTextColor(Qt::cyan);
+        text_item->setPos(center.value().x() + 20, center.value().y() + 20);
+        items.push_back(text_item);
     }
 
     // compute and draw minimum distance point in frontal range
@@ -424,6 +564,42 @@ std::optional<RoboCompLidar3D::TPoints> SpecificWorker::data_filter(const RoboCo
 		salida.emplace_back(*min_r);
 	}
 	return salida;
+}
+
+
+bool SpecificWorker::update_robot_pose(const Corners& corners, const Match& match)
+{
+	Eigen::MatrixXd W(match.size() * 2, 3);
+	Eigen::VectorXd b(match.size() * 2);
+	for (auto &&[i,m]: match | iter::enumerate )
+	{
+		auto &[meas_c, nom_c, _] = m;
+		auto &[p_meas, __, ___] = meas_c;
+		auto &[p_nom, ____, _____] = nom_c;
+
+		b(2 * i)     = p_nom.x() - p_meas.x();
+
+		b(2 * i + 1) = p_nom.y() - p_meas.y();
+		W.block<1, 3>(2 * i, 0)     << 1.0, 0.0, -p_meas.y();
+		W.block<1, 3>(2 * i + 1, 0) << 0.0, 1.0, p_meas.x();
+	}
+
+	// estimate new pose with pseudoinverse
+	const Eigen::Vector3d r = (W.transpose() * W).inverse() * W.transpose() * b;
+	std::cout << r << std::endl;
+	qInfo() << "--------------------";
+
+	if (r.array().isNaN().any())
+		return {};
+
+	robot_pose.translate(Eigen::Vector2d(r(0), r(1)));
+	robot_pose.rotate(r[2]);
+
+	robot_room_draw->setPos(robot_pose.translation().x(), robot_pose.translation().y());
+	const double angle = std::atan2(robot_pose.rotation()(1, 0), robot_pose.rotation()(0, 0));
+	robot_room_draw->setRotation(qRadiansToDegrees(angle));
+
+	return false;
 }
 
 void SpecificWorker::move_robot(float adv, float rot, float max_match_error)
