@@ -34,19 +34,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af02c26e-21b2-4b8d-a327-745b7d0e470d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.cmake/api/v1/reply/index-2025-11-13T17-02-15-0133.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.cmake/api/v1/reply/index-2025-11-18T14-38-50-0069.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/chocachoca" beforeDir="false" afterPath="$PROJECT_DIR$/bin/chocachoca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/compiler_depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca.dir/compiler_depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/ParseCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/ParseCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/door_detector.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/door_detector.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/room_detector.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/room_detector.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/specificworker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/specificworker.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/specificworker.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/specificworker.h" afterDir="false" />
     </list>
@@ -146,11 +142,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="chocachoca" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="etc/config" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="chocachoca" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="chocachoca" RUN_TARGET_NAME="chocachoca">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -176,7 +167,8 @@
       <workItem from="1762959357476" duration="334000" />
       <workItem from="1762964036316" duration="966000" />
       <workItem from="1763044834584" duration="14664000" />
-      <workItem from="1763476482135" duration="7412000" />
+      <workItem from="1763476482135" duration="7547000" />
+      <workItem from="1763649766241" duration="12776000" />
     </task>
     <servers />
   </component>

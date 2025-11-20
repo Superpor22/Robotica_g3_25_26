@@ -134,13 +134,17 @@ void SpecificWorker::initialize()
 
 void SpecificWorker::compute()
 {
+	std::tuple<STATE,float,float> result;
+	static auto state = STATE::GOTO_ROOM_CENTER;  // Estado inicial
+
 	// Read data from lidar
 	auto filter_data = read_data();
-	// filtrar con el filtro de huecos
-	auto filter_data2 = door_detector.filter_points(filter_data, &viewer->scene);
-	draw_lidar(filter_data2, &viewer->scene);
-	auto doors = door_detector.detect(filter_data, &viewer->scene);
+
+	doors = door_detector.detect(filter_data, &viewer->scene);
 	draw_doors(doors, &viewer->scene);
+	// filtrar con el filtro de huecos
+	filter_data = door_detector.filter_points(filter_data, &viewer->scene);
+	draw_lidar(filter_data, &viewer->scene);
 
 	// corners
 	const auto &[measured_corners, _] =
@@ -158,161 +162,151 @@ void SpecificWorker::compute()
         const auto max_error_iter = std::ranges::max_element(match, [](const auto &a, const auto &b)
             { return std::get<2>(a) < std::get<2>(b); });
         max_match_error = static_cast<float>(std::get<2>(*max_error_iter));
-        time_series_plotter->addDataPoint(match_error_graph,max_match_error);
+        time_series_plotter->addDataPoint(0,max_match_error);
         //print_match(match, max_match_error); //debugging
     }
 
    // update robot pose
    if (localised)
    {
-   		qInfo() << "bbbbbbbbbbbbbbbbbbbbbbbb";
 		update_robot_pose(measured_corners, match);
-   		localised = false;
-   		qDebug() << "Dentrooooooooooooooooooooooooooooooo";
    }
 
-	// State machine
-
-	// Eigen::MatrixXd W(match.size() * 2, 3);
-	// Eigen::VectorXd b(match.size() * 2);
-	// for (auto &&[i,m]: match | iter::enumerate )
-	// {
-	// 	auto &[meas_c, nom_c, _] = m;
-	// 	auto &[p_meas, __, ___] = meas_c;
-	// 	auto &[p_nom, ____, _____] = nom_c;
-	//
-	// 	b(2 * i)     = p_nom.x() - p_meas.x();
-	//
-	// 	b(2 * i + 1) = p_nom.y() - p_meas.y();
-	// 	W.block<1, 3>(2 * i, 0)     << 1.0, 0.0, -p_meas.y();
-	// 	W.block<1, 3>(2 * i + 1, 0) << 0.0, 1.0, p_meas.x();
-	// }
-	//
-	// // estimate new pose with pseudoinverse
-	// const Eigen::Vector3d r = (W.transpose() * W).inverse() * W.transpose() * b;
-	// std::cout << r << std::endl;
-	// qInfo() << "--------------------";
-	//
-	// if (r.array().isNaN().any())
-	// 	return;
-	//
-	// robot_pose.translate(Eigen::Vector2d(r(0), r(1)));
-	// robot_pose.rotate(r[2]);
-	//
-	//
-	//
-	// robot_room_draw->setPos(robot_pose.translation().x(), robot_pose.translation().y());
-	// const double angle = std::atan2(robot_pose.rotation()(1, 0), robot_pose.rotation()(0, 0));
-	// robot_room_draw->setRotation(qRadiansToDegrees(angle));
-	//
-	std::tuple<STATE,float,float> result;
-	static auto state = STATE::GOTO_ROOM_CENTER;  // Estado inicial
-	qDebug() << match.size() << "-a-a-a-a-a-";
-	if (match.size() < 3) localised = true;
 	const auto &[st, adv, rot] = state_machine(state, filter_data); // Machine states method
 	state = st;
+	qInfo() << to_string(state);
 	try{ omnirobot_proxy->setSpeedBase(0, adv, rot);}
 	catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
 }
 
-SpecificWorker::RetVal SpecificWorker::goto_room_center(const RoboCompLidar3D::TPoints& points)
+SpecificWorker::RetVal SpecificWorker::goto_door()
 {
-	auto center = room_detector.estimate_center_from_walls();
+	// exit condition
+	if (doors.empty()) return {};
+	auto rp = robot_pose.translation();
+	auto target = doors[0].center_before(rp);
+	if ( target.norm() < 300.f ) return {STATE::ORIENT_TO_DOOR, 0.f, 0.f};
 
-	    // Mostrar el valor calculado del centro
-    if (center.has_value()) {
-        qInfo() << "Centro estimado de la habitación:"
-                << "x =" << center.value().x()
-                << ", y =" << center.value().y();
-    } else {
-        qWarning() << "No se pudo estimar el centro de la habitación";
-        return {STATE::GOTO_ROOM_CENTER, 0.0f, 0.0f};
-    }
-
-	// 1. Comprobar si existe el centro
-	if (!center.has_value())
-	{
-		qWarning() << "No se pudo estimar el centro de la habitación";
-		return {STATE::GOTO_ROOM_CENTER, 0.0f, 0.0f};
-	}
-
-	// 2. Convertir Vector2d → Vector2f
-	Eigen::Vector2f center_f = center.value().cast<float>();
-
-	// 3. Llamar al controlador
-    auto [v, w] = robot_controller(center_f);
-
-	// 4. Devolver estado, avance y rotación
-    return {STATE::GOTO_ROOM_CENTER, v, w};
+	// do my thing
+	const auto &[adv, rot] = robot_controller(target);
+	return {STATE::GOTO_DOOR, adv, rot};
 
 }
+
+SpecificWorker::RetVal SpecificWorker::orient_to_door()
+{
+	if (doors.empty()) return {};
+	// exit condition
+	auto rp = robot_pose.translation();
+	auto u = doors[0].center();
+	auto v = doors[0].p2 - doors[0].p1;
+
+	float dot = u.dot(v);
+	float norm_u = u.norm();
+	float norm_v = v.norm();
+
+	float cos_angle = dot / (norm_u * norm_v);
+
+	// Clamp por seguridad numérica (cos puede quedar 1.00001 o -1.00001)
+	cos_angle = std::clamp(cos_angle, -1.0f, 1.0f);
+
+	auto angle = std::acos(cos_angle);  // en radianes
+
+	if (qRadiansToDegrees(angle) > 70 and qRadiansToDegrees(angle) < 110) return {STATE::CROSS_DOOR, 0.f, 0.f};
+
+	// do my thing
+	float signo = (angle > 0.f) ? 1.f : -1.f;
+	return {STATE::ORIENT_TO_DOOR, 0.f, 0.3f * signo};
+}
+
+SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints& points)
+{
+	return {};
+}
+
+SpecificWorker::RetVal SpecificWorker::TURN_method()
+{
+	// exit condition
+	const auto &[success, turn] = image_processor.check_red_patch_in_image(camera360rgb_proxy, label_img);
+	if (success)
+	{
+		localised = true;
+		return {STATE::GOTO_DOOR, 0.f, 0.f};
+	}
+
+	// do my thing
+	return {STATE::TURN, 0.f, 0.4f};
+}
+
+SpecificWorker::RetVal SpecificWorker::IDLE_method()
+{
+	return {};
+}
+
+SpecificWorker::RetVal SpecificWorker::goto_room_center(const RoboCompLidar3D::TPoints& points)
+{
+	std::optional<Eigen::Vector2d> center;
+	if (center = room_detector.estimate_center_from_walls(); not center.has_value())
+		return{};
+
+	auto dist = center.value().norm();
+	// exit condition:
+	if (dist < 300.f) return {STATE::TURN,0.f, 0.f};
+
+	// Do my thing
+
+	// 1. Convertir Vector2d → Vector2f
+	Eigen::Vector2f center_f = center.value().cast<float>();
+
+	// 2. Llamar al controlador
+	auto [v, w] = robot_controller(center_f);
+
+	// 3. Devolver estado, avance y rotación
+	return {STATE::GOTO_ROOM_CENTER, v, w};
+}
+
+std::tuple<SpecificWorker::STATE,float,float> SpecificWorker::state_machine(STATE state, const RoboCompLidar3D::TPoints &filter_data)
+{
+	switch (state)
+	{
+	case STATE::IDLE:
+		return IDLE_method();
+		break;
+	case STATE::GOTO_DOOR:
+		return goto_door();
+		break;
+	case STATE::TURN:
+		return TURN_method();
+		break;
+	case STATE::ORIENT_TO_DOOR:
+		return orient_to_door();
+		break;
+	case STATE::GOTO_ROOM_CENTER:
+		return goto_room_center(filter_data);
+		break;
+	case STATE::CROSS_DOOR:
+		return cross_door(filter_data);
+		break;
+	}
+	return {};
+}
+
+
 
 
 std::tuple<float, float> SpecificWorker::robot_controller(const Eigen::Vector2f &target)
 {
-    // ===============================
-    // Parámetros del controlador
-    // ===============================
-    const float Kp = 0.1;                      // Ganancia proporcional
-    static float Kd = 0.0f;                       // Ganancia derivativa
+	auto dist = target.norm();
+	// exit condition:
+	if (dist < 300.f) return {0.f, 0.f};
 
-    const float vmax = 300.0f;                     // Velocidad lineal máxima (mm/s)
+	// do my thing
+	auto theta = std::atan2(target.x(), target.y());
+	float rot = 0.5f * theta;
+	float angle_break = exp((-theta * theta)/(M_PI/6.f));
+	float adv = 1000.f * angle_break;
 
-    const float sigma_theta = M_PI / 4.0f;         // σθ del freno gaussiano (45º)
-    const float d_stop = 500.0f;                   // Distancia para comenzar frenado (mm)
-    const float k_sigmoid = 10.0f;                 // Steepness de la sigmoide
-
-    // Guardamos el error angular anterior para el término derivativo
-    static float prev_theta_e = 0.0f;
-    static QElapsedTimer timer;
-    if (!timer.isValid())
-        timer.start();
-    float dt = timer.restart() / 1000.0f;          // Tiempo en segundos
-
-
-    // ===============================
-    // 1. Distancia al objetivo
-    // ===============================
-    float tx = target.x();
-    float ty = target.y();
-    float d = std::sqrt(tx*tx + ty*ty);
-
-    // ===============================
-    // 2. Error angular
-    // ===============================
-    float theta_e = std::atan2(ty, tx);
-
-    // Normalizar [-PI, PI]
-    while(theta_e >  M_PI) theta_e -= 2 * M_PI;
-    while(theta_e < -M_PI) theta_e += 2 * M_PI;
-
-    // ===============================
-    // 3. Derivada del error angular
-    // ===============================
-    float theta_dot = (theta_e - prev_theta_e) / std::max(0.001f, dt);
-    prev_theta_e = theta_e;
-
-    // ===============================
-    // 4. Control PD de rotación
-    // ===============================
-    float w = Kp * theta_e + Kd * theta_dot;
-
-    // ===============================
-    // 5. Freno gaussiano (ángulo)
-    // ===============================
-    float f_theta = std::exp(-(theta_e*theta_e) / (2.0f * sigma_theta * sigma_theta));
-
-    // ===============================
-    // 6. Freno de distancia (sigmoide)
-    // ===============================
-    float f_d = 1.0f / (1.0f + std::exp(k_sigmoid * (d - d_stop)));
-
-    // ===============================
-    // 7. Velocidad final
-    // ===============================
-    float v = vmax * f_theta * f_d;
-
-    return std::make_tuple(v, w);
+	return {adv, rot};
 }
 
 
@@ -341,28 +335,7 @@ void SpecificWorker::draw_doors(const Doors& doors, QGraphicsScene* scene)
 
 }
 
-std::tuple<SpecificWorker::STATE,float,float> SpecificWorker::state_machine(STATE state, const RoboCompLidar3D::TPoints &filter_data)
-{
-	switch (state)
-	{
-	// case STATE::IDLE:
-	// 	//result = IDLE_method();
-	// 	break;
-	case STATE::GOTO_ROOM_CENTER:
-		return goto_room_center(filter_data);
-		break;
-	// case STATE::TURN:
-	// 	return TURN_method(filter_data);
-	// 	break;
-	// case STATE::FOLLOW_WALL:
-	// 	return FOLLOW_WALL_method(filter_data);
-	// 	break;
-	// case STATE::SPIRAL:
-	// 	return SPIRAL_method(filter_data);
-	// 	break;
-	}
-	return {};
-}
+
 
 RoboCompLidar3D::TPoints SpecificWorker::read_data()
 {
@@ -671,47 +644,7 @@ void SpecificWorker::move_robot(float adv, float rot, float max_match_error)
 //  *         - The linear velocity value.
 //  *         - The rotational velocity value.
 //  */
-// std::tuple<SpecificWorker::State, float, float> SpecificWorker::TURN_method(const RoboCompLidar3D::TPoints& points)
-// {
-// 	auto min_dist = std::min_element(std::begin(points), std::end(points),[](const auto& p1, const auto& p2)
-// 			{ return p1.r < p2.r; });
-//
-// 	// Si ya no hay obstáculo cerca, volvemos a FORWARD
-// 	if (min_dist->r > 800)
-// 	{
-// 		contador_turn = 0;
-// 		int r = std::rand() % 10;
-// 		qInfo() << "-------------------R: " << r;
-// 		if (r < 5)
-// 		{
-// 			qInfo() << "CHANGE FROM TURN TO FOLLOW WALL";
-// 			return {State::FOLLOW_WALL, 0.0f, 0.0f};
-// 		}
-// 		else
-// 		{
-// 			qInfo() << "CHANGE FROM TURN TO FORWARD";
-// 			if (min_dist->phi < 0)
-// 				return {State::FORWARD, 1000.0f, 0.5f};
-// 			else
-// 				return {State::FORWARD, 1000.0f, -0.5f};
-// 		}
-// 	}
-//
-// 	qInfo() << "CONTINUE TURNING";
-//
-// 	//What I do if I Stay
-// 	contador_turn++;
-// 	if (contador_turn > 15)
-// 	{
-// 		return {State::TURN, 0.0f, 1.0f};
-// 	}
-// 	qInfo() << "------------------ Menor ángulo: " << min_dist->phi;
-// 	if (min_dist->phi < 0)
-// 		return {State::TURN, 0.0f, 0.8f};
-// 	else
-// 		return {State::TURN, 0.0f, -0.8f};  // Desplazamiento lateral + rotación
-//
-// }
+
 //
 // /**
 //  * @brief Controls the robot’s behavior while following a wall using lidar data.
@@ -880,3 +813,67 @@ int SpecificWorker::startup_check()
 // From the RoboCompLaser you can use this types:
 // RoboCompLaser::LaserConfData
 // RoboCompLaser::TData
+
+    // // ===============================
+    // // Parámetros del controlador
+    // // ===============================
+    // const float Kp = 0.1;                      // Ganancia proporcional
+    // static float Kd = 0.0f;                       // Ganancia derivativa
+    //
+    // const float vmax = 300.0f;                     // Velocidad lineal máxima (mm/s)
+    //
+    // const float sigma_theta = M_PI / 4.0f;         // σθ del freno gaussiano (45º)
+    // const float d_stop = 500.0f;                   // Distancia para comenzar frenado (mm)
+    // const float k_sigmoid = 10.0f;                 // Steepness de la sigmoide
+    //
+    // // Guardamos el error angular anterior para el término derivativo
+    // static float prev_theta_e = 0.0f;
+    // static QElapsedTimer timer;
+    // if (!timer.isValid())
+    //     timer.start();
+    // float dt = timer.restart() / 1000.0f;          // Tiempo en segundos
+    //
+    //
+    // // ===============================
+    // // 1. Distancia al objetivo
+    // // ===============================
+    // float tx = target.x();
+    // float ty = target.y();
+    // float d = std::sqrt(tx*tx + ty*ty);
+    //
+    // // ===============================
+    // // 2. Error angular
+    // // ===============================
+    // float theta_e = std::atan2(ty, tx);
+    //
+    // // Normalizar [-PI, PI]
+    // while(theta_e >  M_PI) theta_e -= 2 * M_PI;
+    // while(theta_e < -M_PI) theta_e += 2 * M_PI;
+    //
+    // // ===============================
+    // // 3. Derivada del error angular
+    // // ===============================
+    // float theta_dot = (theta_e - prev_theta_e) / std::max(0.001f, dt);
+    // prev_theta_e = theta_e;
+    //
+    // // ===============================
+    // // 4. Control PD de rotación
+    // // ===============================
+    // float w = Kp * theta_e + Kd * theta_dot;
+    //
+    // // ===============================
+    // // 5. Freno gaussiano (ángulo)
+    // // ===============================
+    // float f_theta = std::exp(-(theta_e*theta_e) / (2.0f * sigma_theta * sigma_theta));
+    //
+    // // ===============================
+    // // 6. Freno de distancia (sigmoide)
+    // // ===============================
+    // float f_d = 1.0f / (1.0f + std::exp(k_sigmoid * (d - d_stop)));
+    //
+    // // ===============================
+    // // 7. Velocidad final
+    // // ===============================
+    // float v = vmax * f_theta * f_d;
+    //
+    // return std::make_tuple(v, w);

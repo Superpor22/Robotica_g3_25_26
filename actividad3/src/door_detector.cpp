@@ -68,8 +68,9 @@ RoboCompLidar3D::TPoints DoorDetector::filter_points(const RoboCompLidar3D::TPoi
             }
             else
             {
+                float offset = qDegreesToRadians(3);
                 // Normal case: point is in range if it's between p1_angle and p2_angle
-                point_in_angular_range = (p.phi > d.p1_angle) and (p.phi < d.p2_angle);
+                point_in_angular_range = (p.phi > d.p1_angle - offset) and (p.phi < d.p2_angle + offset);
             }
 
             // Filter out points that are through the door (in angular range and farther than door)

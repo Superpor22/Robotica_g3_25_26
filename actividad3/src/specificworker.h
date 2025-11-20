@@ -140,10 +140,11 @@ class SpecificWorker final : public GenericWorker
         }
         STATE state = STATE::LOCALISE;
         using RetVal = std::tuple<STATE, float, float>;
-        RetVal goto_door(const RoboCompLidar3D::TPoints &points);
-        RetVal orient_to_door(const RoboCompLidar3D::TPoints &points);
+        RetVal goto_door();
+        RetVal orient_to_door();
         RetVal cross_door(const RoboCompLidar3D::TPoints &points);
         RetVal localise(const Match &match);
+        RetVal IDLE_method();
         RetVal goto_room_center(const RoboCompLidar3D::TPoints &points);
         RetVal update_pose(const Corners &corners, const Match &match);
         RetVal turn(const Corners &corners);
@@ -177,6 +178,7 @@ class SpecificWorker final : public GenericWorker
 
         // doors
         DoorDetector door_detector;
+        Doors doors;
 
         // image processor
         rc::ImageProcessor image_processor;
@@ -190,7 +192,8 @@ class SpecificWorker final : public GenericWorker
 
         bool update_robot_pose(const Corners &corners, const Match &match);
         void move_robot(float adv, float rot, float max_match_error);
-        Eigen::Vector3d solve_pose(const Corners &corners, const Match &match);
+    RetVal TURN_method();
+    Eigen::Vector3d solve_pose(const Corners &corners, const Match &match);
         void predict_robot_pose();
         std::tuple<float, float> robot_controller(const Eigen::Vector2f &target);
 

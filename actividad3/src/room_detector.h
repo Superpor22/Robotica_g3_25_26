@@ -34,7 +34,7 @@ namespace rc   // aka RoboComp
         public:
              std::tuple<Corners, Lines> compute_corners(const std::vector<Eigen::Vector2d> &line, QGraphicsScene *scene= nullptr);
              std::tuple<Corners, Lines> compute_corners(const std::vector<Eigen::Vector3d> &line, QGraphicsScene *scene= nullptr);
-             std::tuple<Corners, Lines> compute_corners(const RoboCompLidar3D::TPoints &points, QGraphicsScene *scene= nullptr);
+             std::tuple<Corners, Lines> compute_corners(const RoboCompLidar3D::TPoints& points, QGraphicsScene* scene = nullptr);
              Eigen::Vector3d estimate_room_sizes(const Eigen::Vector2d &room_center, std::vector<Eigen::Vector2d> &floor_line_cart);
              Corners get_corners(Lines &elines);
              Lines filter_lines_by_length(const Lines &lines, float threshold );
