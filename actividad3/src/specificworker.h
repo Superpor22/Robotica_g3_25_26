@@ -122,6 +122,7 @@ class SpecificWorker final : public GenericWorker
         std::vector<NominalRoom> nominal_rooms{ NominalRoom{5500.f, 4000.f}, NominalRoom{8000.f, 4000.f}};
         rc::Room_Detector room_detector;
         rc::Hungarian hungarian;
+        int room_index = 0;
 
         // state machine
         enum class STATE {GOTO_DOOR, ORIENT_TO_DOOR, LOCALISE, GOTO_ROOM_CENTER, TURN, IDLE, CROSS_DOOR};

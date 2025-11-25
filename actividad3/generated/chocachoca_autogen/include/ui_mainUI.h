@@ -53,6 +53,12 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *label_state_name;
     QLabel *label_state;
+    QHBoxLayout *horizontalLayout_12;
+    QLabel *label_7;
+    QLabel *label_localized;
+    QVBoxLayout *verticalLayout_3;
+    QLabel *label_8;
+    QLCDNumber *lcdNumber_room;
     QSpacerItem *horizontalSpacer;
     QPushButton *pushButton_stop;
     QFrame *frame_plot_error;
@@ -206,10 +212,40 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
+        horizontalLayout_12 = new QHBoxLayout();
+        horizontalLayout_12->setObjectName("horizontalLayout_12");
+        label_7 = new QLabel(guiDlg);
+        label_7->setObjectName("label_7");
+
+        horizontalLayout_12->addWidget(label_7);
+
+        label_localized = new QLabel(guiDlg);
+        label_localized->setObjectName("label_localized");
+
+        horizontalLayout_12->addWidget(label_localized);
+
+
+        verticalLayout->addLayout(horizontalLayout_12);
+
 
         horizontalLayout_18->addLayout(verticalLayout);
 
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        label_8 = new QLabel(guiDlg);
+        label_8->setObjectName("label_8");
+
+        verticalLayout_3->addWidget(label_8);
+
+        lcdNumber_room = new QLCDNumber(guiDlg);
+        lcdNumber_room->setObjectName("lcdNumber_room");
+
+        verticalLayout_3->addWidget(lcdNumber_room);
+
+
+        horizontalLayout_18->addLayout(verticalLayout_3);
+
+        horizontalSpacer = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_18->addItem(horizontalSpacer);
 
@@ -258,6 +294,9 @@ public:
         label_5->setText(QCoreApplication::translate("guiDlg", "rot", nullptr));
         label_state_name->setText(QCoreApplication::translate("guiDlg", "state:", nullptr));
         label_state->setText(QCoreApplication::translate("guiDlg", "TextLabel", nullptr));
+        label_7->setText(QCoreApplication::translate("guiDlg", "localized:", nullptr));
+        label_localized->setText(QCoreApplication::translate("guiDlg", "TextLabel", nullptr));
+        label_8->setText(QCoreApplication::translate("guiDlg", "room:", nullptr));
         pushButton_stop->setText(QCoreApplication::translate("guiDlg", "Stop", nullptr));
         label_img->setText(QCoreApplication::translate("guiDlg", "TextLabel", nullptr));
     } // retranslateUi

@@ -417,6 +417,30 @@ __/src/hungarian.cpp.s:
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/hungarian.cpp.s
 .PHONY : __/src/hungarian.cpp.s
 
+__/src/pointcloud_center_estimator.o: __/src/pointcloud_center_estimator.cpp.o
+.PHONY : __/src/pointcloud_center_estimator.o
+
+# target to build an object file
+__/src/pointcloud_center_estimator.cpp.o:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o
+.PHONY : __/src/pointcloud_center_estimator.cpp.o
+
+__/src/pointcloud_center_estimator.i: __/src/pointcloud_center_estimator.cpp.i
+.PHONY : __/src/pointcloud_center_estimator.i
+
+# target to preprocess a source file
+__/src/pointcloud_center_estimator.cpp.i:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.i
+.PHONY : __/src/pointcloud_center_estimator.cpp.i
+
+__/src/pointcloud_center_estimator.s: __/src/pointcloud_center_estimator.cpp.s
+.PHONY : __/src/pointcloud_center_estimator.s
+
+# target to generate assembly for a file
+__/src/pointcloud_center_estimator.cpp.s:
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(MAKE) $(MAKESILENT) -f generated/CMakeFiles/chocachoca.dir/build.make generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.s
+.PHONY : __/src/pointcloud_center_estimator.cpp.s
+
 __/src/qcustomplot.o: __/src/qcustomplot.cpp.o
 .PHONY : __/src/qcustomplot.o
 
@@ -767,6 +791,9 @@ help:
 	@echo "... __/src/hungarian.o"
 	@echo "... __/src/hungarian.i"
 	@echo "... __/src/hungarian.s"
+	@echo "... __/src/pointcloud_center_estimator.o"
+	@echo "... __/src/pointcloud_center_estimator.i"
+	@echo "... __/src/pointcloud_center_estimator.s"
 	@echo "... __/src/qcustomplot.o"
 	@echo "... __/src/qcustomplot.i"
 	@echo "... __/src/qcustomplot.s"

@@ -16,6 +16,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.o.d"
   "CMakeFiles/chocachoca.dir/__/src/hungarian.cpp.o"
   "CMakeFiles/chocachoca.dir/__/src/hungarian.cpp.o.d"
+  "CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o"
+  "CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o.d"
   "CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.o"
   "CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.o.d"
   "CMakeFiles/chocachoca.dir/__/src/ransac_line_detector.cpp.o"

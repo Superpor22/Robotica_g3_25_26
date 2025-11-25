@@ -230,10 +230,24 @@ generated/CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.s"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/qcustomplot.cpp -o CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.s
 
+generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o: generated/CMakeFiles/chocachoca.dir/flags.make
+generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o: src/pointcloud_center_estimator.cpp
+generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o"
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o -MF CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o.d -o CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o -c /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/pointcloud_center_estimator.cpp
+
+generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.i"
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/pointcloud_center_estimator.cpp > CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.i
+
+generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.s"
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/pointcloud_center_estimator.cpp -o CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.s
+
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o: generated/CMakeFiles/chocachoca.dir/flags.make
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o: /home/usuario/robocomp/classes/rapplication/rapplication.cpp
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o -MF CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o.d -o CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o -c /home/usuario/robocomp/classes/rapplication/rapplication.cpp
 
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.i: cmake_force
@@ -247,7 +261,7 @@ generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/r
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o: generated/CMakeFiles/chocachoca.dir/flags.make
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o: /home/usuario/robocomp/classes/sigwatch/sigwatch.cpp
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o -MF CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o.d -o CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o -c /home/usuario/robocomp/classes/sigwatch/sigwatch.cpp
 
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.i: cmake_force
@@ -261,7 +275,7 @@ generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwa
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o: generated/CMakeFiles/chocachoca.dir/flags.make
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o: /home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o -MF CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o.d -o CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o -c /home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp
 
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.i: cmake_force
@@ -275,7 +289,7 @@ generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GR
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o: generated/CMakeFiles/chocachoca.dir/flags.make
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o: /home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o -MF CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o.d -o CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o -c /home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp
 
 generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.i: cmake_force
@@ -289,7 +303,7 @@ generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/C
 generated/CMakeFiles/chocachoca.dir/main.cpp.o: generated/CMakeFiles/chocachoca.dir/flags.make
 generated/CMakeFiles/chocachoca.dir/main.cpp.o: generated/main.cpp
 generated/CMakeFiles/chocachoca.dir/main.cpp.o: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object generated/CMakeFiles/chocachoca.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object generated/CMakeFiles/chocachoca.dir/main.cpp.o"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT generated/CMakeFiles/chocachoca.dir/main.cpp.o -MF CMakeFiles/chocachoca.dir/main.cpp.o.d -o CMakeFiles/chocachoca.dir/main.cpp.o -c /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/main.cpp
 
 generated/CMakeFiles/chocachoca.dir/main.cpp.i: cmake_force
@@ -303,7 +317,7 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.s: cmake_force
 generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o: generated/CMakeFiles/chocachoca.dir/flags.make
 generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o: generated/genericworker.cpp
 generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o -MF CMakeFiles/chocachoca.dir/genericworker.cpp.o.d -o CMakeFiles/chocachoca.dir/genericworker.cpp.o -c /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/genericworker.cpp
 
 generated/CMakeFiles/chocachoca.dir/genericworker.cpp.i: cmake_force
@@ -317,7 +331,7 @@ generated/CMakeFiles/chocachoca.dir/genericworker.cpp.s: cmake_force
 generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o: generated/CMakeFiles/chocachoca.dir/flags.make
 generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o: generated/OmniRobot.cpp
 generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o -MF CMakeFiles/chocachoca.dir/OmniRobot.cpp.o.d -o CMakeFiles/chocachoca.dir/OmniRobot.cpp.o -c /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/OmniRobot.cpp
 
 generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.i: cmake_force
@@ -331,7 +345,7 @@ generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.s: cmake_force
 generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o: generated/CMakeFiles/chocachoca.dir/flags.make
 generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o: generated/Camera360RGB.cpp
 generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o -MF CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o.d -o CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o -c /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Camera360RGB.cpp
 
 generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.i: cmake_force
@@ -345,7 +359,7 @@ generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.s: cmake_force
 generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o: generated/CMakeFiles/chocachoca.dir/flags.make
 generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o: generated/Lidar3D.cpp
 generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o -MF CMakeFiles/chocachoca.dir/Lidar3D.cpp.o.d -o CMakeFiles/chocachoca.dir/Lidar3D.cpp.o -c /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Lidar3D.cpp
 
 generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.i: cmake_force
@@ -359,7 +373,7 @@ generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.s: cmake_force
 generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o: generated/CMakeFiles/chocachoca.dir/flags.make
 generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o: generated/GenericBase.cpp
 generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o -MF CMakeFiles/chocachoca.dir/GenericBase.cpp.o.d -o CMakeFiles/chocachoca.dir/GenericBase.cpp.o -c /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/GenericBase.cpp
 
 generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.i: cmake_force
@@ -381,6 +395,7 @@ chocachoca_OBJECTS = \
 "CMakeFiles/chocachoca.dir/__/src/time_series_plotter.cpp.o" \
 "CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.o" \
 "CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.o" \
+"CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o" \
 "CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o" \
 "CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o" \
 "CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o" \
@@ -404,6 +419,7 @@ bin/chocachoca: generated/CMakeFiles/chocachoca.dir/__/src/ransac_line_detector.
 bin/chocachoca: generated/CMakeFiles/chocachoca.dir/__/src/time_series_plotter.cpp.o
 bin/chocachoca: generated/CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.o
 bin/chocachoca: generated/CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.o
+bin/chocachoca: generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o
 bin/chocachoca: generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o
 bin/chocachoca: generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o
 bin/chocachoca: generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o
@@ -483,7 +499,7 @@ bin/chocachoca: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
 bin/chocachoca: /usr/lib/x86_64-linux-gnu/libGLX.so
 bin/chocachoca: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 bin/chocachoca: generated/CMakeFiles/chocachoca.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable ../bin/chocachoca"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX executable ../bin/chocachoca"
 	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chocachoca.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
