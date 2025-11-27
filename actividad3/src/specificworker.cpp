@@ -109,7 +109,7 @@ void SpecificWorker::initialize()
 		auto [rr, re] = viewer_room->add_robot(params.ROBOT_WIDTH, params.ROBOT_LENGTH, 0, 100, QColor("Blue"));
 		robot_room_draw = rr;
 		// draw room in viewer_room
-		viewer_room->scene.addRect(nominal_rooms[0].rect(), QPen(Qt::black, 30));
+		habitacion = viewer_room->scene.addRect(nominal_rooms[0].rect(), QPen(Qt::black, 30));
 		show();
 
 		// initialise robot pose
@@ -151,7 +151,7 @@ void SpecificWorker::compute()
 	const auto &[measured_corners, _] =
 		room_detector.compute_corners(filter_data, &viewer->scene);
 
-	auto robot_corners = nominal_rooms[0].transform_corners_to(robot_pose.inverse());
+	auto robot_corners = nominal_rooms[room_index].transform_corners_to(robot_pose.inverse());
 	auto match = hungarian.match(measured_corners, robot_corners, 1000);
 	if (match.empty())
 		qDebug() << "No match found";
@@ -213,16 +213,18 @@ SpecificWorker::RetVal SpecificWorker::goto_door()
 	if (doors.empty()) return {};
 	auto rp = robot_pose.translation();
 	auto target = doors[0].center_before(rp, 1000.f);
-	if ( target.norm() < 300.f ) return {STATE::ORIENT_TO_DOOR, 0.f, 0.f};
+	qInfo() << target.norm() << "------------------";
+	if ( target.norm() < 500.f ) return {STATE::ORIENT_TO_DOOR, 0.f, 0.f};
 
 	// do my thing
 	const auto &[adv, rot] = robot_controller(target);
-	return {STATE::GOTO_DOOR, adv, rot};
+	return {STATE::GOTO_DOOR, adv*0.4, rot};
 
 }
 
 SpecificWorker::RetVal SpecificWorker::orient_to_door()
 {
+	static int contador = 0;
 	if (doors.empty()) return {};
 	// exit condition
 	auto rp = robot_pose.translation();
@@ -240,7 +242,17 @@ SpecificWorker::RetVal SpecificWorker::orient_to_door()
 
 	auto angle = std::acos(cos_angle);  // en radianes
 
-	if (qRadiansToDegrees(angle) > 70 and qRadiansToDegrees(angle) < 110) return {STATE::CROSS_DOOR, 0.f, 0.f};
+	// if (qRadiansToDegrees(angle) > 70 and qRadiansToDegrees(angle) < 110)
+	// 	return {STATE::CROSS_DOOR, 0.f, 0.f};
+	if (qRadiansToDegrees(angle) > 70 and qRadiansToDegrees(angle) < 110)
+	{
+		auto [_, w] = robot_controller(u);
+		qInfo() << "rotación:" << w;
+		if (w < 0.04f)
+			return {STATE::CROSS_DOOR, 0.f, 0.f};
+		return {STATE::ORIENT_TO_DOOR, 0.f, w};
+	}
+
 
 	// do my thing
 	float signo = (angle > 0.f) ? 1.f : -1.f;
@@ -253,10 +265,21 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 	static int contador = 0;
 
 	contador++;
-	if (contador == 30)
+	if (contador == 50)
 	{
 		contador = 0;
-		room_index += 1 % 2;
+		room_index = (room_index + 1) % 2;
+		if (room_index == 0)
+		{
+			color = Qt::red;
+		}
+		else
+		{
+			color = "green";
+		}
+		viewer_room->scene.removeItem(habitacion);
+		habitacion = viewer_room->scene.addRect(nominal_rooms[room_index].rect(), QPen(Qt::black, 30));
+		show();
 		return {STATE::GOTO_ROOM_CENTER, 0.f, 0.f};
 	}
 
@@ -267,7 +290,7 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 SpecificWorker::RetVal SpecificWorker::TURN_method()
 {
 	// exit condition
-	const auto &[success, turn] = image_processor.check_red_patch_in_image(camera360rgb_proxy, label_img);
+	const auto &[success, turn] = image_processor.check_colour_patch_in_image(camera360rgb_proxy, color, label_img);
 	if (success)
 	{
 		localised = true;
@@ -331,9 +354,6 @@ std::tuple<SpecificWorker::STATE,float,float> SpecificWorker::state_machine(STAT
 	return {};
 }
 
-
-
-
 std::tuple<float, float> SpecificWorker::robot_controller(const Eigen::Vector2f &target)
 {
 	auto dist = target.norm();
@@ -348,8 +368,6 @@ std::tuple<float, float> SpecificWorker::robot_controller(const Eigen::Vector2f 
 
 	return {adv, rot};
 }
-
-
 
 void SpecificWorker::draw_doors(const Doors& doors, QGraphicsScene* scene)
 {
@@ -374,8 +392,6 @@ void SpecificWorker::draw_doors(const Doors& doors, QGraphicsScene* scene)
 	}
 
 }
-
-
 
 RoboCompLidar3D::TPoints SpecificWorker::read_data()
 {
