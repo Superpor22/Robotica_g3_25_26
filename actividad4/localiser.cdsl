@@ -1,0 +1,18 @@
+import "Lidar3D.idsl";
+import "OmniRobot.idsl";
+import "Camera360RGB.idsl";
+
+
+Component chocachoca
+{
+   Communications
+   {
+       requires Lidar3D, OmniRobot, Camera360RGB;
+   };
+   language Cpp11;
+   gui Qt(QWidget);
+
+
+};
+
+
