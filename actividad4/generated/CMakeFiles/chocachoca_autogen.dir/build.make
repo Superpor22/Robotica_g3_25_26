@@ -53,10 +53,10 @@ RM = /snap/clion/401/bin/cmake/linux/x64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3
+CMAKE_SOURCE_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3
+CMAKE_BINARY_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4
 
 # Utility rule file for chocachoca_autogen.
 
@@ -71,9 +71,9 @@ generated/CMakeFiles/chocachoca_autogen: generated/chocachoca_autogen/timestamp
 generated/chocachoca_autogen/timestamp: /usr/lib/qt6/libexec/moc
 generated/chocachoca_autogen/timestamp: /usr/lib/qt6/libexec/uic
 generated/chocachoca_autogen/timestamp: generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target chocachoca"
-	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /snap/clion/401/bin/cmake/linux/x64/bin/cmake -E cmake_autogen /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/CMakeFiles/chocachoca_autogen.dir/AutogenInfo.json Debug
-	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && /snap/clion/401/bin/cmake/linux/x64/bin/cmake -E touch /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/timestamp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target chocachoca"
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated && /snap/clion/401/bin/cmake/linux/x64/bin/cmake -E cmake_autogen /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/CMakeFiles/chocachoca_autogen.dir/AutogenInfo.json Debug
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated && /snap/clion/401/bin/cmake/linux/x64/bin/cmake -E touch /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/timestamp
 
 generated/CMakeFiles/chocachoca_autogen.dir/codegen:
 .PHONY : generated/CMakeFiles/chocachoca_autogen.dir/codegen
@@ -88,10 +88,10 @@ generated/CMakeFiles/chocachoca_autogen.dir/build: chocachoca_autogen
 .PHONY : generated/CMakeFiles/chocachoca_autogen.dir/build
 
 generated/CMakeFiles/chocachoca_autogen.dir/clean:
-	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && $(CMAKE_COMMAND) -P CMakeFiles/chocachoca_autogen.dir/cmake_clean.cmake
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated && $(CMAKE_COMMAND) -P CMakeFiles/chocachoca_autogen.dir/cmake_clean.cmake
 .PHONY : generated/CMakeFiles/chocachoca_autogen.dir/clean
 
 generated/CMakeFiles/chocachoca_autogen.dir/depend:
-	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/CMakeFiles/chocachoca_autogen.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4 /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4 /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/CMakeFiles/chocachoca_autogen.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : generated/CMakeFiles/chocachoca_autogen.dir/depend
 

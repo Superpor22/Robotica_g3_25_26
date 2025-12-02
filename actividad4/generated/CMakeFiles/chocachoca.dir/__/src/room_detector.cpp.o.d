@@ -1,7 +1,7 @@
 generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/room_detector.cpp \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/room_detector.cpp \
  /usr/include/stdc-predef.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/room_detector.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/room_detector.h \
  /usr/include/c++/13/iosfwd /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -934,7 +934,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/q23functional.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtcoreversion.h \
  /usr/include/c++/13/ranges \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/common_types.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF \
  /usr/include/Eigen/Dense /usr/include/Eigen/Geometry \
  /usr/include/Eigen/Eigenvalues \
@@ -1115,7 +1115,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: \
  /usr/include/boost/circular_buffer/space_optimized.hpp \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QLineF \
  /usr/include/Eigen/src/Geometry/ParametrizedLine.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Lidar3D.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/Lidar3D.h \
  /usr/include/IceUtil/PushDisableWarnings.h /usr/include/Ice/ProxyF.h \
  /usr/include/Ice/Config.h /usr/include/IceUtil/Config.h \
  /usr/include/c++/13/iostream /usr/include/Ice/ProxyHandle.h \
@@ -1181,7 +1181,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpixmap.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qfont.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/ransac_line_detector.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/ransac_line_detector.h \
  /usr/local/include/cppitertools/enumerate.hpp \
  /usr/local/include/cppitertools/internal/iterator_wrapper.hpp \
  /usr/local/include/cppitertools/internal/iterbase.hpp \
@@ -1193,8 +1193,8 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: \
  /usr/local/include/cppitertools/zip.hpp \
  /usr/local/include/cppitertools/internal/iter_tuples.hpp \
  /usr/local/include/cppitertools/internal/iterator_wrapper.hpp \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/specificworker.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/genericworker.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/specificworker.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/genericworker.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QtGui \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QtGuiDepends \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QtCore \
@@ -1365,7 +1365,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qvectornd.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiversion.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/include/ui_mainUI.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/include/ui_mainUI.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QFrame \
@@ -1462,9 +1462,9 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtStateMachine/qstate.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QEvent \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QString \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Camera360RGB.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/GenericBase.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/OmniRobot.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/Camera360RGB.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/GenericBase.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/OmniRobot.h \
  /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView \
@@ -1492,11 +1492,11 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: \
  /home/robocomp/robocomp/classes/threadpool/threadpool.h \
  /usr/include/c++/13/queue /usr/include/c++/13/bits/stl_queue.h \
  /usr/include/c++/13/thread \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/time_series_plotter.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/time_series_plotter.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QColor \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QVector \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QElapsedTimer \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/qcustomplot.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/qcustomplot.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QSharedPointer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
@@ -1744,13 +1744,13 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: \
  /usr/include/c++/13/pstl/numeric_fwd.h \
  /usr/include/c++/13/pstl/glue_numeric_impl.h \
  /usr/include/c++/13/pstl/glue_memory_impl.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/hungarian.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/munkres.hpp \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/nominal_room.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/hungarian.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/munkres.hpp \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/nominal_room.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/common_types.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/door_detector.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/image_processor.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h \
  /usr/include/opencv4/opencv2/opencv.hpp \
  /usr/include/opencv4/opencv2/calib3d.hpp \
  /usr/include/opencv4/opencv2/features2d.hpp \

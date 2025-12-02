@@ -53,10 +53,10 @@ RM = /snap/clion/401/bin/cmake/linux/x64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3
+CMAKE_SOURCE_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3
+CMAKE_BINARY_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4
 
 # Utility rule file for chocachoca_autogen_timestamp_deps.
 
@@ -77,10 +77,10 @@ generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/build: chocachoca_aut
 .PHONY : generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/build
 
 generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/clean:
-	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated && $(CMAKE_COMMAND) -P CMakeFiles/chocachoca_autogen_timestamp_deps.dir/cmake_clean.cmake
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated && $(CMAKE_COMMAND) -P CMakeFiles/chocachoca_autogen_timestamp_deps.dir/cmake_clean.cmake
 .PHONY : generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/clean
 
 generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/depend:
-	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3 /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4 /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4 /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/depend
 

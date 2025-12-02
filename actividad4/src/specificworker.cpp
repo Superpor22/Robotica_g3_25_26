@@ -168,6 +168,7 @@ void SpecificWorker::compute()
 		//print_match(match, max_match_error); //debugging
 	}
 
+	qInfo() << "Puertas: " << doors.size();
 	qInfo() << "MATCH SIZE: " << match.size();
 	if (match.size() < 3)
 		localised = false;

@@ -20,37 +20,37 @@ generated/chocachoca_autogen/timestamp: /home/robocomp/robocomp/classes/ConfigLo
   /home/usuario/robocomp/core/classes/doublebuffer/DoubleBuffer.h \
   /home/usuario/robocomp/core/classes/grafcetStep/GRAFCETStep.h \
   /home/usuario/robocomp/core/classes/threadpool/threadpool.h \
-  generated/CMakeLists.txt \
-  generated/Camera360RGB.h \
-  generated/GenericBase.h \
-  generated/Lidar3D.h \
-  generated/OmniRobot.h \
-  generated/chocachoca_autogen/moc_predefs.h \
-  generated/genericworker.cpp \
-  generated/genericworker.h \
-  generated/main.cpp \
-  src/CMakeLists.txt \
-  src/common_types.h \
-  src/door_detector.cpp \
-  src/door_detector.h \
-  src/hungarian.cpp \
-  src/hungarian.h \
-  src/image_processor.h \
-  src/mainUI.ui \
-  src/munkres.hpp \
-  src/nominal_room.h \
-  src/pointcloud_center_estimator.cpp \
-  src/pointcloud_center_estimator.h \
-  src/qcustomplot.cpp \
-  src/qcustomplot.h \
-  src/ransac_line_detector.cpp \
-  src/ransac_line_detector.h \
-  src/room_detector.cpp \
-  src/room_detector.h \
-  src/specificworker.cpp \
-  src/specificworker.h \
-  src/time_series_plotter.cpp \
-  src/time_series_plotter.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/CMakeLists.txt \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Camera360RGB.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/GenericBase.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Lidar3D.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/OmniRobot.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/moc_predefs.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/genericworker.cpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/genericworker.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/main.cpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/CMakeLists.txt \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/common_types.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/door_detector.cpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/door_detector.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/hungarian.cpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/hungarian.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/image_processor.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/mainUI.ui \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/munkres.hpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/nominal_room.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/pointcloud_center_estimator.cpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/pointcloud_center_estimator.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/qcustomplot.cpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/qcustomplot.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/ransac_line_detector.cpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/ransac_line_detector.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/room_detector.cpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/room_detector.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/specificworker.cpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/specificworker.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/time_series_plotter.cpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/time_series_plotter.h \
   /snap/clion/401/bin/cmake/linux/x64/bin/cmake \
   /snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
   /snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake \
@@ -19111,6 +19111,8 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: generated/main.cpp \
 
 /usr/include/Ice/DispatchInterceptor.h:
 
+generated/genericworker.cpp:
+
 generated/chocachoca_autogen/VNU7RW3YIC/moc_specificworker.cpp:
 
 generated/chocachoca_autogen/UITLZZOD3R/moc_GRAFCETStep.cpp:
@@ -19118,6 +19120,8 @@ generated/chocachoca_autogen/UITLZZOD3R/moc_GRAFCETStep.cpp:
 /usr/include/Ice/RegisterPlugins.h:
 
 generated/chocachoca_autogen/4B7W4TDGLD/moc_abstract_graphic_viewer.cpp:
+
+src/time_series_plotter.cpp:
 
 /usr/local/include/cppitertools/zip.hpp:
 
@@ -19167,15 +19171,27 @@ generated/chocachoca_autogen/4B7W4TDGLD/moc_abstract_graphic_viewer.cpp:
 
 /usr/include/c++/13/math.h:
 
+src/nominal_room.h:
+
+src/image_processor.h:
+
+generated/genericworker.h:
+
 /home/robocomp/robocomp/classes/threadpool/threadpool.h:
 
 /home/robocomp/robocomp/classes/doublebuffer/DoubleBuffer.h:
 
 /home/robocomp/robocomp/classes/ConfigLoader/ConfigLoader.tpp:
 
+src/ransac_line_detector.cpp:
+
 /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h:
 
 /usr/include/c++/13/bits/random.tcc:
+
+src/pointcloud_center_estimator.h:
+
+src/hungarian.cpp:
 
 /usr/local/include/cppitertools/internal/iteratoriterator.hpp:
 
@@ -19357,8 +19373,6 @@ generated/chocachoca_autogen/4B7W4TDGLD/moc_abstract_graphic_viewer.cpp:
 
 /usr/include/Eigen/src/Core/CoreIterators.h:
 
-/usr/include/Eigen/src/Core/CommaInitializer.h:
-
 /usr/include/Eigen/src/Core/Block.h:
 
 /usr/include/Eigen/src/Core/BandMatrix.h:
@@ -19373,7 +19387,21 @@ generated/chocachoca_autogen/4B7W4TDGLD/moc_abstract_graphic_viewer.cpp:
 
 /usr/include/Eigen/Dense:
 
+src/door_detector.h:
+
+/usr/include/Eigen/src/Geometry/Quaternion.h:
+
+src/common_types.h:
+
+src/door_detector.cpp:
+
+generated/OmniRobot.h:
+
+generated/Lidar3D.h:
+
 generated/Lidar3D.cpp:
+
+generated/GenericBase.h:
 
 generated/GenericBase.cpp:
 
@@ -19422,6 +19450,8 @@ generated/GenericBase.cpp:
 /usr/include/c++/13/bits/hashtable_policy.h:
 
 /usr/include/c++/13/bits/hashtable.h:
+
+generated/Camera360RGB.h:
 
 generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp.o:
 
@@ -19677,8 +19707,6 @@ generated/CMakeFiles/chocachoca.dir/home/robocomp/robocomp/classes/grafcetStep/G
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsAdditionalTargetInfo.cmake:
 
-/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake:
-
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake:
 
 /usr/lib/x86_64-linux-gnu/libopencv_plot.so.4.6.0:
@@ -19933,8 +19961,6 @@ generated/chocachoca_autogen/mocs_compilation.cpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/amxtileintrin.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/amxint8intrin.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/amxfp16intrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/amxcomplexintrin.h:
@@ -19978,8 +20004,6 @@ generated/chocachoca_autogen/mocs_compilation.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtextedit.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleplugin.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstylepainter.h:
 
@@ -20048,6 +20072,10 @@ generated/chocachoca_autogen/mocs_compilation.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicssceneevent.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsproxywidget.h:
+
+/usr/include/Ice/Service.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsitemanimation.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsgridlayout.h:
 
@@ -20119,6 +20147,14 @@ generated/chocachoca_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractbutton.h:
 
+src/qcustomplot.cpp:
+
+/usr/local/include/toml++/impl/key.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollbar.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QtWidgetsDepends:
+
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget:
 
 /usr/include/Ice/Router.h:
@@ -20138,6 +20174,10 @@ generated/chocachoca_autogen/mocs_compilation.cpp:
 /usr/local/include/toml++/impl/print_to_stream.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsView:
+
+src/hungarian.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsScene:
 
 /usr/include/Eigen/src/Core/util/Macros.h:
 
@@ -20208,6 +20248,12 @@ generated/chocachoca_autogen/mocs_compilation.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qtgui-config.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextlayout.h:
+
+src/specificworker.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512cdintrin.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocumentwriter.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qsurface.h:
 
@@ -20603,12 +20649,6 @@ generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o:
 
 /usr/include/c++/13/cfloat:
 
-/usr/include/c++/13/source_location:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6Gui/Qt6GuiTargets-none.cmake:
-
-/usr/include/c++/13/bits/atomic_base.h:
-
 /usr/include/oneapi/tbb/detail/_intrusive_list_node.h:
 
 /usr/include/c++/13/typeinfo:
@@ -20633,10 +20673,6 @@ generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o:
 
 /usr/include/eigen3/Eigen/src/SVD/JacobiSVD.h:
 
-/usr/include/c++/13/tr1/exp_integral.tcc:
-
-src/door_detector.cpp:
-
 /usr/include/c++/13/tr1/beta_function.tcc:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcalendar.h:
@@ -20650,6 +20686,10 @@ src/door_detector.cpp:
 /usr/include/c++/13/stdexcept:
 
 /usr/include/boost/type_traits/is_stateless.hpp:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/pointcloud_center_estimator.cpp:
 
 /usr/include/c++/13/sstream:
 
@@ -20707,6 +20747,10 @@ src/door_detector.cpp:
 
 /snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/FindIce.cmake:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/amxint8intrin.h:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/room_detector.cpp:
+
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h:
@@ -20715,15 +20759,9 @@ src/door_detector.cpp:
 
 /usr/include/c++/13/locale:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h:
-
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qfocusframe.h:
 
 /usr/include/c++/13/iosfwd:
-
-/usr/include/c++/13/tr1/bessel_function.tcc:
-
-/usr/include/c++/13/initializer_list:
 
 /usr/include/opencv4/opencv2/flann/heap.h:
 
@@ -20742,12 +20780,6 @@ src/door_detector.cpp:
 /usr/include/c++/13/execution:
 
 /usr/include/c++/13/exception:
-
-src/hungarian.cpp:
-
-/usr/include/Eigen/src/Eigenvalues/ComplexSchur.h:
-
-/usr/include/eigen3/Eigen/src/Core/SolveTriangular.h:
 
 /usr/include/c++/13/debug/debug.h:
 
@@ -20773,9 +20805,15 @@ src/hungarian.cpp:
 
 /usr/include/c++/13/condition_variable:
 
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qconcatenatetablesproxymodel.h:
+
 /usr/include/Ice/Process.h:
 
 /usr/include/c++/13/codecvt:
+
+src/munkres.hpp:
+
+/usr/include/c++/13/chrono:
 
 /usr/include/c++/13/cerrno:
 
@@ -20803,17 +20841,7 @@ src/hungarian.cpp:
 
 /usr/include/c++/13/bits/uses_allocator.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtOpenGLWidgets/QOpenGLWidget:
-
-/usr/lib/x86_64-linux-gnu/libosgUtil.so:
-
-/usr/include/c++/13/bits/streambuf_iterator.h:
-
 /usr/include/c++/13/bits/stream_iterator.h:
-
-/usr/include/c++/13/bits/stl_vector.h:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
 /usr/include/c++/13/bits/stl_pair.h:
 
@@ -20822,10 +20850,6 @@ src/hungarian.cpp:
 /usr/include/c++/13/bits/stl_numeric.h:
 
 /usr/include/boost/concept/detail/backward_compatibility.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qpropertyanimation.h:
-
-/usr/include/c++/13/bits/stl_multiset.h:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6StateMachine/Qt6StateMachineDependencies.cmake:
 
@@ -20842,10 +20866,6 @@ src/hungarian.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qradiobutton.h:
 
 /usr/include/c++/13/bits/atomic_lockfree_defines.h:
-
-/usr/include/c++/13/chrono:
-
-src/munkres.hpp:
 
 /snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:
 
@@ -20903,6 +20923,10 @@ src/munkres.hpp:
 
 /usr/include/c++/13/bits/locale_facets_nonio.tcc:
 
+/usr/include/c++/13/bits/locale_facets.tcc:
+
+/usr/include/Ice/ServantLocatorF.h:
+
 /usr/include/c++/13/bits/locale_classes.tcc:
 
 /usr/include/boost/cstdint.hpp:
@@ -20914,6 +20938,26 @@ src/munkres.hpp:
 /usr/include/eigen3/Eigen/src/Core/Matrix.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcompare.h:
+
+/usr/include/boost/config/detail/select_compiler_config.hpp:
+
+/usr/local/lib/libQGLViewer-qt6.so:
+
+/usr/include/c++/13/bits/nested_exception.h:
+
+/usr/include/boost/preprocessor/arithmetic/limits/dec_256.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextobject.h:
+
+/usr/include/c++/13/type_traits:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6/FindWrapAtomic.cmake:
+
+/usr/include/features-time64.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
 /usr/include/c++/13/bits/iterator_concepts.h:
 
@@ -20943,10 +20987,6 @@ src/munkres.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h:
 
-/usr/include/c++/13/iostream:
-
-/usr/include/c++/13/bits/hash_bytes.h:
-
 /usr/include/eigen3/Eigen/src/Core/Inverse.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtStateMachine/QState:
@@ -20969,17 +21009,13 @@ src/munkres.hpp:
 
 /usr/include/Ice/ServantManagerF.h:
 
-generated/genericworker.h:
+/usr/include/eigen3/Eigen/src/LU/PartialPivLU.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qbindingstorage.h:
 
 generated/chocachoca_autogen/VNU7RW3YIC/moc_qcustomplot.cpp:
 
 /usr/include/c++/13/bits/concept_check.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstatusbar.h:
-
-/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CheckLibraryExists.cmake:
-
-/usr/include/boost/type_traits/is_volatile.hpp:
 
 /usr/include/c++/13/bits/stl_tree.h:
 
@@ -21005,15 +21041,9 @@ generated/chocachoca_autogen/VNU7RW3YIC/moc_qcustomplot.cpp:
 
 /home/usuario/robocomp/core/classes/grafcetStep/GRAFCETStep.h:
 
-src/nominal_room.h:
-
 /usr/include/c++/13/bits/char_traits.h:
 
 /usr/include/c++/13/bits/basic_string.h:
-
-/usr/include/eigen3/Eigen/Eigenvalues:
-
-/usr/include/Ice/EndpointF.h:
 
 /usr/lib/x86_64-linux-gnu/libopencv_bioinspired.so.4.6.0:
 
@@ -21024,6 +21054,18 @@ src/nominal_room.h:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qdatastream.h:
 
 /usr/include/c++/13/bits/basic_ios.h:
+
+/usr/include/c++/13/future:
+
+/usr/include/oneapi/tbb/parallel_for.h:
+
+/usr/lib/x86_64-linux-gnu/libopencv_flann.so.4.6.0:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6Xml/Qt6XmlConfigVersion.cmake:
+
+/usr/include/c++/13/bits/atomic_wait.h:
+
+/usr/include/boost/preprocessor/arithmetic/dec.hpp:
 
 /usr/include/c++/13/unordered_map:
 
@@ -21087,8 +21129,6 @@ generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qfilesystemwatcher.h:
 
-/usr/include/boost/type_traits/is_nothrow_move_assignable.hpp:
-
 /usr/include/c++/13/bits/string_view.tcc:
 
 /usr/include/boost/type_traits/is_function.hpp:
@@ -21096,8 +21136,6 @@ generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o:
 /usr/include/c++/13/bits/streambuf.tcc:
 
 /usr/include/boost/type_traits/is_scalar.hpp:
-
-/usr/include/c++/13/future:
 
 /usr/include/c++/13/bits/basic_string.tcc:
 
@@ -21107,10 +21145,6 @@ generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o:
 
 /usr/include/boost/type_traits/is_default_constructible.hpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtGui/QFileSystemModel:
-
-/usr/include/eigen3/Eigen/src/Core/SolverBase.h:
-
 /usr/include/boost/type_traits/is_copy_constructible.hpp:
 
 /usr/include/oneapi/tbb/tbb_allocator.h:
@@ -21118,6 +21152,10 @@ generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o:
 /usr/include/boost/type_traits/is_constructible.hpp:
 
 /usr/include/IceUtil/ScopedArray.h:
+
+/usr/include/boost/type_traits/is_complete.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qfuturewatcher.h:
 
 /usr/include/Eigen/src/Core/Reshaped.h:
 
@@ -21137,9 +21175,13 @@ generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o:
 
 /usr/include/eigen3/Eigen/src/Geometry/AngleAxis.h:
 
-/usr/include/c++/13/bits/postypes.h:
+/usr/include/c++/13/pstl/execution_impl.h:
 
-src/image_processor.h:
+/usr/include/IceUtil/Time.h:
+
+/usr/include/boost/circular_buffer.hpp:
+
+/usr/include/c++/13/bits/postypes.h:
 
 /usr/include/boost/type_traits/intrinsics.hpp:
 
@@ -21151,15 +21193,11 @@ src/image_processor.h:
 
 /usr/include/boost/move/utility.hpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextobject.h:
+/usr/lib/x86_64-linux-gnu/cmake/Qt6/Qt6ConfigVersionImpl.cmake:
 
-/usr/include/c++/13/type_traits:
+/usr/include/boost/type_traits/has_nothrow_assign.hpp:
 
-/usr/lib/x86_64-linux-gnu/cmake/Qt6/FindWrapAtomic.cmake:
-
-/usr/include/features-time64.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+/usr/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h:
 
 /usr/include/boost/type_traits/enable_if.hpp:
 
@@ -21191,6 +21229,28 @@ src/image_processor.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QSize:
 
+/usr/include/c++/13/source_location:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6Gui/Qt6GuiTargets-none.cmake:
+
+/usr/include/c++/13/bits/atomic_base.h:
+
+/usr/include/c++/13/system_error:
+
+/usr/include/c++/13/variant:
+
+/usr/include/c++/13/ctime:
+
+/usr/include/boost/type_traits/is_member_function_pointer.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qapplicationstatic.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h:
+
+/usr/include/Ice/ValueF.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qeasingcurve.h:
+
 /usr/include/c++/13/numeric:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
@@ -21206,6 +21266,10 @@ src/image_processor.h:
 /home/robocomp/robocomp/classes/grafcetStep/GRAFCETStep.h:
 
 /usr/include/eigen3/Eigen/src/plugins/CommonCwiseBinaryOps.h:
+
+src/specificworker.cpp:
+
+/usr/include/c++/13/bits/functexcept.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h:
 
@@ -21228,24 +21292,6 @@ src/image_processor.h:
 /usr/include/c++/13/bits/list.tcc:
 
 /usr/include/Ice/ProxyHandle.h:
-
-/usr/include/Ice/SlicedDataF.h:
-
-/usr/include/asm-generic/errno.h:
-
-/usr/include/eigen3/Eigen/Dense:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qconcatenatetablesproxymodel.h:
-
-/usr/include/c++/13/variant:
-
-/usr/include/c++/13/system_error:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512cdintrin.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocumentwriter.h:
-
-src/specificworker.h:
 
 /usr/include/Eigen/src/Core/util/Meta.h:
 
@@ -21273,15 +21319,21 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o:
 
 /usr/include/Ice/OutgoingAsyncF.h:
 
-/usr/include/Eigen/src/Core/StableNorm.h:
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/common_types.h:
 
-/usr/include/c++/13/bits/sstream.tcc:
+/lib/x86_64-linux-gnu/libm.so.6:
 
-/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/FeatureSummary.cmake:
+/usr/include/c++/13/deque:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qbasicatomic.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
-/usr/include/Ice/OutgoingAsync.h:
+/usr/lib/x86_64-linux-gnu/libopencv_barcode.so.4.6.0:
+
+/usr/include/Ice/ProxyFactoryF.h:
+
+/usr/include/opencv4/opencv2/core/cvstd.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qjnienvironment.h:
 
 /usr/include/Ice/LoggerF.h:
 
@@ -21296,6 +21348,18 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 /usr/include/IceUtil/Cond.h:
+
+/usr/include/boost/type_traits/remove_cv.hpp:
+
+/usr/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h:
+
+/lib/x86_64-linux-gnu/liblzma.so.5:
+
+/usr/include/eigen3/Eigen/src/Core/Fuzzy.h:
+
+/home/robocomp/robocomp/classes/rapplication/rapplication.cpp:
 
 /usr/include/Eigen/src/Core/ConditionEstimator.h:
 
@@ -21319,51 +21383,11 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o:
 
 /usr/include/eigen3/Eigen/src/Eigenvalues/RealSchur.h:
 
-/lib/x86_64-linux-gnu/libopenblas.so.0:
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicslayout.h:
 
-/usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake:
+/usr/include/boost/type_traits/is_array.hpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qclipboard.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qstringalgorithms.h:
-
-/usr/include/c++/13/bits/cxxabi_forced.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h:
-
-/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:
-
-/usr/include/Ice/Incoming.h:
-
-/usr/include/eigen3/Eigen/src/misc/RealSvd2x2.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication_platform.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdockwidget.h:
-
-/usr/include/Ice/ResponseHandlerF.h:
-
-/lib/x86_64-linux-gnu/libdouble-conversion.so.3:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qstringview.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h:
-
-/usr/include/boost/type_traits/is_const.hpp:
-
-/usr/include/Ice/IncomingAsyncF.h:
-
-/usr/include/x86_64-linux-gnu/bits/sockaddr.h:
-
-/usr/include/tbb/task_arena.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
-
-generated/genericworker.cpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainerfwd.h:
+/usr/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h:
 
 /usr/include/Ice/FactoryTable.h:
 
@@ -21371,21 +21395,13 @@ generated/genericworker.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearrayview.h:
 
-/usr/include/Eigen/src/Geometry/Quaternion.h:
+/usr/include/c++/13/bits/stl_vector.h:
 
-src/common_types.h:
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
-/usr/include/Ice/AsyncResult.h:
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/main.cpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qwaitcondition.h:
-
-/usr/include/boost/core/allocator_access.hpp:
-
-/usr/include/asm-generic/posix_types.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qxmlstream.h:
-
-/usr/include/opencv4/opencv2/objdetect/face.hpp:
+/usr/include/eigen3/Eigen/src/Core/CwiseBinaryOp.h:
 
 /usr/include/Ice/EndpointTypes.h:
 
@@ -21413,8 +21429,6 @@ src/common_types.h:
 
 /usr/include/eigen3/Eigen/src/Core/Solve.h:
 
-src/time_series_plotter.cpp:
-
 /usr/include/Ice/InstanceF.h:
 
 /usr/include/c++/13/ext/aligned_buffer.h:
@@ -21423,41 +21437,17 @@ src/time_series_plotter.cpp:
 
 /snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/FindPkgConfig.cmake:
 
-/usr/include/boost/preprocessor/arithmetic/dec.hpp:
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdockwidget.h:
 
-/usr/include/oneapi/tbb/parallel_for.h:
+/usr/include/Ice/ResponseHandlerF.h:
 
-/usr/lib/x86_64-linux-gnu/libopencv_flann.so.4.6.0:
+/lib/x86_64-linux-gnu/libdouble-conversion.so.3:
 
-/usr/lib/x86_64-linux-gnu/cmake/Qt6Xml/Qt6XmlConfigVersion.cmake:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qstringview.h:
 
-/usr/include/c++/13/bits/atomic_wait.h:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qarraydata.h:
 
-/usr/include/c++/13/bits/stl_multimap.h:
-
-/usr/include/boost/move/algorithm.hpp:
-
-/usr/lib/x86_64-linux-gnu/libc.so:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h:
-
-/usr/include/c++/13/string:
-
-/usr/include/Ice/Config.h:
-
-/lib/x86_64-linux-gnu/libicui18n.so.74:
-
-/usr/include/eigen3/Eigen/src/Core/CwiseUnaryView.h:
-
-/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:
-
-/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/MacroAddFileDependencies.cmake:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/QMap:
-
-/usr/include/Ice/Functional.h:
-
-/usr/include/Ice/CommunicatorF.h:
+/home/robocomp/robocomp/cmake/modules/qt.cmake:
 
 /usr/include/Ice/Buffer.h:
 
@@ -21481,31 +21471,13 @@ src/time_series_plotter.cpp:
 
 /snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/FindPackageMessage.cmake:
 
-/usr/include/IceUtil/Time.h:
-
-/usr/include/c++/13/pstl/execution_impl.h:
-
-/usr/include/boost/circular_buffer.hpp:
-
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qjsondocument.h:
 
 /usr/include/boost/preprocessor/arithmetic/limits/inc_256.hpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcalendarwidget.h:
-
-/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/Internal/CheckFlagCommonConfig.cmake:
-
-/usr/include/c++/13/bits/stl_map.h:
-
-/usr/include/IceUtil/MutexProtocol.h:
-
-/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:
-
 /usr/include/Eigen/src/Core/Array.h:
 
 /snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/FindThreads.cmake:
-
-src/mainUI.ui:
 
 /usr/include/Ice/ValueFactory.h:
 
@@ -21513,63 +21485,51 @@ src/mainUI.ui:
 
 /usr/include/eigen3/Eigen/src/Core/CwiseUnaryOp.h:
 
-generated/Lidar3D.h:
+/usr/include/boost/current_function.hpp:
 
-/lib/x86_64-linux-gnu/liblzma.so.5:
+/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/FindOpenGL.cmake:
 
-/usr/include/eigen3/Eigen/src/Core/Fuzzy.h:
+/usr/include/c++/13/bits/memory_resource.h:
 
-/home/robocomp/robocomp/classes/rapplication/rapplication.cpp:
+/usr/include/boost/config/workaround.hpp:
 
-/usr/lib/x86_64-linux-gnu/cmake/Qt6/QtPublicTargetHelpers.cmake:
+/home/robocomp/robocomp/cmake/robocomp.cmake:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcolormap.h:
+/usr/include/opencv4/opencv2/videoio.hpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qpolygon.h:
+/usr/include/x86_64-linux-gnu/bits/semaphore.h:
 
-/usr/include/c++/13/bits/unique_ptr.h:
+/usr/include/boost/type_traits/is_assignable.hpp:
 
-/usr/include/boost/config/detail/suffix.hpp:
+/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CheckCXXCompilerFlag.cmake:
 
-/usr/include/Eigen/src/Geometry/Rotation2D.h:
+/usr/include/IceUtil/UndefSysMacros.h:
 
-/usr/include/Ice/Identity.h:
+/usr/include/opencv4/opencv2/core/mat.hpp:
 
-/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cmake:
+/usr/include/Ice/AsyncResult.h:
 
-/usr/include/boost/preprocessor/seq/size.hpp:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qwaitcondition.h:
 
-/usr/include/boost/config/detail/select_compiler_config.hpp:
+/usr/include/boost/core/allocator_access.hpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qbindingstorage.h:
+/usr/include/asm-generic/posix_types.h:
 
-/usr/include/eigen3/Eigen/src/LU/PartialPivLU.h:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qxmlstream.h:
 
-/usr/local/lib/libQGLViewer-qt6.so:
-
-/usr/include/c++/13/bits/nested_exception.h:
-
-/usr/include/boost/preprocessor/arithmetic/limits/dec_256.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
-
-/usr/include/IceUtil/PushDisableWarnings.h:
-
-/usr/include/opencv4/opencv2/stitching/detail/warpers.hpp:
+/usr/include/opencv4/opencv2/objdetect/face.hpp:
 
 /usr/include/boost/move/detail/meta_utils.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+/usr/include/c++/13/tr1/exp_integral.tcc:
 
-src/ransac_line_detector.h:
+/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsTargets-none.cmake:
 
-/usr/include/c++/13/bits/ranges_util.h:
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qaccessiblewidget.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h:
 
-/usr/lib/x86_64-linux-gnu/cmake/Qt6DBus/Qt6DBusMacros.cmake:
-
-/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/SelectLibraryConfigurations.cmake:
+/usr/include/boost/move/algo/move.hpp:
 
 /usr/include/c++/13/pstl/parallel_impl.h:
 
@@ -21583,27 +21543,15 @@ src/ransac_line_detector.h:
 
 /usr/include/Ice/BatchRequestQueueF.h:
 
-/usr/include/boost/type_traits/remove_cv.hpp:
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/GenericBase.h:
 
-/usr/include/eigen3/Eigen/src/QR/ColPivHouseholderQR.h:
+/usr/include/Ice/EndpointF.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qflags.h:
+/usr/include/eigen3/Eigen/Eigenvalues:
 
-generated/GenericBase.h:
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/genericworker.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/QVector:
-
-/usr/include/boost/config/detail/select_platform_config.hpp:
-
-/usr/include/c++/13/bits/locale_facets.tcc:
-
-/usr/include/Ice/ServantLocatorF.h:
-
-/usr/include/boost/type_traits/is_lvalue_reference.hpp:
-
-/usr/include/Ice/RequestHandlerF.h:
-
-src/time_series_plotter.h:
+/usr/include/opencv4/opencv2/video/background_segm.hpp:
 
 /usr/include/Ice/PropertiesF.h:
 
@@ -21611,31 +21559,37 @@ src/time_series_plotter.h:
 
 /usr/include/Ice/Handle.h:
 
-/usr/include/Ice/ExceptionHelpers.h:
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/room_detector.h:
 
-src/room_detector.h:
+/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:
 
-/usr/include/opencv4/opencv2/dnn.hpp:
+src/time_series_plotter.h:
 
-/usr/include/boost/detail/workaround.hpp:
+/usr/include/Ice/RequestHandlerF.h:
+
+/usr/include/boost/type_traits/is_lvalue_reference.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcalendarwidget.h:
+
+/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/Internal/CheckFlagCommonConfig.cmake:
+
+/usr/include/c++/13/bits/stl_map.h:
+
+/usr/include/IceUtil/MutexProtocol.h:
+
+/usr/include/Eigen/src/Geometry/Rotation2D.h:
+
+/usr/include/Ice/Identity.h:
+
+/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cmake:
+
+/usr/include/boost/preprocessor/seq/size.hpp:
 
 /snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake:
-
-/usr/include/oneapi/tbb/detail/_task.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h:
-
-/usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/Qt6Dependencies.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/q20algorithm.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QGraphicsScene:
-
-src/hungarian.h:
-
-/usr/include/c++/13/shared_mutex:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwhatsthis.h:
 
@@ -21645,11 +21599,85 @@ src/hungarian.h:
 
 /usr/include/IceUtil/Exception.h:
 
-/usr/include/c++/13/bits/move.h:
+/usr/lib/x86_64-linux-gnu/cmake/Qt6DBusTools/Qt6DBusToolsTargets-none.cmake:
 
-generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o:
+/usr/include/boost/move/detail/workaround.hpp:
 
-/home/robocomp/robocomp/classes/ConfigLoader/ConfigLoader.cpp:
+/usr/lib/x86_64-linux-gnu/cmake/Qt6OpenGL/Qt6OpenGLVersionlessTargets.cmake:
+
+/usr/include/eigen3/Eigen/src/Core/ArithmeticSequence.h:
+
+/usr/local/include/cppitertools/combinations.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QWindow:
+
+/usr/include/boost/preprocessor/variadic/has_opt.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QtWidgets:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qaccessiblebridge.h:
+
+/usr/include/c++/13/iomanip:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/mainUI.ui:
+
+/usr/include/c++/13/pstl/pstl_config.h:
+
+generated/chocachoca_autogen/include/moc_sigwatch.cpp:
+
+/usr/include/boost/type_traits/conversion_traits.hpp:
+
+/usr/include/Eigen/src/Core/products/SelfadjointMatrixMatrix.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qhashfunctions.h:
+
+/usr/include/Eigen/src/Core/StableNorm.h:
+
+/usr/include/c++/13/bits/sstream.tcc:
+
+/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/FeatureSummary.cmake:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qbasicatomic.h:
+
+/usr/include/Ice/OutgoingAsync.h:
+
+/usr/include/c++/13/bits/stl_multimap.h:
+
+/usr/include/boost/move/algorithm.hpp:
+
+/usr/include/boost/type_traits/is_nothrow_move_assignable.hpp:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/specificworker.cpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qabstracteventdispatcher.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidgetaction.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QAction:
+
+/usr/include/boost/preprocessor/seq/elem.hpp:
+
+src/ransac_line_detector.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/c++/13/bits/ranges_util.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QDebug:
+
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:
+
+/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/MacroAddFileDependencies.cmake:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QMap:
+
+/usr/include/Ice/Functional.h:
+
+/usr/include/Ice/CommunicatorF.h:
+
+/usr/include/eigen3/Eigen/src/Core/DiagonalMatrix.h:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/Qt6ConfigExtras.cmake:
 
@@ -21661,59 +21689,65 @@ generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o:
 
 /usr/include/boost/preprocessor/variadic/elem.hpp:
 
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/ransac_line_detector.cpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h:
+
+/usr/include/Eigen/src/Core/EigenBase.h:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/keylockerintrin.h:
+
+/usr/include/c++/13/pstl/memory_impl.h:
+
+/usr/include/opencv4/opencv2/stitching/detail/camera.hpp:
+
+/usr/include/boost/preprocessor/arithmetic/inc.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
 /home/robocomp/robocomp/classes/sigwatch/sigwatch.cpp:
 
 /usr/include/boost/preprocessor/tuple/eat.hpp:
 
-/usr/include/boost/current_function.hpp:
+/lib/x86_64-linux-gnu/libopenblas.so.0:
 
-/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/FindOpenGL.cmake:
+/usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsDependencies.cmake:
 
-/usr/include/c++/13/bits/memory_resource.h:
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qclipboard.h:
 
-/usr/include/boost/config/workaround.hpp:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qstringalgorithms.h:
 
-/usr/include/Ice/Service.h:
+/usr/include/c++/13/bits/cxxabi_forced.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsitemanimation.h:
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qregion.h:
 
-src/CMakeLists.txt:
+/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:
 
-/usr/lib/x86_64-linux-gnu/libopencv_video.so.4.6.0:
+/usr/include/Ice/Incoming.h:
 
-/usr/include/x86_64-linux-gnu/sys/time.h:
+/usr/include/eigen3/Eigen/src/misc/RealSvd2x2.h:
 
-/usr/include/boost/limits.hpp:
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qguiapplication_platform.h:
 
-/usr/include/Eigen/src/Core/GlobalFunctions.h:
+/usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
 
-/usr/include/IceUtil/Monitor.h:
+/usr/lib/x86_64-linux-gnu/libc.so:
 
-/usr/include/eigen3/Eigen/src/Core/CwiseTernaryOp.h:
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h:
 
-/usr/include/eigen3/Eigen/src/Core/products/GeneralMatrixVector.h:
+/usr/include/c++/13/string:
 
-/usr/include/opencv4/opencv2/flann/kmeans_index.h:
+/usr/include/Ice/Config.h:
 
-/usr/include/boost/type_traits/conditional.hpp:
+/lib/x86_64-linux-gnu/libicui18n.so.74:
 
-/usr/include/Eigen/src/Core/Dot.h:
+/usr/include/eigen3/Eigen/src/Core/CwiseUnaryView.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/door_detector.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h:
-
-/usr/include/c++/13/bits/quoted_string.h:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6/QtPublicTestHelpers.cmake:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h:
-
-/usr/include/boost/move/detail/iterator_traits.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/wmmintrin.h:
-
-/home/usuario/robocomp/core/classes/threadpool/threadpool.h:
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Lidar3D.h:
 
 /usr/include/c++/13/bits/fs_dir.h:
 
@@ -21745,19 +21779,115 @@ src/CMakeLists.txt:
 
 /usr/include/boost/move/detail/iterator_to_raw_pointer.hpp:
 
-/home/robocomp/robocomp/cmake/robocomp.cmake:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevicebase.h:
 
-/usr/include/opencv4/opencv2/videoio.hpp:
+/usr/include/opencv4/opencv2/photo.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/semaphore.h:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qglobal.h:
 
-/usr/include/boost/type_traits/is_assignable.hpp:
+/usr/include/boost/type_traits/is_convertible.hpp:
 
-/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CheckCXXCompilerFlag.cmake:
+/usr/include/c++/13/bits/allocator.h:
 
-/usr/include/IceUtil/UndefSysMacros.h:
+/usr/include/x86_64-linux-gnu/bits/sigstack.h:
 
-/usr/include/opencv4/opencv2/core/mat.hpp:
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/hungarian.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qfont.h:
+
+/usr/include/c++/13/bits/stl_construct.h:
+
+/usr/include/c++/13/bits/fs_fwd.h:
+
+/usr/include/boost/type_traits/is_destructible.hpp:
+
+/usr/include/boost/type_traits/add_rvalue_reference.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h:
+
+/usr/include/c++/13/bits/quoted_string.h:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6/QtPublicTestHelpers.cmake:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmessagebox.h:
+
+/usr/include/boost/move/detail/iterator_traits.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/wmmintrin.h:
+
+/home/usuario/robocomp/core/classes/threadpool/threadpool.h:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/hungarian.cpp:
+
+generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o:
+
+/usr/local/include/toml++/impl/make_node.hpp:
+
+/usr/include/c++/13/random:
+
+/usr/include/boost/preprocessor/variadic/limits/elem_64.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/IceUtil/Timer.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qopenglcontext.h:
+
+/usr/include/c++/13/tr1/ell_integral.tcc:
+
+/home/robocomp/robocomp/classes/grafcetStep/GRAFCETStep.cpp:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake:
+
+/usr/include/opencv4/opencv2/core.hpp:
+
+/usr/include/boost/concept/usage.hpp:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6/QtPublicTargetHelpers.cmake:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcolormap.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qpolygon.h:
+
+/usr/include/c++/13/bits/unique_ptr.h:
+
+/usr/include/boost/config/detail/suffix.hpp:
+
+/usr/include/eigen3/Eigen/Dense:
+
+/usr/include/Ice/SlicedDataF.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/c++/13/bits/hash_bytes.h:
+
+/usr/include/c++/13/iostream:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h:
+
+/usr/include/boost/type_traits/is_const.hpp:
+
+/usr/include/Ice/IncomingAsyncF.h:
+
+/usr/include/x86_64-linux-gnu/bits/sockaddr.h:
+
+/usr/include/tbb/task_arena.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
+
+/usr/include/boost/preprocessor/seq/for_each_i.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtOpenGLWidgets/QOpenGLWidget:
+
+/usr/lib/x86_64-linux-gnu/libosgUtil.so:
+
+/usr/include/c++/13/bits/streambuf_iterator.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qpropertyanimation.h:
+
+/usr/include/c++/13/bits/stl_multiset.h:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/qcustomplot.cpp:
 
 /usr/include/Ice/Object.h:
 
@@ -21765,97 +21895,19 @@ src/CMakeLists.txt:
 
 /usr/include/Ice/BuiltinSequences.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicslayout.h:
+/usr/include/c++/13/bits/move.h:
 
-/usr/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h:
+generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o:
 
-/usr/include/boost/type_traits/is_array.hpp:
+/home/robocomp/robocomp/classes/ConfigLoader/ConfigLoader.cpp:
 
-generated/Camera360RGB.h:
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QFileSystemModel:
 
-/usr/include/Ice/Application.h:
+/usr/include/eigen3/Eigen/src/Core/SolverBase.h:
 
-/usr/include/c++/13/list:
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/time_series_plotter.h:
 
-/usr/lib/x86_64-linux-gnu/libgcc_s.so.1:
-
-/usr/include/eigen3/Eigen/src/Eigenvalues/HessenbergDecomposition.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qfiledevice.h:
-
-/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
-
-/usr/include/boost/move/adl_move_swap.hpp:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6DBus/Qt6DBusConfigVersion.cmake:
-
-/usr/include/boost/move/detail/meta_utils_core.hpp:
-
-/usr/include/boost/type_traits/is_complete.hpp:
-
-/usr/include/Eigen/src/Core/functors/AssignmentFunctors.h:
-
-/usr/include/eigen3/Eigen/src/Core/Replicate.h:
-
-/usr/include/boost/preprocessor/detail/auto_rec.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qfuturewatcher.h:
-
-src/door_detector.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/QPaintEvent:
-
-/usr/include/eigen3/Eigen/src/Core/DenseStorage.h:
-
-/usr/include/opencv4/opencv2/core/cvstd.inl.hpp:
-
-/usr/include/boost/core/no_exceptions_support.hpp:
-
-/usr/include/c++/13/ctime:
-
-/usr/include/boost/type_traits/is_member_function_pointer.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qapplicationstatic.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h:
-
-/usr/include/Ice/ValueF.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qeasingcurve.h:
-
-/home/robocomp/robocomp/cmake/modules/qt.cmake:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6/Qt6ConfigVersionImpl.cmake:
-
-/usr/include/boost/type_traits/has_nothrow_assign.hpp:
-
-/usr/include/eigen3/Eigen/src/QR/FullPivHouseholderQR.h:
-
-/lib/x86_64-linux-gnu/libm.so.6:
-
-/usr/include/c++/13/deque:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
-
-/usr/lib/x86_64-linux-gnu/libopencv_barcode.so.4.6.0:
-
-/usr/include/Ice/ProxyFactoryF.h:
-
-/usr/include/opencv4/opencv2/core/cvstd.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qjnienvironment.h:
-
-src/ransac_line_detector.cpp:
-
-/usr/include/Ice/FactoryTableInit.h:
-
-/usr/include/c++/13/pstl/numeric_fwd.h:
-
-/usr/include/opencv4/opencv2/flann/nn_index.h:
-
-/usr/include/Ice/Protocol.h:
-
-/usr/include/opencv4/opencv2/core/neon_utils.hpp:
+/usr/include/boost/circular_buffer/details.hpp:
 
 /usr/include/oneapi/tbb/task.h:
 
@@ -21869,30 +21921,6 @@ src/ransac_line_detector.cpp:
 
 /snap/clion/401/bin/cmake/linux/x64/bin/cmake:
 
-/usr/include/c++/13/bits/functexcept.h:
-
-src/specificworker.cpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qtemporaryfile.h:
-
-/usr/include/boost/preprocessor/repetition/limits/for_256.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
-generated/OmniRobot.h:
-
-/usr/include/boost/move/detail/config_begin.hpp:
-
-/usr/include/boost/move/detail/to_raw_pointer.hpp:
-
-/usr/include/eigen3/Eigen/src/Core/products/TriangularSolverVector.h:
-
-/usr/include/stdc-predef.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/QMutex:
-
-/usr/include/Ice/ObjectAdapterF.h:
-
 /usr/include/x86_64-linux-gnu/bits/socket_type.h:
 
 /usr/include/c++/13/memory:
@@ -21902,6 +21930,20 @@ generated/OmniRobot.h:
 /home/robocomp/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp:
 
 /usr/include/eigen3/Eigen/src/Core/NestByValue.h:
+
+/usr/include/c++/13/tr1/bessel_function.tcc:
+
+/usr/include/c++/13/initializer_list:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstatusbar.h:
+
+/usr/include/boost/type_traits/is_volatile.hpp:
+
+/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CheckLibraryExists.cmake:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qstyleplugin.h:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/moc_predefs.h:
 
 /usr/include/oneapi/tbb/blocked_range.h:
 
@@ -21915,6 +21957,8 @@ generated/OmniRobot.h:
 
 /usr/include/opencv4/opencv2/flann/defines.h:
 
+/usr/include/c++/13/shared_mutex:
+
 /usr/include/IceUtil/Config.h:
 
 /usr/include/eigen3/Eigen/src/Core/util/Constants.h:
@@ -21927,7 +21971,11 @@ generated/OmniRobot.h:
 
 /usr/include/Eigen/src/Core/products/Parallelizer.h:
 
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/genericworker.cpp:
+
 /usr/include/c++/13/bits/node_handle.h:
+
+/usr/include/boost/detail/workaround.hpp:
 
 /usr/include/Eigen/src/Core/products/TriangularMatrixMatrix.h:
 
@@ -21939,6 +21987,10 @@ generated/OmniRobot.h:
 
 /usr/include/IceUtil/Mutex.h:
 
+/usr/include/Ice/ObjectAdapterF.h:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/OmniRobot.h:
+
 /usr/include/c++/13/bits/exception.h:
 
 /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2:
@@ -21949,8 +22001,6 @@ generated/OmniRobot.h:
 
 /usr/include/eigen3/Eigen/src/Core/arch/Default/Settings.h:
 
-src/pointcloud_center_estimator.h:
-
 /usr/include/c++/13/cwctype:
 
 /usr/include/IceUtil/PopDisableWarnings.h:
@@ -21960,6 +22010,10 @@ src/pointcloud_center_estimator.h:
 /usr/include/opencv4/opencv2/stitching/detail/exposure_compensate.hpp:
 
 /usr/include/boost/preprocessor/facilities/overload.hpp:
+
+/usr/include/IceUtil/PushDisableWarnings.h:
+
+/usr/include/opencv4/opencv2/stitching/detail/warpers.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtPrintSupport/qprinter.h:
 
@@ -22025,49 +22079,41 @@ generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o:
 
 /snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/CheckIncludeFile.cmake:
 
+src/room_detector.h:
+
+/usr/include/Ice/ExceptionHelpers.h:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/nominal_room.h:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6DBus/Qt6DBusMacros.cmake:
+
+/snap/clion/401/bin/cmake/linux/x64/share/cmake-4.0/Modules/SelectLibraryConfigurations.cmake:
+
+/usr/include/oneapi/tbb/detail/_task.h:
+
+/usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h:
+
 /usr/local/include/toml++/impl/path.inl:
 
 /usr/include/boost/preprocessor/repetition/detail/limits/for_256.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
-generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o:
+/usr/include/Eigen/src/Core/CommaInitializer.h:
 
-/usr/local/include/toml++/impl/make_node.hpp:
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/specificworker.h:
 
-/usr/include/c++/13/random:
-
-/usr/include/boost/preprocessor/variadic/limits/elem_64.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/math-vector.h:
-
-/usr/include/IceUtil/Timer.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qopenglcontext.h:
-
-/usr/include/c++/13/tr1/ell_integral.tcc:
-
-/home/robocomp/robocomp/classes/grafcetStep/GRAFCETStep.cpp:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake:
-
-/usr/include/opencv4/opencv2/core.hpp:
-
-/usr/include/boost/concept/usage.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qfont.h:
-
-/usr/include/c++/13/bits/stl_construct.h:
-
-/usr/include/c++/13/bits/fs_fwd.h:
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qimagereader.h:
 
 /usr/include/boost/preprocessor/facilities/expand.hpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qinputdialog.h:
-
 src/pointcloud_center_estimator.cpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qinputdialog.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
 
@@ -22103,8 +22149,6 @@ src/pointcloud_center_estimator.cpp:
 
 /usr/include/boost/circular_buffer/base.hpp:
 
-/usr/include/boost/circular_buffer/details.hpp:
-
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringtokenizer.h:
 
 /usr/include/c++/13/bits/fs_path.h:
@@ -22119,23 +22163,9 @@ src/pointcloud_center_estimator.cpp:
 
 /usr/include/opencv4/opencv2/flann/lsh_table.h:
 
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/pointcloud_center_estimator.h:
+
 /usr/include/c++/13/bits/ranges_cmp.h:
-
-generated/CMakeLists.txt:
-
-/usr/local/include/toml++/impl/unicode_autogenerated.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qheaderview.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qfloat16.h:
-
-/usr/local/include/toml++/impl/key.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qscrollbar.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QtWidgetsDepends:
-
-src/qcustomplot.cpp:
 
 /usr/include/locale.h:
 
@@ -22144,6 +22174,20 @@ src/qcustomplot.cpp:
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake:
 
 /usr/include/boost/concept/detail/concept_undef.hpp:
+
+/usr/include/Eigen/src/Eigenvalues/ComplexSchur.h:
+
+/usr/include/eigen3/Eigen/src/Core/SolveTriangular.h:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/door_detector.cpp:
+
+/usr/lib/x86_64-linux-gnu/libopencv_dnn.so.4.6.0:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qplaintextedit.h:
+
+/usr/include/boost/preprocessor/debug/error.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qcompilerdetection.h:
 
 /usr/include/c++/13/bits/c++0x_warning.h:
 
@@ -22175,21 +22219,9 @@ src/qcustomplot.cpp:
 
 /usr/include/boost/concept/detail/has_constraints.hpp:
 
-/usr/include/c++/13/tr1/poly_laguerre.tcc:
+/usr/include/boost/core/no_exceptions_support.hpp:
 
-/usr/include/eigen3/Eigen/src/Geometry/Hyperplane.h:
-
-/usr/include/boost/preprocessor/tuple/elem.hpp:
-
-/usr/include/boost/preprocessor/punctuation/comma.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qrgba64.h:
-
-/usr/include/boost/concept/detail/concept_def.hpp:
-
-/usr/include/c++/13/bits/fs_ops.h:
-
-/usr/include/boost/concept_check.hpp:
+/usr/include/boost/config/detail/select_platform_config.hpp:
 
 /usr/include/boost/type_traits/is_integral.hpp:
 
@@ -22202,6 +22234,10 @@ src/qcustomplot.cpp:
 /usr/include/c++/13/bits/std_mutex.h:
 
 /usr/include/boost/config/helper_macros.hpp:
+
+/usr/include/c++/13/optional:
+
+/usr/include/opencv4/opencv2/opencv_modules.hpp:
 
 /lib/x86_64-linux-gnu/libxcb.so.1:
 
@@ -22227,7 +22263,51 @@ src/qcustomplot.cpp:
 
 /usr/include/boost/core/pointer_traits.hpp:
 
-/usr/include/boost/move/algo/move.hpp:
+/usr/include/c++/13/tr1/poly_laguerre.tcc:
+
+/usr/include/eigen3/Eigen/src/Geometry/Hyperplane.h:
+
+/usr/include/boost/preprocessor/tuple/elem.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtGui/qrgba64.h:
+
+/usr/include/boost/concept/detail/concept_def.hpp:
+
+/usr/include/c++/13/bits/fs_ops.h:
+
+/usr/include/boost/concept_check.hpp:
+
+/usr/include/boost/preprocessor/punctuation/comma.hpp:
+
+/usr/lib/x86_64-linux-gnu/libopencv_video.so.4.6.0:
+
+/usr/include/x86_64-linux-gnu/sys/time.h:
+
+/usr/include/boost/limits.hpp:
+
+/usr/include/Ice/Application.h:
+
+/usr/include/c++/13/list:
+
+/usr/lib/x86_64-linux-gnu/libgcc_s.so.1:
+
+/usr/include/eigen3/Eigen/src/Eigenvalues/HessenbergDecomposition.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qfiledevice.h:
+
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/usr/include/boost/move/adl_move_swap.hpp:
+
+/usr/lib/x86_64-linux-gnu/cmake/Qt6DBus/Qt6DBusConfigVersion.cmake:
+
+/usr/include/boost/move/detail/meta_utils_core.hpp:
+
+/usr/include/Eigen/src/Core/functors/AssignmentFunctors.h:
+
+/usr/include/boost/preprocessor/detail/auto_rec.hpp:
+
+/usr/include/eigen3/Eigen/src/Core/Replicate.h:
 
 /usr/include/c++/13/bits/stl_relops.h:
 
@@ -22243,8 +22323,6 @@ src/qcustomplot.cpp:
 
 /usr/include/boost/preprocessor/tuple/detail/is_single_return.hpp:
 
-/usr/include/boost/preprocessor/seq/for_each_i.hpp:
-
 /home/usuario/robocomp/core/classes/abstract_graphic_viewer/abstract_graphic_viewer.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qelapsedtimer.h:
@@ -22255,38 +22333,6 @@ src/qcustomplot.cpp:
 
 /usr/include/c++/13/ext/string_conversions.h:
 
-/usr/lib/x86_64-linux-gnu/cmake/Qt6DBusTools/Qt6DBusToolsTargets-none.cmake:
-
-/usr/include/boost/move/detail/workaround.hpp:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6OpenGL/Qt6OpenGLVersionlessTargets.cmake:
-
-/usr/include/eigen3/Eigen/src/Core/ArithmeticSequence.h:
-
-/usr/local/include/cppitertools/combinations.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/QWindow:
-
-/usr/include/boost/preprocessor/variadic/has_opt.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/QtWidgets:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qpalette.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtGui/qaccessiblebridge.h:
-
-/usr/include/c++/13/iomanip:
-
-/usr/include/c++/13/pstl/pstl_config.h:
-
-generated/chocachoca_autogen/include/moc_sigwatch.cpp:
-
-/usr/include/boost/type_traits/conversion_traits.hpp:
-
-/usr/include/Eigen/src/Core/products/SelfadjointMatrixMatrix.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qhashfunctions.h:
-
 /usr/include/boost/move/iterator.hpp:
 
 /usr/local/include/toml++/impl/formatter.hpp:
@@ -22294,14 +22340,6 @@ generated/chocachoca_autogen/include/moc_sigwatch.cpp:
 /usr/include/c++/13/cmath:
 
 /usr/include/c++/13/istream:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vlintrin.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h:
-
-/usr/include/opencv4/opencv2/flann/autotuned_index.h:
-
-/usr/include/boost/type_traits/is_empty.hpp:
 
 /usr/include/boost/preprocessor/repetition/for.hpp:
 
@@ -22323,37 +22361,11 @@ generated/chocachoca_autogen/include/moc_sigwatch.cpp:
 
 /usr/include/boost/preprocessor/cat.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/time.h:
-
-/usr/include/eigen3/Eigen/src/Core/util/IndexedViewHelper.h:
-
-/usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/image_processor.h:
 
 /usr/include/boost/core/empty_value.hpp:
 
 /usr/include/boost/preprocessor/variadic/limits/size_64.hpp:
-
-/usr/include/Eigen/src/Core/EigenBase.h:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/keylockerintrin.h:
-
-/usr/include/c++/13/pstl/memory_impl.h:
-
-/usr/include/opencv4/opencv2/stitching/detail/camera.hpp:
-
-/usr/include/boost/preprocessor/arithmetic/inc.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/opencv4/opencv2/core/hal/interface.h:
-
-/usr/include/boost/core/addressof.hpp:
-
-/usr/include/c++/13/optional:
-
-/usr/include/opencv4/opencv2/opencv_modules.hpp:
 
 /usr/include/boost/preprocessor/comma_if.hpp:
 
@@ -22395,11 +22407,11 @@ generated/chocachoca_autogen/include/moc_sigwatch.cpp:
 
 /usr/include/boost/config/detail/select_stdlib_config.hpp:
 
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidgetaction.h:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qtemporaryfile.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtGui/QAction:
+/usr/include/boost/preprocessor/repetition/limits/for_256.hpp:
 
-/usr/include/boost/preprocessor/seq/elem.hpp:
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
 
@@ -22441,6 +22453,10 @@ generated/chocachoca_autogen/include/moc_sigwatch.cpp:
 
 /usr/include/boost/preprocessor/variadic/detail/has_opt.hpp:
 
+/usr/include/Ice/Protocol.h:
+
+/usr/include/opencv4/opencv2/core/neon_utils.hpp:
+
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qqueue.h:
 
 /usr/include/boost/assert/source_location.hpp:
@@ -22461,19 +22477,23 @@ generated/chocachoca_autogen/include/moc_sigwatch.cpp:
 
 /usr/include/opencv4/opencv2/core/matx.hpp:
 
-/usr/include/opencv4/opencv2/photo.hpp:
+/usr/include/Eigen/src/Core/GlobalFunctions.h:
 
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qglobal.h:
+/usr/include/IceUtil/Monitor.h:
 
-/usr/include/boost/type_traits/is_convertible.hpp:
+/usr/include/eigen3/Eigen/src/Core/CwiseTernaryOp.h:
 
-/usr/include/c++/13/bits/allocator.h:
+/usr/include/eigen3/Eigen/src/Core/products/GeneralMatrixVector.h:
 
-/usr/include/x86_64-linux-gnu/bits/sigstack.h:
+/usr/include/opencv4/opencv2/flann/kmeans_index.h:
 
-/usr/include/boost/type_traits/is_destructible.hpp:
+/usr/include/boost/type_traits/conditional.hpp:
 
-/usr/include/boost/type_traits/add_rvalue_reference.hpp:
+/usr/include/Eigen/src/Core/Dot.h:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/CMakeLists.txt:
+
+/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 generated/Camera360RGB.cpp:
 
@@ -22557,8 +22577,6 @@ generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o:
 
 /usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:
 
-/usr/include/eigen3/Eigen/src/Core/CwiseBinaryOp.h:
-
 /usr/include/eigen3/Eigen/src/Core/CwiseNullaryOp.h:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Xml/Qt6XmlAdditionalTargetInfo.cmake:
@@ -22573,15 +22591,17 @@ generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o:
 
 /usr/include/eigen3/Eigen/src/SVD/SVDBase.h:
 
-/usr/include/opencv4/opencv2/highgui.hpp:
+/usr/include/x86_64-linux-gnu/qt6/QtGui/QPaintEvent:
 
-/usr/include/eigen3/Eigen/src/Core/DiagonalMatrix.h:
+/usr/include/eigen3/Eigen/src/Core/DenseStorage.h:
+
+/usr/include/opencv4/opencv2/core/cvstd.inl.hpp:
+
+/usr/include/opencv4/opencv2/highgui.hpp:
 
 /usr/include/Ice/CommunicatorAsync.h:
 
 /usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:
-
-generated/chocachoca_autogen/moc_predefs.h:
 
 /usr/include/eigen3/Eigen/src/Core/DiagonalProduct.h:
 
@@ -22631,6 +22651,8 @@ generated/chocachoca_autogen/moc_predefs.h:
 
 /usr/include/linux/limits.h:
 
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/qcustomplot.h:
+
 /usr/include/eigen3/Eigen/src/Core/MathFunctionsImpl.h:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Core/Qt6CoreVersionlessTargets.cmake:
@@ -22671,6 +22693,8 @@ generated/chocachoca_autogen/moc_predefs.h:
 
 /usr/include/eigen3/Eigen/src/Core/Ref.h:
 
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/CMakeLists.txt:
+
 /usr/include/eigen3/Eigen/src/Core/Reshaped.h:
 
 /usr/include/eigen3/Eigen/src/Core/ReturnByValue.h:
@@ -22693,15 +22717,21 @@ generated/chocachoca_autogen/moc_predefs.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qfileselector.h:
 
-/usr/local/include/cppitertools/groupby.hpp:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qconfig.h:
+
+/usr/include/eigen3/Eigen/src/Core/StableNorm.h:
 
 generated/main.cpp:
+
+/usr/local/include/cppitertools/groupby.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/StlIterators.h:
 
 /usr/include/oneapi/tbb/detail/_exception.h:
 
 /usr/include/Eigen/src/SVD/JacobiSVD.h:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/ransac_line_detector.h:
 
 /usr/include/eigen3/Eigen/src/Core/Stride.h:
 
@@ -22793,11 +22823,23 @@ generated/CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.o:
 
 /usr/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixMatrix.h:
 
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/time_series_plotter.cpp:
+
 /usr/include/eigen3/Eigen/src/Eigenvalues/RealQZ.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qmessageauthenticationcode.h:
 
 /usr/include/eigen3/Eigen/src/Core/products/SelfadjointProduct.h:
+
+/usr/include/boost/move/detail/to_raw_pointer.hpp:
+
+/usr/include/boost/move/detail/config_begin.hpp:
+
+/usr/include/eigen3/Eigen/src/Core/products/TriangularSolverVector.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QMutex:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qaccessibleobject.h:
 
@@ -22959,6 +23001,18 @@ generated/chocachoca_autogen/include/ui_mainUI.h:
 
 /usr/include/opencv4/opencv2/core/cvdef.h:
 
+/usr/include/boost/core/addressof.hpp:
+
+/usr/include/opencv4/opencv2/core/hal/interface.h:
+
+/usr/include/opencv4/opencv2/dnn.hpp:
+
+/usr/include/eigen3/Eigen/src/Core/util/IndexedViewHelper.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
 /usr/lib/x86_64-linux-gnu/libopencv_phase_unwrapping.so.4.6.0:
 
 /usr/include/opencv4/opencv2/core/mat.inl.hpp:
@@ -23039,6 +23093,16 @@ src/room_detector.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vlintrin.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h:
+
+/usr/include/boost/type_traits/is_empty.hpp:
+
+/usr/include/opencv4/opencv2/flann/autotuned_index.h:
+
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Camera360RGB.h:
+
 /usr/include/opencv4/opencv2/flann/config.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF:
@@ -23063,9 +23127,9 @@ src/room_detector.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtPrintSupport/qtprintsupportglobal.h:
 
-/usr/include/opencv4/opencv2/dnn/layer.hpp:
-
 /usr/include/opencv4/opencv2/dnn/dnn.hpp:
+
+/usr/include/opencv4/opencv2/dnn/layer.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimeZone:
 
@@ -23088,6 +23152,12 @@ src/room_detector.cpp:
 /usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
 
 /usr/include/opencv4/opencv2/flann/matrix.h:
+
+/usr/include/Ice/FactoryTableInit.h:
+
+/usr/include/c++/13/pstl/numeric_fwd.h:
+
+/usr/include/opencv4/opencv2/flann/nn_index.h:
 
 /lib/x86_64-linux-gnu/libXau.so.6:
 
@@ -23147,6 +23217,8 @@ src/room_detector.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qfuture_impl.h:
 
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/munkres.hpp:
+
 /usr/include/opencv4/opencv2/objdetect/detection_based_tracker.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qpagelayout.h:
@@ -23180,8 +23252,6 @@ src/room_detector.cpp:
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
 /usr/include/opencv4/opencv2/video.hpp:
-
-/usr/include/opencv4/opencv2/video/background_segm.hpp:
 
 /usr/include/pthread.h:
 
@@ -23261,13 +23331,11 @@ src/room_detector.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
-/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+src/qcustomplot.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qpromise.h:
 
 /usr/include/c++/13/bits/parse_numbers.h:
-
-src/qcustomplot.h:
 
 /usr/include/c++/13/bits/stl_bvector.h:
 
@@ -23511,11 +23579,11 @@ src/qcustomplot.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariant:
 
+/usr/include/x86_64-linux-gnu/qt6/QtCore/QVector:
+
 /usr/include/Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/QtCore:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qabstracteventdispatcher.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h:
 
@@ -23524,18 +23592,6 @@ src/qcustomplot.h:
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/Qt6ConfigVersion.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractproxymodel.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h:
-
-/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsTargets-none.cmake:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qaccessiblewidget.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h:
-
-/usr/include/eigen3/Eigen/src/Core/StableNorm.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qconfig.h:
 
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
 
@@ -23583,13 +23639,7 @@ generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qcommandlineparser.h:
 
-/usr/lib/x86_64-linux-gnu/libopencv_dnn.so.4.6.0:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qplaintextedit.h:
-
-/usr/include/boost/preprocessor/debug/error.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qcompilerdetection.h:
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qcontainerfwd.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtOpenGLWidgets/qtopenglwidgetsexports.h:
 
@@ -23637,6 +23687,12 @@ generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qfileinfo.h:
 
+/usr/local/include/toml++/impl/unicode_autogenerated.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qheaderview.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qfloat16.h:
+
 /usr/include/eigen3/Eigen/src/Core/SelfAdjointView.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qforeach.h:
@@ -23660,8 +23716,6 @@ generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o:
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qidentityproxymodel.h:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevicebase.h:
 
 /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.4.6.0:
 

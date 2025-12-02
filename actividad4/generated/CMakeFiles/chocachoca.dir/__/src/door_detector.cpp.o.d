@@ -1,8 +1,8 @@
 generated/CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.o: \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/door_detector.cpp \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.cpp \
  /usr/include/stdc-predef.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/door_detector.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/common_types.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -642,7 +642,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qline.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qpoint.h \
  /usr/include/Eigen/src/Geometry/ParametrizedLine.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Lidar3D.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/Lidar3D.h \
  /usr/include/IceUtil/PushDisableWarnings.h /usr/include/Ice/ProxyF.h \
  /usr/include/Ice/Config.h /usr/include/IceUtil/Config.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/future \

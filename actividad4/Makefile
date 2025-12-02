@@ -57,10 +57,10 @@ RM = /snap/clion/401/bin/cmake/linux/x64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3
+CMAKE_SOURCE_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3
+CMAKE_BINARY_DIR = /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/CMakeFiles /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -162,17 +162,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated
+# Target rules for targets named ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_generated
 
 # Build rule for target.
-ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated
-.PHONY : ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated
+ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_generated: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_generated
+.PHONY : ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_generated
 
 # fast build rule for target.
-ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated/fast:
-	$(MAKE) $(MAKESILENT) -f generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated.dir/build.make generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated.dir/build
-.PHONY : ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated/fast
+ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_generated/fast:
+	$(MAKE) $(MAKESILENT) -f generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_generated.dir/build.make generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_generated.dir/build
+.PHONY : ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_generated/fast
 
 #=============================================================================
 # Target rules for targets named ICE_OmniRobot_target
@@ -277,7 +277,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated"
+	@echo "... ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_generated"
 	@echo "... ICE_Camera360RGB_target"
 	@echo "... ICE_GenericBase_target"
 	@echo "... ICE_Lidar3D_target"
