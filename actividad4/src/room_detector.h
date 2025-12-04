@@ -32,6 +32,8 @@ namespace rc   // aka RoboComp
     class Room_Detector
     {
         public:
+             Doors doors;
+
              std::tuple<Corners, Lines> compute_corners(const std::vector<Eigen::Vector2d> &line, QGraphicsScene *scene= nullptr);
              std::tuple<Corners, Lines> compute_corners(const std::vector<Eigen::Vector3d> &line, QGraphicsScene *scene= nullptr);
              std::tuple<Corners, Lines> compute_corners(const RoboCompLidar3D::TPoints& points, QGraphicsScene* scene = nullptr);

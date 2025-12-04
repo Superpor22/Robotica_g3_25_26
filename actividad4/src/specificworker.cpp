@@ -145,7 +145,6 @@ void SpecificWorker::compute()
 	// filtrar con el filtro de huecos
 	filter_data = door_detector.filter_points(filter_data, &viewer->scene);
 	draw_lidar(filter_data, &viewer->scene);
-	qDebug() << "aaaaaaaaaaaaaaaaaaaaaaaaaa";
 
 	// corners
 	const auto &[measured_corners, _] =
@@ -300,6 +299,11 @@ SpecificWorker::RetVal SpecificWorker::TURN_method()
 	const auto &[success, turn] = image_processor.check_colour_patch_in_image(camera360rgb_proxy, color, label_img);
 	if (success)
 	{
+		for (const auto &d : doors)
+		{
+
+			NominalRoom::get_projection_of_point_on_closest_wall(robot_pose);
+		}
 
 		return {STATE::GOTO_DOOR, 0.f, 0.f};
 	}

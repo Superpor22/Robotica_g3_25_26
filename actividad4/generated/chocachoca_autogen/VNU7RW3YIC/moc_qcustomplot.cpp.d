@@ -1,5 +1,5 @@
-/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/VNU7RW3YIC/moc_qcustomplot.cpp: /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/qcustomplot.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/moc_predefs.h \
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/VNU7RW3YIC/moc_qcustomplot.cpp: /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/qcustomplot.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/moc_predefs.h \
   /usr/include/GL/gl.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \

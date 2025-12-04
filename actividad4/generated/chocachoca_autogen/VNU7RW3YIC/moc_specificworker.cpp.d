@@ -1,26 +1,26 @@
-/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/VNU7RW3YIC/moc_specificworker.cpp: /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/specificworker.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/moc_predefs.h \
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/VNU7RW3YIC/moc_specificworker.cpp: /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/specificworker.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/moc_predefs.h \
   /home/usuario/robocomp/core/classes/ConfigLoader/ConfigLoader.h \
   /home/usuario/robocomp/core/classes/ConfigLoader/ConfigLoader.tpp \
   /home/usuario/robocomp/core/classes/abstract_graphic_viewer/abstract_graphic_viewer.h \
   /home/usuario/robocomp/core/classes/doublebuffer/DoubleBuffer.h \
   /home/usuario/robocomp/core/classes/grafcetStep/GRAFCETStep.h \
   /home/usuario/robocomp/core/classes/threadpool/threadpool.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Camera360RGB.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/GenericBase.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Lidar3D.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/OmniRobot.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/genericworker.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/common_types.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/door_detector.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/hungarian.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/image_processor.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/munkres.hpp \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/nominal_room.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/qcustomplot.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/ransac_line_detector.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/room_detector.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/src/time_series_plotter.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/Camera360RGB.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/GenericBase.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/Lidar3D.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/OmniRobot.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/genericworker.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/hungarian.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/munkres.hpp \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/nominal_room.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/qcustomplot.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/ransac_line_detector.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/room_detector.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/time_series_plotter.h \
   /usr/include/GL/gl.h \
   /usr/include/Ice/AsyncResult.h \
   /usr/include/Ice/BatchRequestQueueF.h \

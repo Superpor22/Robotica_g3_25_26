@@ -1,12 +1,12 @@
-/home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/EWIEGA46WW/moc_genericworker.cpp: /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/genericworker.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/chocachoca_autogen/moc_predefs.h \
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/EWIEGA46WW/moc_genericworker.cpp: /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/genericworker.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/moc_predefs.h \
   /home/usuario/robocomp/core/classes/ConfigLoader/ConfigLoader.h \
   /home/usuario/robocomp/core/classes/ConfigLoader/ConfigLoader.tpp \
   /home/usuario/robocomp/core/classes/grafcetStep/GRAFCETStep.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Camera360RGB.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/GenericBase.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/Lidar3D.h \
-  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad3/generated/OmniRobot.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/Camera360RGB.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/GenericBase.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/Lidar3D.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/OmniRobot.h \
   /usr/include/GL/gl.h \
   /usr/include/Ice/AsyncResult.h \
   /usr/include/Ice/BatchRequestQueueF.h \

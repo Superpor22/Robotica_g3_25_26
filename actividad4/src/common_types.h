@@ -48,6 +48,8 @@ using Features = std::tuple<Lines, Par_lines, Corners, All_Corners>;
 using Center = std::pair<QPointF, int>;  // center of a polygon and number of votes
 using Match = std::vector<std::tuple<Corner, Corner, double>>;  //  measurement - nominal - error Both must be in the same reference system
 using Peaks = std::vector<std::tuple<Eigen::Vector2f, float>>; // 2D points representing peaks with angle wrt robot frame
+using Wall = std::tuple<Eigen::ParametrizedLine<float, 2>, int, Corner, Corner>;
+using Walls = std::vector<Wall>;
 struct Door
 {
     Eigen::Vector2f p1;
