@@ -299,12 +299,12 @@ SpecificWorker::RetVal SpecificWorker::TURN_method()
 	const auto &[success, turn] = image_processor.check_colour_patch_in_image(camera360rgb_proxy, color, label_img);
 	if (success)
 	{
-		for (const auto &d : doors)
+		for (auto &d : doors)
 		{
-
-			NominalRoom::get_projection_of_point_on_closest_wall(robot_pose);
+			d.p1_global = nominal_rooms[0].get_projection_of_point_on_closest_wall((robot_pose * d.p1_global.cast<double>()).cast<float>());
+			d.p2_global = nominal_rooms[0].get_projection_of_point_on_closest_wall((robot_pose * d.p2_global.cast<double>()).cast<float>());
 		}
-
+		nominal_rooms[0].doors = doors;
 		return {STATE::GOTO_DOOR, 0.f, 0.f};
 	}
 

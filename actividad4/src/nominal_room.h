@@ -12,6 +12,8 @@
         {
             float width; //  mm
             float length;
+            Doors doors;
+
             explicit NominalRoom(const float width_=10000.f, const float length_=5000.f, Corners  corners_ = {}) :
                 width(width_), length(length_)
             {};
@@ -64,18 +66,13 @@
                 const auto walls = get_walls();
 
                 auto m = std::ranges::min_element(walls, [p](const auto &w1, const auto &w2)
-                {
-                    const auto &[r1, i1, c11, c12]= w1;
-                    const auto &[r2, i2, c21, c22] = w2;
-                    return r1.distance(p) < r2.distance(p);
-                });
+                {   return std::get<0>(w1).distance(p) < std::get<0>(w2).distance(p); });
                 return *m;
             }
 
             Eigen::Vector2f get_projection_of_point_on_closest_wall(const Eigen::Vector2f &p)
             {
                 auto w = get_closest_wall_to_point(p);
-                auto pp = std::get<0>(w).projection(p);
-                return pp;
+                return std::get<0>(w).projection(p);
             }
         };
