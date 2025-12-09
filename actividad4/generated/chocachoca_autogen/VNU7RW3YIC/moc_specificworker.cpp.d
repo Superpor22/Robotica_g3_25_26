@@ -1542,6 +1542,11 @@
   /usr/lib/gcc/x86_64-linux-gnu/13/include/xsaveoptintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavesintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h \
+  /usr/local/include/cppitertools/enumerate.hpp \
+  /usr/local/include/cppitertools/internal/iterator_wrapper.hpp \
+  /usr/local/include/cppitertools/internal/iteratoriterator.hpp \
+  /usr/local/include/cppitertools/internal/iterbase.hpp \
+  /usr/local/include/cppitertools/sliding_window.hpp \
   /usr/local/include/toml++/impl/array.hpp \
   /usr/local/include/toml++/impl/array.inl \
   /usr/local/include/toml++/impl/at_path.hpp \

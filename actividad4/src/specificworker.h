@@ -124,7 +124,9 @@ class SpecificWorker final : public GenericWorker
         rc::Hungarian hungarian;
         int room_index = 0;
         QGraphicsRectItem* habitacion;
+        std::vector<QGraphicsLineItem*> puertas;
         QColor color = Qt::red;
+        Door current_door;
 
         // state machine
         enum class STATE {GOTO_DOOR, ORIENT_TO_DOOR, LOCALISE, GOTO_ROOM_CENTER, TURN, IDLE, CROSS_DOOR};
@@ -182,6 +184,7 @@ class SpecificWorker final : public GenericWorker
         // doors
         DoorDetector door_detector;
         Doors doors;
+
 
         // image processor
         rc::ImageProcessor image_processor;

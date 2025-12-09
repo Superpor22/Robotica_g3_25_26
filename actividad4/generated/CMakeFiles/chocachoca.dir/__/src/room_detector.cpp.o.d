@@ -1748,6 +1748,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/munkres.hpp \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/nominal_room.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
+ /usr/local/include/cppitertools/sliding_window.hpp \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.h \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h \

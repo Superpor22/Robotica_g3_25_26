@@ -221,12 +221,15 @@ SpecificWorker::RetVal SpecificWorker::goto_door()
 	// exit condition
 	if (doors.empty()) return {};
 	auto rp = robot_pose.translation();
-	auto target = doors[0].center_before(rp, 1000.f);
-	qInfo() << target.norm() << "------------------";
+
+	auto target = robot_pose.inverse() * current_door.center_before(rp, 1000.f, true).cast<double>();
+
+	qInfo() << target.norm() << "------------------" << target.x() << " " << target.y() ;
+	// viewer->scene.addEllipse(target.x(), target.y(), 200, 200, QPen(Qt::red), QBrush(Qt::black));
 	if ( target.norm() < 500.f ) return {STATE::ORIENT_TO_DOOR, 0.f, 0.f};
 
 	// do my thing
-	const auto &[adv, rot] = robot_controller(target);
+	const auto &[adv, rot] = robot_controller(target.cast<float>());
 	return {STATE::GOTO_DOOR, adv*0.4, rot};
 
 }
@@ -284,6 +287,8 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 			color = "green";
 		}
 		viewer_room->scene.removeItem(habitacion);
+		for (auto puerta : puertas)
+			viewer_room->scene.removeItem(puerta);
 		habitacion = viewer_room->scene.addRect(nominal_rooms[room_index].rect(), QPen(Qt::black, 30));
 		show();
 		return {STATE::GOTO_ROOM_CENTER, 0.f, 0.f};
@@ -301,10 +306,13 @@ SpecificWorker::RetVal SpecificWorker::TURN_method()
 	{
 		for (auto &d : doors)
 		{
-			d.p1_global = nominal_rooms[0].get_projection_of_point_on_closest_wall((robot_pose * d.p1_global.cast<double>()).cast<float>());
-			d.p2_global = nominal_rooms[0].get_projection_of_point_on_closest_wall((robot_pose * d.p2_global.cast<double>()).cast<float>());
+			d.p1_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall((robot_pose * d.p1.cast<double>()).cast<float>());
+			d.p2_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall((robot_pose * d.p2.cast<double>()).cast<float>());
+			puertas.emplace_back(viewer_room->scene.addLine(d.p1_global.x(), d.p1_global.y(), d.p2_global.x(), d.p2_global.y(), QPen(Qt::red, 90)));
 		}
-		nominal_rooms[0].doors = doors;
+		nominal_rooms[room_index].doors = doors;
+		current_door = doors[0];
+		//Comprobar si las 4 esquinas están bien colocadas (con el match())
 		return {STATE::GOTO_DOOR, 0.f, 0.f};
 	}
 

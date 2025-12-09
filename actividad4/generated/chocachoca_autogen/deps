@@ -1711,6 +1711,11 @@ chocachoca_autogen/timestamp: \
 	/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake \
 	/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVModules-release.cmake \
 	/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVModules.cmake \
+	/usr/local/include/cppitertools/enumerate.hpp \
+	/usr/local/include/cppitertools/internal/iterator_wrapper.hpp \
+	/usr/local/include/cppitertools/internal/iteratoriterator.hpp \
+	/usr/local/include/cppitertools/internal/iterbase.hpp \
+	/usr/local/include/cppitertools/sliding_window.hpp \
 	/usr/local/include/toml++/impl/array.hpp \
 	/usr/local/include/toml++/impl/array.inl \
 	/usr/local/include/toml++/impl/at_path.hpp \

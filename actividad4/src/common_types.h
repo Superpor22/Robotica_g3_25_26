@@ -59,10 +59,15 @@ struct Door
     Eigen::Vector2f p1_global = Eigen::Vector2f::Zero(), p2_global = Eigen::Vector2f::Zero();
     [[nodiscard]] float width() const { return (p2 - p1).norm(); }
     [[nodiscard]] Eigen::Vector2f center() const { return 0.5f * (p1 + p2); }
-    [[nodiscard]] Eigen::Vector2f center_before(const Eigen::Vector2d &robot_pos, float offset = 500.f) const   // a point 500mm before the center along the door direction
+    [[nodiscard]] Eigen::Vector2f center_before(const Eigen::Vector2d &robot_pos, float offset = 500.f, bool global=false) const   // a point 500mm before the center along the door direction
     {
         // computer the normal to the door direction pointing towards the robot
-        Eigen::Vector2f dir = p2 - p1;
+        Eigen::Vector2f dir;
+        if (not global)
+            dir = p2 - p1;
+        else
+            dir = p2_global - p1_global;
+
         const float dir_norm = dir.norm();
         if (dir_norm == 0.f)
             return center(); // degenerate door, return center
@@ -81,6 +86,7 @@ struct Door
         Eigen::Vector2f dir = p2 - p1;
         return std::atan2(dir.y(), dir.x());
     }
+    Door() = default;
     Door(Eigen::Vector2f point1, const float angle1, Eigen::Vector2f point2, const float angle2)
     {
         // Calculate angular difference both ways
@@ -102,6 +108,11 @@ struct Door
             p2 = point1; p2_angle = angle1;
         }
     }
+    // Copy constructor
+    Door(const Door &other) = default;
+    Door(Door &&other) noexcept = default;
+    Door& operator=(const Door &other) = default;
+    Door& operator=(Door &&other) noexcept = default;
 };
 using Doors = std::vector<Door>;
 #endif //COMMON_TYPES_H
