@@ -126,7 +126,7 @@ class SpecificWorker final : public GenericWorker
         QGraphicsRectItem* habitacion;
         std::vector<QGraphicsLineItem*> puertas;
         QColor color = Qt::red;
-        Door current_door;
+        int current_door;
 
         // state machine
         enum class STATE {GOTO_DOOR, ORIENT_TO_DOOR, LOCALISE, GOTO_ROOM_CENTER, TURN, IDLE, CROSS_DOOR};
@@ -146,7 +146,8 @@ class SpecificWorker final : public GenericWorker
         STATE state = STATE::LOCALISE;
         using RetVal = std::tuple<STATE, float, float>;
         RetVal goto_door();
-        RetVal orient_to_door();
+    int get_corresponding_door(const Door& door);
+    RetVal orient_to_door();
         RetVal cross_door(const RoboCompLidar3D::TPoints &points);
         RetVal localise(const Match &match);
         RetVal IDLE_method();
@@ -159,7 +160,7 @@ class SpecificWorker final : public GenericWorker
         void draw_lidar(const RoboCompLidar3D::TPoints &filtered_points, std::optional<Eigen::Vector2d> center, QGraphicsScene *scene);
         void draw_doors(const Doors &doors, QGraphicsScene *scene);
 
-        std::tuple<SpecificWorker::STATE, float, float> state_machine(STATE state, const RoboCompLidar3D::TPoints& filter_data);
+        std::tuple<SpecificWorker::STATE, float, float> state_machine(STATE state, const RoboCompLidar3D::TPoints& filter_data, const Corners &corners, const Match &match);
 
     // aux
         RoboCompLidar3D::TPoints read_data();
@@ -198,7 +199,7 @@ class SpecificWorker final : public GenericWorker
 
         bool update_robot_pose(const Corners &corners, const Match &match);
         void move_robot(float adv, float rot, float max_match_error);
-    RetVal TURN_method();
+    RetVal TURN_method(const Corners &corners, const Match &match);
     Eigen::Vector3d solve_pose(const Corners &corners, const Match &match);
         void predict_robot_pose();
         std::tuple<float, float> robot_controller(const Eigen::Vector2f &target);

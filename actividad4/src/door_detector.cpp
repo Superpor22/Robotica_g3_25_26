@@ -17,7 +17,7 @@ Doors DoorDetector::detect(const RoboCompLidar3D::TPoints &points, QGraphicsScen
         const auto &p2 = p[1];
         auto d = abs(p2.distance2d - p1.distance2d);
         const auto &shorter = (p1.distance2d < p2.distance2d) ? p1 : p2;
-        if (d > 1000)
+        if (d > 700)
             peaks.emplace_back(Eigen::Vector2f{shorter.x, shorter.y}, shorter.phi);
     }
 
@@ -36,7 +36,7 @@ Doors DoorDetector::detect(const RoboCompLidar3D::TPoints &points, QGraphicsScen
         const auto &[p1, phi1] = c[0];
         const auto &[p2, phi2] = c[1];
         const float dist = (p1 - p2).norm();
-        if (800 < dist and dist < 1200)
+        if (600 < dist and dist < 1200)
         {
             doors.emplace_back(Door(p1, phi1, p2, phi2));
         }

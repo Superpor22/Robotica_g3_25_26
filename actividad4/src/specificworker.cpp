@@ -169,10 +169,11 @@ void SpecificWorker::compute()
 
 	qInfo() << "Puertas: " << doors.size();
 	qInfo() << "MATCH SIZE: " << match.size();
-	if (match.size() < 3)
-		localised = false;
-	else
-		localised = true;
+	// if (match.size() < 3)
+	// 	localised = false;
+	// else
+	// 	localised = true;
+
    // update robot pose
    if (localised)
    {
@@ -180,7 +181,7 @@ void SpecificWorker::compute()
    }
 
 	qInfo() << "Estado inicial --------------" << to_string(state);
-	const auto &[st, adv, rot] = state_machine(state, filter_data); // Machine states method
+	const auto &[st, adv, rot] = state_machine(state, filter_data, measured_corners, match); // Machine states method
 	qInfo() << "St -------------------------" << to_string(st);
 	state = st;
 	qInfo() << "Estado salida ---------------" << to_string(state);
@@ -218,30 +219,67 @@ void SpecificWorker::compute()
 
 SpecificWorker::RetVal SpecificWorker::goto_door()
 {
+	static QGraphicsEllipseItem * punto;
+	static int door_index = 0;
 	// exit condition
 	if (doors.empty()) return {};
 	auto rp = robot_pose.translation();
 
-	auto target = robot_pose.inverse() * current_door.center_before(rp, 1000.f, true).cast<double>();
+	auto target = robot_pose.inverse() * nominal_rooms[room_index].doors[current_door].center_before(rp, 1000.f).cast<double>();
 
 	qInfo() << target.norm() << "------------------" << target.x() << " " << target.y() ;
-	// viewer->scene.addEllipse(target.x(), target.y(), 200, 200, QPen(Qt::red), QBrush(Qt::black));
-	if ( target.norm() < 500.f ) return {STATE::ORIENT_TO_DOOR, 0.f, 0.f};
+	viewer->scene.removeItem(punto);
+	punto = viewer->scene.addEllipse(target.x(), target.y(), 200, 200, QPen(Qt::red), QBrush(Qt::black));
+	if ( target.norm() < 500.f )
+	{
+		viewer->scene.removeItem(punto);
+		return {STATE::ORIENT_TO_DOOR, 0.f, 0.f};
+	}
 
 	// do my thing
+	static bool first_time = true;
+
 	const auto &[adv, rot] = robot_controller(target.cast<float>());
-	return {STATE::GOTO_DOOR, adv*0.4, rot};
+	// if ( std::abs(rot) < 0.2f and first_time)
+	// {
+	// 	door_index = get_corresponding_door(nominal_rooms[room_index].doors[current_door]);
+	// 	first_time = false;
+	// }
+	return {STATE::GOTO_DOOR, adv*0.2, rot};
+
+}
+
+int SpecificWorker::get_corresponding_door(const Door& door_nominal)
+{
+	// assuming tobot is localised
+	const auto door_local = robot_pose.inverse() * door_nominal.global_center().cast<double>();
+	const auto direction_local = atan2(door_local.x(), door_local.y());
+	const auto min = std::ranges::min_element(doors, [direction_local](auto &p1, auto &p2)
+	{
+		return abs(direction_local - p1.center_angle()) < abs(direction_local - p2.center_angle());
+	});
+	return static_cast<int>( std::distance(doors.begin(), min));
 
 }
 
 SpecificWorker::RetVal SpecificWorker::orient_to_door()
 {
+	static QGraphicsEllipseItem * punto;
+
 	static int contador = 0;
 	if (doors.empty()) return {};
 	// exit condition
 	auto rp = robot_pose.translation();
-	auto u = doors[0].center();
-	auto v = doors[0].p2 - doors[0].p1;
+	// auto u = robot_pose.inverse() * current_door.global_center().cast<double>();
+	// auto v = current_door.p2_global - current_door.p1_global;
+
+	int index = get_corresponding_door(nominal_rooms[room_index].doors[current_door]);
+
+	auto u = doors[index].center();
+	auto v = doors[index].p2 - doors[index].p1;
+
+	viewer->scene.removeItem(punto);
+	punto = viewer->scene.addEllipse(u.x(), u.y(), 200, 200, QPen(Qt::red), QBrush(Qt::black));
 
 	float dot = u.dot(v);
 	float norm_u = u.norm();
@@ -274,7 +312,7 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 	static int contador = 0;
 
 	contador++;
-	if (contador == 65)
+	if (contador == 40)
 	{
 		contador = 0;
 		room_index = (room_index + 1) % 2;
@@ -291,6 +329,7 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 			viewer_room->scene.removeItem(puerta);
 		habitacion = viewer_room->scene.addRect(nominal_rooms[room_index].rect(), QPen(Qt::black, 30));
 		show();
+		localised = false;
 		return {STATE::GOTO_ROOM_CENTER, 0.f, 0.f};
 	}
 
@@ -298,20 +337,24 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 	return {STATE::CROSS_DOOR, 500.f, 0.f};
 }
 
-SpecificWorker::RetVal SpecificWorker::TURN_method()
+SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners, const Match &match)
 {
 	// exit condition
 	const auto &[success, turn] = image_processor.check_colour_patch_in_image(camera360rgb_proxy, color, label_img);
 	if (success)
 	{
-		for (auto &d : doors)
+		localised = true;
+		update_robot_pose(corners, match);
+		for (auto &&[i, d] : doors | iter::enumerate)
 		{
 			d.p1_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall((robot_pose * d.p1.cast<double>()).cast<float>());
 			d.p2_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall((robot_pose * d.p2.cast<double>()).cast<float>());
 			puertas.emplace_back(viewer_room->scene.addLine(d.p1_global.x(), d.p1_global.y(), d.p2_global.x(), d.p2_global.y(), QPen(Qt::red, 90)));
+			if (d.visited == false)
+				current_door = i;
 		}
 		nominal_rooms[room_index].doors = doors;
-		current_door = doors[0];
+		nominal_rooms[room_index].doors[current_door].visited = true;
 		//Comprobar si las 4 esquinas están bien colocadas (con el match())
 		return {STATE::GOTO_DOOR, 0.f, 0.f};
 	}
@@ -347,7 +390,7 @@ SpecificWorker::RetVal SpecificWorker::goto_room_center(const RoboCompLidar3D::T
 	return {STATE::GOTO_ROOM_CENTER, v, w};
 }
 
-std::tuple<SpecificWorker::STATE,float,float> SpecificWorker::state_machine(STATE state, const RoboCompLidar3D::TPoints &filter_data)
+std::tuple<SpecificWorker::STATE,float,float> SpecificWorker::state_machine(STATE state, const RoboCompLidar3D::TPoints &filter_data, const Corners &corners, const Match &match)
 {
 	switch (state)
 	{
@@ -358,7 +401,7 @@ std::tuple<SpecificWorker::STATE,float,float> SpecificWorker::state_machine(STAT
 		return goto_door();
 		break;
 	case STATE::TURN:
-		return TURN_method();
+		return TURN_method(corners, match);
 		break;
 	case STATE::ORIENT_TO_DOOR:
 		return orient_to_door();

@@ -56,29 +56,30 @@ struct Door
     float p1_angle;
     Eigen::Vector2f p2;
     float p2_angle;
+    bool visited = false;
     Eigen::Vector2f p1_global = Eigen::Vector2f::Zero(), p2_global = Eigen::Vector2f::Zero();
     [[nodiscard]] float width() const { return (p2 - p1).norm(); }
     [[nodiscard]] Eigen::Vector2f center() const { return 0.5f * (p1 + p2); }
-    [[nodiscard]] Eigen::Vector2f center_before(const Eigen::Vector2d &robot_pos, float offset = 500.f, bool global=false) const   // a point 500mm before the center along the door direction
+    [[nodiscard]] double center_angle() const { const auto c=center(); return atan2(c.x(),c.y());}
+    [[nodiscard]] Eigen::Vector2f global_center() const { return 0.5f * (p1_global + p2_global); }
+    [[nodiscard]] Eigen::Vector2f center_before(const Eigen::Vector2d &robot_pos, float offset = 500.f) const   // a point 500mm before the center along the door direction
     {
         // computer the normal to the door direction pointing towards the robot
         Eigen::Vector2f dir;
-        if (not global)
-            dir = p2 - p1;
-        else
-            dir = p2_global - p1_global;
+        dir = p2_global - p1_global;
+        const auto center = 0.5f * (p1_global + p2_global);
 
         const float dir_norm = dir.norm();
         if (dir_norm == 0.f)
-            return center(); // degenerate door, return center
+            return center; // degenerate door, return center
         dir /= dir_norm;
         // perpendicular (normal) to door direction
         Eigen::Vector2f normal(-dir.y(), dir.x());
         // choose the normal that points toward the robot
-        const Eigen::Vector2f to_robot = robot_pos.cast<float>() - center();
+        const Eigen::Vector2f to_robot = robot_pos.cast<float>() - center;
         if (to_robot.dot(normal) < 0.f)
             normal = -normal;
-        Eigen::Vector2f before = center() + offset * normal;
+        Eigen::Vector2f before = center + offset * normal;
         return before;
     }
     [[nodiscard]] float direction() const
