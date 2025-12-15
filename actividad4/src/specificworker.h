@@ -93,7 +93,7 @@ class SpecificWorker final : public GenericWorker
             float WALL_MIN_DISTANCE = ROBOT_WIDTH*1.2;
             // match error correction
             float MATCH_ERROR_SIGMA = 150.f; // mm
-            float DOOR_REACHED_DIST = 300.f;
+            float DOOR_REACHED_DIST = 500.f;
             std::string LIDAR_NAME_LOW = "bpearl";
             std::string LIDAR_NAME_HIGH = "helios";
             QRectF GRID_MAX_DIM{-5000, 2500, 10000, -5000};
@@ -107,7 +107,7 @@ class SpecificWorker final : public GenericWorker
             float RELOCAL_DELTA = 5.0f * M_PI/180.f; // small probe angle in radians
             float RELOCAL_MATCH_MAX_DIST = 2000.f;   // mm for Hungarian gating
             float RELOCAL_DONE_COST = 500.f;
-            float RELOCAL_DONE_MATCH_MAX_ERROR = 1000.f;
+            float RELOCAL_DONE_MATCH_MAX_ERROR = 2000.f;
         };
         Params params;
 
@@ -116,7 +116,7 @@ class SpecificWorker final : public GenericWorker
         QGraphicsPolygonItem *robot_draw, *robot_room_draw;
 
         // robot
-        Eigen::Affine2d robot_pose;
+        Eigen::Affine2f robot_pose;
 
         // rooms
         std::vector<NominalRoom> nominal_rooms{ NominalRoom{5500.f, 4000.f}, NominalRoom{8000.f, 4000.f}};
@@ -127,6 +127,7 @@ class SpecificWorker final : public GenericWorker
         std::vector<QGraphicsLineItem*> puertas;
         QColor color = Qt::red;
         int current_door;
+        int door_index;
 
         // state machine
         enum class STATE {GOTO_DOOR, ORIENT_TO_DOOR, LOCALISE, GOTO_ROOM_CENTER, TURN, IDLE, CROSS_DOOR};
@@ -199,8 +200,8 @@ class SpecificWorker final : public GenericWorker
 
         bool update_robot_pose(const Corners &corners, const Match &match);
         void move_robot(float adv, float rot, float max_match_error);
-    RetVal TURN_method(const Corners &corners, const Match &match);
-    Eigen::Vector3d solve_pose(const Corners &corners, const Match &match);
+        RetVal TURN_method(const Corners &corners);
+        Eigen::Vector3d solve_pose(const Corners &corners, const Match &match);
         void predict_robot_pose();
         std::tuple<float, float> robot_controller(const Eigen::Vector2f &target);
 

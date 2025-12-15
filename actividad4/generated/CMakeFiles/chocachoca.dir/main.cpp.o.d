@@ -1792,12 +1792,12 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/munkres.hpp \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/nominal_room.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
- /usr/local/include/cppitertools/enumerate.hpp \
+ /usr/local/include/cppitertools/sliding_window.hpp \
  /usr/local/include/cppitertools/internal/iterator_wrapper.hpp \
  /usr/local/include/cppitertools/internal/iterbase.hpp \
- /usr/local/include/cppitertools/internal/iterbase.hpp \
- /usr/local/include/cppitertools/sliding_window.hpp \
  /usr/local/include/cppitertools/internal/iteratoriterator.hpp \
+ /usr/local/include/cppitertools/internal/iterbase.hpp \
+ /usr/local/include/cppitertools/enumerate.hpp \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/door_detector.h \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/image_processor.h \

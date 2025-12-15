@@ -62,7 +62,7 @@ struct Door
     [[nodiscard]] Eigen::Vector2f center() const { return 0.5f * (p1 + p2); }
     [[nodiscard]] double center_angle() const { const auto c=center(); return atan2(c.x(),c.y());}
     [[nodiscard]] Eigen::Vector2f global_center() const { return 0.5f * (p1_global + p2_global); }
-    [[nodiscard]] Eigen::Vector2f center_before(const Eigen::Vector2d &robot_pos, float offset = 500.f) const   // a point 500mm before the center along the door direction
+    [[nodiscard]] Eigen::Vector2f center_before(const Eigen::Vector2f &robot_pos, float offset = 500.f) const   // a point 500mm before the center along the door direction
     {
         // computer the normal to the door direction pointing towards the robot
         Eigen::Vector2f dir;
