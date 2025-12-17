@@ -56,6 +56,8 @@ struct Door
     float p1_angle;
     Eigen::Vector2f p2;
     float p2_angle;
+    int connect_to_door = -1;
+    int connect_to_room = -1;
     bool visited = false;
     Eigen::Vector2f p1_global = Eigen::Vector2f::Zero(), p2_global = Eigen::Vector2f::Zero();
     [[nodiscard]] float width() const { return (p2 - p1).norm(); }

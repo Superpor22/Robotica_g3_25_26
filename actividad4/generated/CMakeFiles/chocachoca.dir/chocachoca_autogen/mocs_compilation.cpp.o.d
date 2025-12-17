@@ -1839,4 +1839,5 @@ generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QImage \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QPixmap
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QPixmap \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/VNU7RW3YIC/../../../src/pointcloud_center_estimator.h

@@ -17,6 +17,7 @@
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/munkres.hpp \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/nominal_room.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/pointcloud_center_estimator.h \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/qcustomplot.h \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/ransac_line_detector.h \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/room_detector.h \

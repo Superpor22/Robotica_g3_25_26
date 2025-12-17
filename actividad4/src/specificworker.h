@@ -48,6 +48,7 @@
 #include "nominal_room.h"
 #include "door_detector.h"
 #include "image_processor.h"
+#include "pointcloud_center_estimator.h"
 
 /**
  * \brief Class SpecificWorker implements the core functionality of the component.
@@ -122,12 +123,10 @@ class SpecificWorker final : public GenericWorker
         std::vector<NominalRoom> nominal_rooms{ NominalRoom{5500.f, 4000.f}, NominalRoom{8000.f, 4000.f}};
         rc::Room_Detector room_detector;
         rc::Hungarian hungarian;
-        int room_index = 0;
         QGraphicsRectItem* habitacion;
         std::vector<QGraphicsLineItem*> puertas;
-        QColor color = Qt::red;
-        int current_door;
-        int door_index;
+        int current_door = -1;
+        int room_index = -1;
 
         // state machine
         enum class STATE {GOTO_DOOR, ORIENT_TO_DOOR, LOCALISE, GOTO_ROOM_CENTER, TURN, IDLE, CROSS_DOOR};
@@ -150,7 +149,7 @@ class SpecificWorker final : public GenericWorker
     int get_corresponding_door(const Door& door);
     RetVal orient_to_door();
         RetVal cross_door(const RoboCompLidar3D::TPoints &points);
-        RetVal localise(const Match &match);
+        RetVal localise(const RoboCompLidar3D::TPoints& points, QGraphicsScene* scene);
         RetVal IDLE_method();
         RetVal goto_room_center(const RoboCompLidar3D::TPoints &points);
         RetVal update_pose(const Corners &corners, const Match &match);
@@ -161,7 +160,7 @@ class SpecificWorker final : public GenericWorker
         void draw_lidar(const RoboCompLidar3D::TPoints &filtered_points, std::optional<Eigen::Vector2d> center, QGraphicsScene *scene);
         void draw_doors(const Doors &doors, QGraphicsScene *scene);
 
-        std::tuple<SpecificWorker::STATE, float, float> state_machine(STATE state, const RoboCompLidar3D::TPoints& filter_data, const Corners &corners, const Match &match);
+        std::tuple<SpecificWorker::STATE, float, float> state_machine(STATE state, const RoboCompLidar3D::TPoints& filter_data, const Corners& corners);
 
     // aux
         RoboCompLidar3D::TPoints read_data();
@@ -187,6 +186,8 @@ class SpecificWorker final : public GenericWorker
         DoorDetector door_detector;
         Doors doors;
 
+        //center_estimate
+        rc::PointcloudCenterEstimator center_estimator;
 
         // image processor
         rc::ImageProcessor image_processor;
@@ -198,7 +199,9 @@ class SpecificWorker final : public GenericWorker
         bool relocal_centered = false;
         bool localised = false;
 
-        bool update_robot_pose(const Corners &corners, const Match &match);
+    std::optional<std::pair<Eigen::Affine2f, float>> update_robot_pose(int room_index, const Corners& corners,
+                                                                       const Eigen::Affine2f& r_pose,
+                                                                       bool transform_corners);
         void move_robot(float adv, float rot, float max_match_error);
         RetVal TURN_method(const Corners &corners);
         Eigen::Vector3d solve_pose(const Corners &corners, const Match &match);

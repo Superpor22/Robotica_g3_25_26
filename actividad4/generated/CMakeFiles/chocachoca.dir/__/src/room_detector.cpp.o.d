@@ -1831,4 +1831,5 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QImage \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/QPixmap
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QPixmap \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/pointcloud_center_estimator.h

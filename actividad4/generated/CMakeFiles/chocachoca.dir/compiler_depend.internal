@@ -7529,6 +7529,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/munkres.hpp
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/nominal_room.h
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/pointcloud_center_estimator.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/qcustomplot.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/ransac_line_detector.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/room_detector.h
@@ -9238,6 +9239,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/munkres.hpp
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/nominal_room.h
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/pointcloud_center_estimator.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/qcustomplot.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/ransac_line_detector.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/room_detector.h
@@ -11954,6 +11956,7 @@ generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/munkres.hpp
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/nominal_room.h
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/pointcloud_center_estimator.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/qcustomplot.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/ransac_line_detector.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/room_detector.h
@@ -17334,6 +17337,7 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/munkres.hpp
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/nominal_room.h
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/pointcloud_center_estimator.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/qcustomplot.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/ransac_line_detector.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/room_detector.h

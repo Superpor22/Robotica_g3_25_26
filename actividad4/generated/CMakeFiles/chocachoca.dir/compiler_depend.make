@@ -7517,6 +7517,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o: src/room_detecto
   src/image_processor.h \
   src/munkres.hpp \
   src/nominal_room.h \
+  src/pointcloud_center_estimator.h \
   src/qcustomplot.h \
   src/ransac_line_detector.h \
   src/room_detector.h \
@@ -9225,6 +9226,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o: src/specificwor
   src/image_processor.h \
   src/munkres.hpp \
   src/nominal_room.h \
+  src/pointcloud_center_estimator.h \
   src/qcustomplot.h \
   src/ransac_line_detector.h \
   src/room_detector.h \
@@ -11939,6 +11941,7 @@ generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o: g
   src/image_processor.h \
   src/munkres.hpp \
   src/nominal_room.h \
+  src/pointcloud_center_estimator.h \
   src/qcustomplot.h \
   src/ransac_line_detector.h \
   src/room_detector.h \
@@ -17312,6 +17315,7 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: generated/main.cpp \
   src/image_processor.h \
   src/munkres.hpp \
   src/nominal_room.h \
+  src/pointcloud_center_estimator.h \
   src/qcustomplot.h \
   src/ransac_line_detector.h \
   src/room_detector.h \

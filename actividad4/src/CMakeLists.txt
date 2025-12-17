@@ -24,6 +24,7 @@ LIST(APPEND HEADERS
         ../src/nominal_room.h
         ../src/qcustomplot.h
         ../src/pointcloud_center_estimator.h
+        ../src/door_crossing_tracker.h
 )
 
 INCLUDE($ENV{ROBOCOMP}/cmake/modules/opencv4.cmake)

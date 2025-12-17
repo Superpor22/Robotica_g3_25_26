@@ -1831,6 +1831,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QImage \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/QPixmap \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/pointcloud_center_estimator.h \
  /usr/local/include/cppitertools/groupby.hpp \
  /usr/local/include/cppitertools/range.hpp \
  /usr/include/IceUtil/StringUtil.h
