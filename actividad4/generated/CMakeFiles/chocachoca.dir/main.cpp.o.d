@@ -1417,8 +1417,10 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: \
  /usr/include/c++/13/pstl/numeric_fwd.h \
  /usr/include/c++/13/pstl/glue_numeric_impl.h \
  /usr/include/c++/13/pstl/glue_memory_impl.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/room_detector.h \
- /usr/include/Eigen/Geometry /usr/include/Eigen/Core \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/door_crossing_tracker.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/common_types.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF \
+ /usr/include/Eigen/Dense /usr/include/Eigen/Core \
  /usr/include/Eigen/src/Core/util/DisableStupidWarnings.h \
  /usr/include/Eigen/src/Core/util/Macros.h \
  /usr/include/Eigen/src/Core/util/ConfigureVectorization.h \
@@ -1543,10 +1545,18 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: \
  /usr/include/Eigen/src/Core/StlIterators.h \
  /usr/include/Eigen/src/Core/GlobalFunctions.h \
  /usr/include/Eigen/src/Core/util/ReenableStupidWarnings.h \
- /usr/include/Eigen/SVD /usr/include/Eigen/QR /usr/include/Eigen/Cholesky \
- /usr/include/Eigen/Jacobi /usr/include/Eigen/src/Jacobi/Jacobi.h \
+ /usr/include/Eigen/LU /usr/include/Eigen/src/misc/Kernel.h \
+ /usr/include/Eigen/src/misc/Image.h \
+ /usr/include/Eigen/src/LU/FullPivLU.h \
+ /usr/include/Eigen/src/LU/PartialPivLU.h \
+ /usr/include/Eigen/src/LU/Determinant.h \
+ /usr/include/Eigen/src/LU/InverseImpl.h \
+ /usr/include/Eigen/src/LU/arch/InverseSize4.h \
+ /usr/include/Eigen/Cholesky /usr/include/Eigen/Jacobi \
+ /usr/include/Eigen/src/Jacobi/Jacobi.h \
  /usr/include/Eigen/src/Cholesky/LLT.h \
- /usr/include/Eigen/src/Cholesky/LDLT.h /usr/include/Eigen/Householder \
+ /usr/include/Eigen/src/Cholesky/LDLT.h /usr/include/Eigen/QR \
+ /usr/include/Eigen/Householder \
  /usr/include/Eigen/src/Householder/Householder.h \
  /usr/include/Eigen/src/Householder/HouseholderSequence.h \
  /usr/include/Eigen/src/Householder/BlockHouseholder.h \
@@ -1554,17 +1564,11 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: \
  /usr/include/Eigen/src/QR/FullPivHouseholderQR.h \
  /usr/include/Eigen/src/QR/ColPivHouseholderQR.h \
  /usr/include/Eigen/src/QR/CompleteOrthogonalDecomposition.h \
- /usr/include/Eigen/src/misc/RealSvd2x2.h \
+ /usr/include/Eigen/SVD /usr/include/Eigen/src/misc/RealSvd2x2.h \
  /usr/include/Eigen/src/SVD/UpperBidiagonalization.h \
  /usr/include/Eigen/src/SVD/SVDBase.h \
  /usr/include/Eigen/src/SVD/JacobiSVD.h \
- /usr/include/Eigen/src/SVD/BDCSVD.h /usr/include/Eigen/LU \
- /usr/include/Eigen/src/misc/Kernel.h /usr/include/Eigen/src/misc/Image.h \
- /usr/include/Eigen/src/LU/FullPivLU.h \
- /usr/include/Eigen/src/LU/PartialPivLU.h \
- /usr/include/Eigen/src/LU/Determinant.h \
- /usr/include/Eigen/src/LU/InverseImpl.h \
- /usr/include/Eigen/src/LU/arch/InverseSize4.h \
+ /usr/include/Eigen/src/SVD/BDCSVD.h /usr/include/Eigen/Geometry \
  /usr/include/Eigen/src/Geometry/OrthoMethods.h \
  /usr/include/Eigen/src/Geometry/EulerAngles.h \
  /usr/include/Eigen/src/Geometry/Homogeneous.h \
@@ -1580,36 +1584,6 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: \
  /usr/include/Eigen/src/Geometry/AlignedBox.h \
  /usr/include/Eigen/src/Geometry/Umeyama.h \
  /usr/include/Eigen/src/Geometry/arch/Geometry_SIMD.h \
- /usr/include/opencv4/opencv2/core.hpp \
- /usr/include/opencv4/opencv2/core/cvdef.h \
- /usr/include/opencv4/opencv2/core/version.hpp \
- /usr/include/opencv4/opencv2/core/hal/interface.h \
- /usr/include/opencv4/opencv2/core/cv_cpu_dispatch.h \
- /usr/include/opencv4/opencv2/core/base.hpp \
- /usr/include/opencv4/opencv2/opencv_modules.hpp \
- /usr/include/opencv4/opencv2/core/cvstd.hpp \
- /usr/include/opencv4/opencv2/core/cvstd_wrapper.hpp \
- /usr/include/opencv4/opencv2/core/neon_utils.hpp \
- /usr/include/opencv4/opencv2/core/vsx_utils.hpp \
- /usr/include/opencv4/opencv2/core/check.hpp \
- /usr/include/opencv4/opencv2/core/traits.hpp \
- /usr/include/opencv4/opencv2/core/matx.hpp \
- /usr/include/opencv4/opencv2/core/saturate.hpp \
- /usr/include/opencv4/opencv2/core/fast_math.hpp \
- /usr/include/opencv4/opencv2/core/types.hpp \
- /usr/include/opencv4/opencv2/core/mat.hpp \
- /usr/include/opencv4/opencv2/core/bufferpool.hpp \
- /usr/include/opencv4/opencv2/core/mat.inl.hpp \
- /usr/include/opencv4/opencv2/core/persistence.hpp \
- /usr/include/opencv4/opencv2/core/operations.hpp \
- /usr/include/opencv4/opencv2/core/cvstd.inl.hpp \
- /usr/include/opencv4/opencv2/core/utility.hpp \
- /usr/include/opencv4/opencv2/core/optim.hpp \
- /usr/include/opencv4/opencv2/core/ovx.hpp \
- /usr/include/opencv4/opencv2/core/cvdef.h /usr/include/c++/13/ranges \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/common_types.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QPointF \
- /usr/include/Eigen/Dense /usr/include/Eigen/Geometry \
  /usr/include/Eigen/Eigenvalues \
  /usr/include/Eigen/src/Eigenvalues/Tridiagonalization.h \
  /usr/include/Eigen/src/Eigenvalues/RealSchur.h \
@@ -1787,9 +1761,6 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: \
  /usr/include/boost/circular_buffer/space_optimized.hpp \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QLineF \
  /usr/include/Eigen/src/Geometry/ParametrizedLine.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/ransac_line_detector.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/hungarian.h \
- /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/munkres.hpp \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/nominal_room.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QRectF \
  /usr/local/include/cppitertools/sliding_window.hpp \
@@ -1799,6 +1770,38 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o: \
  /usr/local/include/cppitertools/internal/iterbase.hpp \
  /usr/local/include/cppitertools/enumerate.hpp \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h \
+ /usr/include/c++/13/ranges \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/room_detector.h \
+ /usr/include/Eigen/Geometry /usr/include/opencv4/opencv2/core.hpp \
+ /usr/include/opencv4/opencv2/core/cvdef.h \
+ /usr/include/opencv4/opencv2/core/version.hpp \
+ /usr/include/opencv4/opencv2/core/hal/interface.h \
+ /usr/include/opencv4/opencv2/core/cv_cpu_dispatch.h \
+ /usr/include/opencv4/opencv2/core/base.hpp \
+ /usr/include/opencv4/opencv2/opencv_modules.hpp \
+ /usr/include/opencv4/opencv2/core/cvstd.hpp \
+ /usr/include/opencv4/opencv2/core/cvstd_wrapper.hpp \
+ /usr/include/opencv4/opencv2/core/neon_utils.hpp \
+ /usr/include/opencv4/opencv2/core/vsx_utils.hpp \
+ /usr/include/opencv4/opencv2/core/check.hpp \
+ /usr/include/opencv4/opencv2/core/traits.hpp \
+ /usr/include/opencv4/opencv2/core/matx.hpp \
+ /usr/include/opencv4/opencv2/core/saturate.hpp \
+ /usr/include/opencv4/opencv2/core/fast_math.hpp \
+ /usr/include/opencv4/opencv2/core/types.hpp \
+ /usr/include/opencv4/opencv2/core/mat.hpp \
+ /usr/include/opencv4/opencv2/core/bufferpool.hpp \
+ /usr/include/opencv4/opencv2/core/mat.inl.hpp \
+ /usr/include/opencv4/opencv2/core/persistence.hpp \
+ /usr/include/opencv4/opencv2/core/operations.hpp \
+ /usr/include/opencv4/opencv2/core/cvstd.inl.hpp \
+ /usr/include/opencv4/opencv2/core/utility.hpp \
+ /usr/include/opencv4/opencv2/core/optim.hpp \
+ /usr/include/opencv4/opencv2/core/ovx.hpp \
+ /usr/include/opencv4/opencv2/core/cvdef.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/ransac_line_detector.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/hungarian.h \
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/munkres.hpp \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/door_detector.h \
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/../src/image_processor.h \
  /usr/include/opencv4/opencv2/opencv.hpp \

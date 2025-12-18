@@ -61,7 +61,7 @@
       [[nodiscard]] Wall get_closest_wall_to_point(const Eigen::Vector2f &p)
       {
           const auto walls = get_walls();
-          const auto closest_wall = std::ranges::min_element(walls, [&](const auto &w1, const auto &w2) {
+          const auto closest_wall = std::ranges::min_element(walls, [p](const auto &w1, const auto &w2) {
                                 return std::get<0>(w1).distance(p) < std::get<0>(w2).distance(p);});
           return *closest_wall;
       }

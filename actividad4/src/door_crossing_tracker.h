@@ -5,6 +5,10 @@
 #ifndef LOCALISER_DOOR_CROSSING_TRACKER_H
 #define LOCALISER_DOOR_CROSSING_TRACKER_H
 
+#include "common_types.h"
+#include "nominal_room.h"
+#include <ranges>
+
 // Door crossing struct to track used door in crossing situations
 
         struct DoorCrossing
@@ -40,7 +44,7 @@
                     return;
                 }
                 const auto closest_door = std::ranges::min_element(nominal_doors, [this](const auto &a, const auto &b)
-                { return (a.center_global() - leaving_door_center).norm() < (b.center_global() - leaving_door_center).norm(); });
+                { return (a.global_center() - leaving_door_center).norm() < (b.global_center() - leaving_door_center).norm(); });
                 entering_door_index = static_cast<int>(std::distance(nominal_doors.begin(), closest_door));
             }
         };

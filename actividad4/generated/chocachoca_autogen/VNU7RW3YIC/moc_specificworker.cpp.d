@@ -12,6 +12,7 @@
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/OmniRobot.h \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/genericworker.h \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h \
+  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_crossing_tracker.h \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.h \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/hungarian.h \
   /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h \

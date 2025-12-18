@@ -3305,6 +3305,7 @@ generated/chocachoca_autogen/timestamp: /home/robocomp/robocomp/classes/ConfigLo
   generated/main.cpp \
   src/CMakeLists.txt \
   src/common_types.h \
+  src/door_crossing_tracker.h \
   src/door_detector.cpp \
   src/door_detector.h \
   src/hungarian.cpp \
@@ -7762,6 +7763,8 @@ src/hungarian.cpp:
 src/door_detector.h:
 
 src/door_detector.cpp:
+
+src/door_crossing_tracker.h:
 
 src/common_types.h:
 

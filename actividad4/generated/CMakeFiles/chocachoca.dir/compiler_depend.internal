@@ -32,6 +32,7 @@
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/main.cpp
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/CMakeLists.txt
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_crossing_tracker.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.cpp
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/hungarian.cpp
@@ -7524,6 +7525,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/include/ui_mainUI.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/genericworker.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_crossing_tracker.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/hungarian.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h
@@ -9234,6 +9236,7 @@ generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/include/ui_mainUI.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/genericworker.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_crossing_tracker.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/hungarian.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h
@@ -11951,6 +11954,7 @@ generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o
  /home/robocomp/robocomp/classes/grafcetStep/GRAFCETStep.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/UITLZZOD3R/moc_GRAFCETStep.cpp
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_crossing_tracker.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/hungarian.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h
@@ -17332,6 +17336,7 @@ generated/CMakeFiles/chocachoca.dir/main.cpp.o
  /home/robocomp/robocomp/classes/sigwatch/sigwatch.h
  /home/robocomp/robocomp/classes/threadpool/threadpool.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h
+ /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_crossing_tracker.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/hungarian.h
  /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/image_processor.h

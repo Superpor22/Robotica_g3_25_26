@@ -43,6 +43,8 @@
 #include <tuple>
 #include <utility>
 #include <vector>
+
+#include "door_crossing_tracker.h"
 #include "room_detector.h"
 #include "hungarian.h"
 #include "nominal_room.h"
@@ -109,6 +111,8 @@ class SpecificWorker final : public GenericWorker
             float RELOCAL_MATCH_MAX_DIST = 2000.f;   // mm for Hungarian gating
             float RELOCAL_DONE_COST = 500.f;
             float RELOCAL_DONE_MATCH_MAX_ERROR = 2000.f;
+            float RELOCAL_MIN_DISTANCE_TO_DOOR = 700.0f;
+            float RELOCAL_MAX_ORIENTED_ERROR = 0.1f;
         };
         Params params;
 
@@ -199,10 +203,15 @@ class SpecificWorker final : public GenericWorker
         bool relocal_centered = false;
         bool localised = false;
 
-    std::optional<std::pair<Eigen::Affine2f, float>> update_robot_pose(int room_index, const Corners& corners,
+        DoorCrossing door_crossing;
+
+        std::optional<std::pair<Eigen::Affine2f, float>> update_robot_pose(int room_index, const Corners& corners,
                                                                        const Eigen::Affine2f& r_pose,
                                                                        bool transform_corners);
         void move_robot(float adv, float rot, float max_match_error);
+
+        int choose_next_door(int current_room);
+
         RetVal TURN_method(const Corners &corners);
         Eigen::Vector3d solve_pose(const Corners &corners, const Match &match);
         void predict_robot_pose();

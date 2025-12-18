@@ -29,6 +29,7 @@ chocachoca_autogen/timestamp: \
 	/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/main.cpp \
 	/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/CMakeLists.txt \
 	/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/common_types.h \
+	/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_crossing_tracker.h \
 	/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.cpp \
 	/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/door_detector.h \
 	/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/src/hungarian.cpp \
