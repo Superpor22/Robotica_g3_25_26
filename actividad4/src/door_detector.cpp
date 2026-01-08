@@ -41,6 +41,7 @@ Doors DoorDetector::detect(const RoboCompLidar3D::TPoints &points, QGraphicsScen
             doors.emplace_back(Door(p1, phi1, p2, phi2));
         }
     }
+    doors_cache = doors;
     return doors;
 }
 

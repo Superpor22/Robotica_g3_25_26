@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/405/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/409/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/405/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/409/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -101,8 +101,8 @@ generated/chocachoca_autogen/timestamp: /usr/lib/qt6/libexec/moc
 generated/chocachoca_autogen/timestamp: /usr/lib/qt6/libexec/uic
 generated/chocachoca_autogen/timestamp: generated/CMakeFiles/chocachoca.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Automatic MOC and UIC for target chocachoca"
-	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated && /snap/clion/405/bin/cmake/linux/x64/bin/cmake -E cmake_autogen /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/CMakeFiles/chocachoca_autogen.dir/AutogenInfo.json Debug
-	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated && /snap/clion/405/bin/cmake/linux/x64/bin/cmake -E touch /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/timestamp
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated && /snap/clion/409/bin/cmake/linux/x64/bin/cmake -E cmake_autogen /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/CMakeFiles/chocachoca_autogen.dir/AutogenInfo.json Debug
+	cd /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated && /snap/clion/409/bin/cmake/linux/x64/bin/cmake -E touch /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/chocachoca_autogen/timestamp
 
 generated/CMakeFiles/chocachoca.dir/codegen:
 .PHONY : generated/CMakeFiles/chocachoca.dir/codegen

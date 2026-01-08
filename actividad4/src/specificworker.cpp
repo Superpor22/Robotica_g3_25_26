@@ -239,53 +239,90 @@ void SpecificWorker::compute()
 	last_time = std::chrono::high_resolution_clock::now();
 }
 
-
 SpecificWorker::RetVal SpecificWorker::goto_door()
 {
-	if (doors.empty()) return {};
-
-	Door target_door;
-
-	if (localised)
+	// 1. Puertas detectadas en el frame del robot (LIDAR)
+	Doors doors = door_detector.doors();
+	if (doors.empty())
 	{
-		const auto dn = nominal_rooms[room_index].doors[current_door];
-
-		const auto sd = std::ranges::min_element(doors, [dn, this](const auto &a, const auto &b)
-			   {  return (a.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm() <
-						 (b.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm(); });
-		target_door = *sd;
-		target_door.p1_global = dn.p1_global;
-		target_door.p2_global = dn.p2_global;
-	}
-	else  // select the one closest to the robot's heading direction
-	{
-		//qInfo() << __FUNCTION__ << "Not localised, selecting door closest to robot heading";
-		const auto sd = std::ranges::min_element(doors, [](const auto &a, const auto &b)
-			   {  return abs(a.p1_angle) < abs(b.p1_angle); });
-		target_door = *sd;
+		qInfo() << __FUNCTION__ << "No doors detected";
+		return {STATE::GOTO_DOOR, 0.f, 0.f};
 	}
 
-	// distance to target is less than threshold, stop and switch to ORIENT_TO_DOOR
-	const auto target = robot_pose.inverse() * target_door.center_before(robot_pose.translation(), params.RELOCAL_MIN_DISTANCE_TO_DOOR);
-	const auto dist_to_door = target.norm();
+	// 2. Puerta objetivo en GLOBAL (la nominal que queremos cruzar)
+	const Door &nominal_door = nominal_rooms[room_index].doors[current_door];
+	Eigen::Vector2f nominal_center_global = nominal_door.global_center();
 
-	// draw target
-	static QGraphicsItem *door_target_draw = nullptr;
-	if (door_target_draw != nullptr)
-		viewer->scene.removeItem(door_target_draw);
-	door_target_draw = viewer->scene.addEllipse(-50, -50, 100, 100, QPen(Qt::magenta), QBrush(Qt::magenta));
-	door_target_draw->setPos(target.x(), target.y());
+	// 3. Convertir centro nominal GLOBAL → FRAME DEL ROBOT
+	Eigen::Vector2f nominal_center_robot =
+		robot_pose.inverse().cast<float>() * nominal_center_global;
 
-	// Exit condition
-	if (dist_to_door < params.DOOR_REACHED_DIST)
-	{
-		viewer->scene.removeItem(door_target_draw);
+	// 4. Elegir la puerta detectada más cercana a la nominal (en frame robot)
+	auto target_it = std::ranges::min_element(
+		doors,
+		[&](const Door &a, const Door &b)
+		{
+			return (a.center() - nominal_center_robot).norm() <
+				   (b.center() - nominal_center_robot).norm();
+		});
+
+	Door target_door = *target_it;
+
+	// 5. Centro de la puerta objetivo EN FRAME DEL ROBOT
+	Eigen::Vector2f centro = target_door.center();
+
+	// 6. Control
+	const float k_rot = 1.0f;
+	const float angulo = std::atan2(centro.x(), centro.y());
+	const float dist   = centro.norm();
+
+	// 7. Condición de salida
+	if (dist < 600.f)
 		return {STATE::ORIENT_TO_DOOR, 0.f, 0.f};
-	}
 
-	const auto &[adv, rot] = robot_controller(target);
+	// 8. Velocidades
+	const float vrot  = k_rot * angulo;
+	const float brake = std::exp(-angulo * angulo / (M_PI / 10.f));
+	const float adv   = 1000.f * brake;
 
-	return {STATE::GOTO_DOOR, adv*0.2, rot};
+	return {STATE::GOTO_DOOR, adv, vrot};
+
+
+	// Doors doorsy = door_detector.doors();
+	// if (doorsy.empty()) return {STATE::GOTO_DOOR, 0.f, 0.f};
+	//
+	// Door target_door;
+	// const auto dn = nominal_rooms[room_index].doors[current_door];
+	//
+	// const auto sd = std::ranges::min_element(doorsy, [dn, this](const auto &a, const auto &b)
+	// {  return (a.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm() <(b.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm(); });
+	// target_door = *sd;
+	// target_door.p1_global = dn.p1_global;
+	// target_door.p2_global = dn.p2_global;
+	//
+	// // distance to target is less than threshold, stop and switch to ORIENT_TO_DOOR
+	// const auto target = robot_pose.inverse() * target_door.center_before(robot_pose.translation(), params.RELOCAL_MIN_DISTANCE_TO_DOOR);
+	// //auto target = target_door.center_before(Eigen::Vector2f(robot_pose.translation().x(), robot_pose.translation().y()));
+	// const auto dist_to_door = target.norm();
+	//
+	// // draw target
+	// static QGraphicsItem *door_target_draw = nullptr;
+	// if (door_target_draw != nullptr)
+	// 	viewer->scene.removeItem(door_target_draw);
+	// door_target_draw = viewer->scene.addEllipse(-50, -50, 100, 100, QPen(Qt::magenta), QBrush(Qt::magenta));
+	// door_target_draw->setPos(target.x(), target.y());
+	//
+	// // Exit condition
+	// qInfo() << "DIST TO DOOR: " << dist_to_door;
+	// if (dist_to_door < params.DOOR_REACHED_DIST)
+	// {
+	// 	viewer->scene.removeItem(door_target_draw);
+	// 	return {STATE::ORIENT_TO_DOOR, 0.f, 0.f};
+	// }
+	//
+	// const auto &[adv, rot] = robot_controller(target);
+	//
+	// return {STATE::GOTO_DOOR, adv*0.2, rot};
 }
 
 int SpecificWorker::get_corresponding_door(const Door& door_nominal)
@@ -303,30 +340,50 @@ int SpecificWorker::get_corresponding_door(const Door& door_nominal)
 
 SpecificWorker::RetVal SpecificWorker::orient_to_door()
 {
-	if (doors.empty()) return {};
+	const auto doorsy = door_detector.doors();
 
-	if (localised)
+	if (doorsy.empty()) return {};
+
+	const auto sd = std::ranges::min_element(doorsy, [](const auto &a, const auto &b)
+	   {  return std::fabs(a.center_angle()) < std::fabs(b.center_angle());} );
+
+	auto centro = sd->center();
+
+	float k = 0.5f;
+	auto angulo = atan2(centro.x(), centro.y());
+
+	if (abs(angulo) < 0.1)
 	{
-		const auto dn = nominal_rooms[room_index].doors[current_door];
-		const auto sd = std::ranges::min_element(doors, [dn, this](const auto &a, const auto &b)
-			{  return (a.center() - robot_pose.inverse() * dn.global_center()).norm() <
-					  (b.center() - robot_pose.inverse() * dn.global_center()).norm(); });
-		//qInfo() << __FUNCTION__ << "Localised, selecting door closest to nominal door" << sd->center_angle() << params.RELOCAL_MAX_ORIENTED_ERROR << doors.size();
-		if ( abs(sd->center_angle()) < params.RELOCAL_MAX_ORIENTED_ERROR)
-			return {STATE::CROSS_DOOR, 0.1, 0.f};
-		else
-			return {STATE::ORIENT_TO_DOOR, 0.f, std::get<1>(robot_controller(sd->center()))};
+		localised = false;
+		return {STATE::CROSS_DOOR, 0.5, 0.0};
 	}
-	else  // select the one closest to the robot's heading direction
-	{
-		qInfo() << __FUNCTION__ << "Not localised, selecting door closest to robot heading";
-		const auto sd = std::ranges::min_element(doors, [](const auto &a, const auto &b)
-			   {  return std::fabs(a.center_angle()) < std::fabs(b.center_angle());} );
-		if (abs(sd->center_angle()) < params.RELOCAL_MAX_ORIENTED_ERROR)
-			return {STATE::CROSS_DOOR, 0.5f, 0.f};
-		else
-			return {STATE::ORIENT_TO_DOOR, 0.f, std::get<1>(robot_controller(sd->center()))};
-	}
+
+	float vrot = k * angulo;
+
+	return {STATE::ORIENT_TO_DOOR, 0.0, vrot};
+
+	// if (localised)
+	// {
+	// 	const auto dn = nominal_rooms[room_index].doors[current_door];
+	// 	const auto sd = std::ranges::min_element(door_detector.doors(), [dn, this](const auto &a, const auto &b)
+	// 		{  return (a.center() - robot_pose.inverse() * dn.global_center()).norm() <
+	// 				  (b.center() - robot_pose.inverse() * dn.global_center()).norm(); });
+	// 	//qInfo() << __FUNCTION__ << "Localised, selecting door closest to nominal door" << sd->center_angle() << params.RELOCAL_MAX_ORIENTED_ERROR << doors.size();
+	// 	if ( abs(sd->center_angle()) < params.RELOCAL_MAX_ORIENTED_ERROR)
+	// 		return {STATE::CROSS_DOOR, 0.1, 0.f};
+	// 	else
+	// 		return {STATE::ORIENT_TO_DOOR, 0.f, std::get<1>(robot_controller(sd->center()))};
+	// }
+	// else  // select the one closest to the robot's heading direction
+	// {
+	// 	qInfo() << __FUNCTION__ << "Not localised, selecting door closest to robot heading";
+	// 	const auto sd = std::ranges::min_element(doors, [](const auto &a, const auto &b)
+	// 		   {  return std::fabs(a.center_angle()) < std::fabs(b.center_angle());} );
+	// 	if (abs(sd->center_angle()) < params.RELOCAL_MAX_ORIENTED_ERROR)
+	// 		return {STATE::CROSS_DOOR, 0.5f, 0.f};
+	// 	else
+	// 		return {STATE::ORIENT_TO_DOOR, 0.f, std::get<1>(robot_controller(sd->center()))};
+	// }
 }
 
 SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints& points)
@@ -340,9 +397,31 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 		robot_room_draw->hide();
 		contador = 0;
 		viewer_room->scene.removeItem(habitacion);
+		delete habitacion;
+		habitacion = nullptr;
+		//habitacion = viewer_room->scene.addRect(nominal_rooms[room_index].rect(), QPen(Qt::black, 30));
 		for (auto puerta : puertas)
+		{
 			viewer_room->scene.removeItem(puerta);
+		}
+
+		door_detector.detect(points);
+		nominal_rooms[room_index].doors = door_detector.doors();
+		if (!nominal_rooms[room_index].doors.empty())
+		{
+			const auto &entering_door = nominal_rooms[room_index].doors[current_door]; // door we are entering now
+			Eigen::Vector2f door_center = entering_door.global_center(); //
+			// Vector from door to origin (0,0) is -door_center
+			const float angle = std::atan2(-door_center.x(), -door_center.y());
+			// robot_pose now must be translated so it is drawn in the new room correctly
+			robot_pose.setIdentity();
+			door_center.y() -= 500; // place robot 500 mm inside the room
+			robot_pose.translate(door_center);
+			robot_pose.rotate(0);
+			std::cout << door_center.x() << " " << door_center.y() << " " << angle << std::endl;
+		}
 		localised = false;
+
 		return {STATE::GOTO_ROOM_CENTER, 0.f, 0.f};
 	}
 
@@ -358,6 +437,7 @@ int SpecificWorker::choose_next_door(int current_room)
 SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 {
 	// exit condition
+	door_crossing.track_entering_door(door_detector.doors());
 	const auto &[success, current_room, left_right] = image_processor.check_colour_patch_in_image(camera360rgb_proxy, label_img);
 	if (success)
 	{
@@ -366,58 +446,84 @@ SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 		habitacion = viewer_room->scene.addRect(nominal_rooms[room_index].rect(), QPen(Qt::black, 30));
 		robot_room_draw->show();
 
+		const auto m = hungarian.match(corners,nominal_rooms[room_index].corners() );
+		if (m.empty())
+		{
+			qInfo() << __FUNCTION__ << "empty match";
+		};
+		if (m.size() < 3)
+		{
+			qInfo() << __FUNCTION__ << "m size < 3";
+			return{STATE::TURN, 0.0f, left_right*params.RELOCAL_ROT_SPEED};
+		}
+		const auto max_error_iter = std::ranges::max_element(m, [](const auto &a, const auto &b)
+								{ return std::get<2>(a) < std::get<2>(b); });
+		if (const auto max_match_error = std::get<2>(*max_error_iter); max_match_error > params.RELOCAL_DONE_MATCH_MAX_ERROR)
+		{
+			qInfo() << __FUNCTION__ << "match error > " << params.RELOCAL_DONE_MATCH_MAX_ERROR;
+			return{STATE::TURN, 0.0f, left_right*params.RELOCAL_ROT_SPEED};
+		}
+
 		// update robot pose to have a fresh value
 		if (const auto res = update_robot_pose(current_room, corners, robot_pose, false); res.has_value())
 		   robot_pose = res.value().first;
 		else return{STATE::TURN, 0.0f, left_right*params.RELOCAL_ROT_SPEED/2};
 
 		// save doors to nominal_room if not previously visited
-		if (not nominal_rooms[room_index].visited)
-		{
-			nominal_rooms[room_index].name = image_processor.room_name_from_index(room_index);
+		// if (not nominal_rooms[room_index].visited)
+		// {
+		nominal_rooms[room_index].name = image_processor.room_name_from_index(room_index);
+		auto doorsy = door_detector.doors();
+		if (doorsy.empty()) { qWarning() << __FUNCTION__ << "empty doors"; return{STATE::TURN, 0.0f, left_right*params.RELOCAL_ROT_SPEED};}
 
-			for (auto &d : doors)
+			for (auto d : doorsy)
 			{
-				d.p1_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p1);
-				d.p2_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p2);
+				d.p1_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p1.cast<float>());
+				d.p2_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p2.cast<float>());
 				puertas.emplace_back(viewer_room->scene.addLine(d.p1_global.x(), d.p1_global.y(), d.p2_global.x(), d.p2_global.y(), QPen(Qt::red, 90)));
 			}
 
-			nominal_rooms[room_index].doors = doors;
+			nominal_rooms[room_index].doors = doorsy;
+			door_crossing.set_entering_data(room_index, nominal_rooms);
+
+			nominal_rooms[room_index].doors[door_crossing.entering_door_index].connect_to_door = door_crossing.leaving_room_index;
+
+			current_door = (door_crossing.entering_door_index + 1) % nominal_rooms[room_index].doors.size();
+			door_crossing.leaving_door_index = current_door;
 
 			// choose door to go
-			current_door = choose_next_door(room_index); // TODO crear metodo para elegir puerta
+			//current_door = choose_next_door(room_index); // TODO crear metodo para elegir puerta
 
 			qInfo() << current_door << "--------------------";
 
 			// we need to match the current selected nominal door to the successive local doors detected during the approach
 			// select the local door closest to the selected nominal door
 
-			const auto dn = nominal_rooms[room_index].doors[current_door];
-			const auto ds = doors;
-			const auto sd = std::ranges::min_element(ds, [dn, this](const auto &a, const auto &b)
-					{  return (a.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm() <
-							  (b.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm(); });
+			// const auto dn = nominal_rooms[room_index].doors[current_door];
+			// const auto ds = doors;
+			// const auto sd = std::ranges::min_element(ds, [dn, this](const auto &a, const auto &b)
+			// 		{  return (a.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm() <
+			// 				  (b.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm(); });
+			//
+			// // sd is the closest local door to the selected nominal door. Update nominal door with local values
+			// nominal_rooms[room_index].doors[current_door].p1 = sd->p1;
+			// nominal_rooms[room_index].doors[current_door].p2 = sd->p2;
+			//
+			// nominal_rooms[room_index].visited = true;
 
-			// sd is the closest local door to the selected nominal door. Update nominal door with local values
-			nominal_rooms[room_index].doors[current_door].p1 = sd->p1;
-			nominal_rooms[room_index].doors[current_door].p2 = sd->p2;
-
-			nominal_rooms[room_index].visited = true;
-
-		}
+		//}
 
 		// finish door tracking and update door crossing info
-		if (door_crossing.valid)
-		{
-			door_crossing.set_entering_data(current_room, nominal_rooms);
-			nominal_rooms[door_crossing.leaving_room_index].doors[door_crossing.leaving_door_index].connect_to_door = door_crossing.entering_door_index;
-			nominal_rooms[door_crossing.leaving_room_index].doors[door_crossing.leaving_door_index].connect_to_room = door_crossing.entering_room_index;
-			nominal_rooms[current_room].doors[door_crossing.entering_door_index].visited = true;
-			nominal_rooms[current_room].doors[door_crossing.entering_door_index].connect_to_door = door_crossing.leaving_door_index;
-			nominal_rooms[current_room].doors[door_crossing.entering_door_index].connect_to_room = door_crossing.leaving_room_index;
-			door_crossing.valid = false;
-		}
+		// if (door_crossing.valid)
+		// {
+		// 	door_crossing.set_entering_data(current_room, nominal_rooms);
+		// 	nominal_rooms[door_crossing.leaving_room_index].doors[door_crossing.leaving_door_index].connect_to_door = door_crossing.entering_door_index;
+		// 	nominal_rooms[door_crossing.leaving_room_index].doors[door_crossing.leaving_door_index].connect_to_room = door_crossing.entering_room_index;
+		// 	nominal_rooms[current_room].doors[door_crossing.entering_door_index].visited = true;
+		// 	nominal_rooms[current_room].doors[door_crossing.entering_door_index].connect_to_door = door_crossing.leaving_door_index;
+		// 	nominal_rooms[current_room].doors[door_crossing.entering_door_index].connect_to_room = door_crossing.leaving_room_index;
+		// 	door_crossing.valid = false;
+		// }
 
 		localised = true;
 		return {STATE::GOTO_DOOR, 0.0f, 0.0f};  // SUCCESS

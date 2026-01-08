@@ -3326,28 +3326,28 @@ generated/chocachoca_autogen/timestamp: /home/robocomp/robocomp/classes/ConfigLo
   src/specificworker.h \
   src/time_series_plotter.cpp \
   src/time_series_plotter.h \
-  /snap/clion/405/bin/cmake/linux/x64/bin/cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCXXSourceCompiles.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckIncludeFile.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckLibraryExists.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FeatureSummary.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindIce.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindOpenGL.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPackageMessage.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPkgConfig.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindThreads.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindVulkan.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/GNUInstallDirs.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/MacroAddFileDependencies.cmake \
-  /snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/SelectLibraryConfigurations.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/bin/cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCXXSourceCompiles.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckIncludeFile.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckLibraryExists.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FeatureSummary.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindIce.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindOpenGL.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPackageMessage.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPkgConfig.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindThreads.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindVulkan.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/GNUInstallDirs.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/MacroAddFileDependencies.cmake \
+  /snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/SelectLibraryConfigurations.cmake \
   /usr/include/GL/gl.h \
   /usr/include/Ice/AsyncResult.h \
   /usr/include/Ice/BatchRequestQueueF.h \
@@ -7722,27 +7722,23 @@ generated/chocachoca_autogen/timestamp: /home/robocomp/robocomp/classes/ConfigLo
 
 /usr/local/include/cppitertools/enumerate.hpp:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/SelectLibraryConfigurations.cmake:
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/SelectLibraryConfigurations.cmake:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/MacroAddFileDependencies.cmake:
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/MacroAddFileDependencies.cmake:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/GNUInstallDirs.cmake:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake:
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FeatureSummary.cmake:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindVulkan.cmake:
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckIncludeFile.cmake:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPackageMessage.cmake:
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake:
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindOpenGL.cmake:
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckIncludeFile.cmake:
-
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake:
-
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake:
+/snap/clion/409/bin/cmake/linux/x64/bin/cmake:
 
 src/time_series_plotter.cpp:
 
@@ -7755,8 +7751,6 @@ src/nominal_room.h:
 src/mainUI.ui:
 
 src/image_processor.h:
-
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckLibraryExists.cmake:
 
 src/hungarian.cpp:
 
@@ -7868,6 +7862,8 @@ src/CMakeLists.txt:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qdatawidgetmapper.h:
 
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindThreads.cmake:
+
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcompleter.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcommonstyle.h:
@@ -7899,6 +7895,8 @@ src/CMakeLists.txt:
 /usr/include/x86_64-linux-gnu/qt6/QtPrintSupport/qabstractprintdialog.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtPrintSupport/QtPrintSupportDepends:
+
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtPrintSupport/QtPrintSupport:
 
@@ -8234,8 +8232,6 @@ src/CMakeLists.txt:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Xml/Qt6XmlConfigVersionImpl.cmake:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/GNUInstallDirs.cmake:
-
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Xml/Qt6XmlConfig.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake:
@@ -8348,6 +8344,10 @@ src/CMakeLists.txt:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake:
 
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPackageMessage.cmake:
+
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake:
+
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Core/Qt6CoreConfigVersion.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6Core/Qt6CoreConfigExtras.cmake:
@@ -8361,8 +8361,6 @@ src/CMakeLists.txt:
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/QtPublicWalkLibsHelpers.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/QtPublicToolHelpers.cmake:
-
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/QtPublicPluginHelpers.cmake:
 
@@ -8417,6 +8415,8 @@ src/CMakeLists.txt:
 /usr/lib/gcc/x86_64-linux-gnu/13/include/tsxldtrkintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
+
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindIce.cmake:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h:
 
@@ -8516,8 +8516,6 @@ src/CMakeLists.txt:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16intrin.h:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPkgConfig.cmake:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fintrin.h:
 
 /home/usuario/robotica_G3/actividad1/generated/GenericBase.h:
@@ -8573,6 +8571,8 @@ src/CMakeLists.txt:
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgraphicsview.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h:
+
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindOpenGL.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h:
 
@@ -8681,8 +8681,6 @@ src/specificworker.h:
 /usr/include/opencv4/opencv2/opencv.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qpagelayout.h:
-
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindThreads.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qpagedpaintdevice.h:
 
@@ -9102,6 +9100,8 @@ src/munkres.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckLibraryExists.cmake:
+
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextobject.h:
 
 /usr/include/c++/13/type_traits:
@@ -9249,8 +9249,6 @@ generated/chocachoca_autogen/moc_predefs.h:
 /usr/include/boost/type_traits/is_rvalue_reference.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qrect.h:
-
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCXXSourceCompiles.cmake:
 
 /usr/include/boost/type_traits/is_reference.hpp:
 
@@ -9630,6 +9628,8 @@ src/time_series_plotter.h:
 
 /usr/include/Ice/LoggerF.h:
 
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake:
+
 src/ransac_line_detector.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
@@ -9960,6 +9960,8 @@ src/qcustomplot.cpp:
 
 /home/usuario/robotica_G3/Robotica_g3_25_26/actividad2/src/hungarian.cpp:
 
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindPkgConfig.cmake:
+
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
 /usr/include/eigen3/Eigen/src/Core/DenseBase.h:
@@ -9972,9 +9974,9 @@ src/qcustomplot.cpp:
 
 /usr/include/boost/preprocessor/detail/limits/auto_rec_256.hpp:
 
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:
-
 /usr/include/c++/13/algorithm:
+
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindVulkan.cmake:
 
 /usr/include/eigen3/Eigen/src/Core/SelfCwiseBinaryOp.h:
 
@@ -10250,6 +10252,8 @@ src/pointcloud_center_estimator.cpp:
 
 /usr/include/boost/exception/exception.hpp:
 
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake:
+
 /usr/include/unistd.h:
 
 /usr/lib/x86_64-linux-gnu/cmake/Qt6CoreTools/Qt6CoreToolsTargets.cmake:
@@ -10321,8 +10325,6 @@ src/pointcloud_center_estimator.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qprocessordetection.h:
 
 /snap/clion/393/bin/cmake/linux/x64/share/cmake-4.0/Modules/CheckCXXCompilerFlag.cmake:
-
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCSourceCompiles.cmake:
 
 /usr/include/boost/preprocessor/variadic/has_opt.hpp:
 
@@ -10549,8 +10551,6 @@ generated/main.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qaccessible_base.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qmath.h:
-
-/snap/clion/405/bin/cmake/linux/x64/bin/cmake:
 
 /usr/include/eigen3/Eigen/src/Core/Transpositions.h:
 
@@ -10873,6 +10873,8 @@ generated/main.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qitemdelegate.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
@@ -11246,6 +11248,8 @@ src/room_detector.cpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qfuturesynchronizer.h:
 
+/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CheckCXXSourceCompiles.cmake:
+
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qgenericatomic.h:
 
 /usr/include/eigen3/Eigen/src/Core/functors/NullaryFunctors.h:
@@ -11317,8 +11321,6 @@ src/room_detector.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qiterable.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qnumeric.h:
-
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindIce.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtreeview.h:
 
@@ -11399,8 +11401,6 @@ src/qcustomplot.h:
 /usr/lib/x86_64-linux-gnu/cmake/Qt6/QtPublicFinalizerHelpers.cmake:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qsequentialanimationgroup.h:
-
-/snap/clion/405/bin/cmake/linux/x64/share/cmake-4.1/Modules/FeatureSummary.cmake:
 
 /usr/include/opencv4/opencv2/stitching/detail/exposure_compensate.hpp:
 
