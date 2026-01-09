@@ -41,6 +41,46 @@ Doors DoorDetector::detect(const RoboCompLidar3D::TPoints &points, QGraphicsScen
             doors.emplace_back(Door(p1, phi1, p2, phi2));
         }
     }
+
+    static std::vector<QGraphicsItem *> doors_draw;
+
+    if(scene)
+    {
+        // limpiar dibujo previo
+        for(auto *item : doors_draw)
+        {
+            scene->removeItem(item);
+            delete item;
+        }
+        doors_draw.clear();
+
+        const QPen pen_line(Qt::cyan, 30);
+        const QPen pen_point(Qt::blue);
+        const QBrush brush_point(Qt::blue);
+
+        for(const auto &d : doors)
+        {
+            // extremos
+            auto a = scene->addEllipse(-100, -100, 200, 200, pen_point, brush_point);
+            auto b = scene->addEllipse(-100, -100, 200, 200, pen_point, brush_point);
+
+            a->setPos(d.p1.x(), d.p1.y());
+            b->setPos(d.p2.x(), d.p2.y());
+
+            // línea de puerta
+            auto l = scene->addLine(
+                d.p1.x(), d.p1.y(),
+                d.p2.x(), d.p2.y(),
+                pen_line
+            );
+
+            doors_draw.push_back(a);
+            doors_draw.push_back(b);
+            doors_draw.push_back(l);
+        }
+    }
+
+
     doors_cache = doors;
     return doors;
 }

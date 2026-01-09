@@ -180,8 +180,8 @@ void SpecificWorker::compute()
 	// Read data from lidar
 	auto filter_data = read_data();
 
-	doors = door_detector.detect(filter_data, &viewer->scene);
-	draw_doors(doors, &viewer->scene);
+	// doors = door_detector.detect(filter_data, &viewer->scene);
+	// draw_doors(doors, &viewer->scene);
 	// filtrar con el filtro de huecos
 	filter_data = door_detector.filter_points(filter_data, &viewer->scene);
 	draw_lidar(filter_data, &viewer->scene);
@@ -249,22 +249,30 @@ SpecificWorker::RetVal SpecificWorker::goto_door()
 		return {STATE::GOTO_DOOR, 0.f, 0.f};
 	}
 
+	qInfo() << "CURRENT DOOR -------------" << current_door;
+
 	// 2. Puerta objetivo en GLOBAL (la nominal que queremos cruzar)
-	const Door &nominal_door = nominal_rooms[room_index].doors[current_door];
-	Eigen::Vector2f nominal_center_global = nominal_door.global_center();
+	const Door nominal_door = nominal_rooms[room_index].doors[current_door];
+	// Eigen::Vector2f nominal_center_global = nominal_door.global_center();
+	//
+	// // 3. Convertir centro nominal GLOBAL → FRAME DEL ROBOT
+	// Eigen::Vector2f nominal_center_robot =
+	// 	robot_pose.inverse().cast<float>() * nominal_center_global;
+	//
+	// // 4. Elegir la puerta detectada más cercana a la nominal (en frame robot)
+	// auto target_it = std::ranges::min_element(
+	// 	doors,
+	// 	[&](const Door &a, const Door &b)
+	// 	{
+	// 		return (a.center() - nominal_center_robot).norm() <
+	// 			   (b.center() - nominal_center_robot).norm();
+	// 	});
 
-	// 3. Convertir centro nominal GLOBAL → FRAME DEL ROBOT
-	Eigen::Vector2f nominal_center_robot =
-		robot_pose.inverse().cast<float>() * nominal_center_global;
-
-	// 4. Elegir la puerta detectada más cercana a la nominal (en frame robot)
-	auto target_it = std::ranges::min_element(
-		doors,
-		[&](const Door &a, const Door &b)
-		{
-			return (a.center() - nominal_center_robot).norm() <
-				   (b.center() - nominal_center_robot).norm();
-		});
+	const auto target_it = std::ranges::min_element(doors, [nominal_door, this](const auto& a, const auto& b)
+{
+	return (a.center() - robot_pose.inverse().cast<float>() * nominal_door.global_center()).norm() <
+		(b.center() - robot_pose.inverse().cast<float>() * nominal_door.global_center()).norm();
+});
 
 	Door target_door = *target_it;
 
@@ -396,16 +404,17 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 	{
 		robot_room_draw->hide();
 		contador = 0;
+		qInfo() << "REMOVING ROOM RECT";
 		viewer_room->scene.removeItem(habitacion);
-		delete habitacion;
-		habitacion = nullptr;
-		//habitacion = viewer_room->scene.addRect(nominal_rooms[room_index].rect(), QPen(Qt::black, 30));
+		// delete habitacion;
+		// habitacion = nullptr;
+		// habitacion = viewer_room->scene.addRect(nominal_rooms[room_index].rect(), QPen(Qt::black, 30));
 		for (auto puerta : puertas)
 		{
 			viewer_room->scene.removeItem(puerta);
 		}
 
-		door_detector.detect(points);
+		// door_detector.detect(points);
 		nominal_rooms[room_index].doors = door_detector.doors();
 		if (!nominal_rooms[room_index].doors.empty())
 		{
@@ -422,6 +431,12 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 		}
 		localised = false;
 
+		// Puerta entrada
+		//nominal_rooms[door_crossing.entering_room_index].doors[door_crossing.entering_door_index].visited = true;
+
+		// Puerta salida
+		// nominal_rooms[door_crossing.leaving_room_index].doors[door_crossing.leaving_door_index].visited = true;
+
 		return {STATE::GOTO_ROOM_CENTER, 0.f, 0.f};
 	}
 
@@ -429,9 +444,26 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 	return {STATE::CROSS_DOOR, 500.f, 0.f};
 }
 
-int SpecificWorker::choose_next_door(int current_room)
+void SpecificWorker::choose_next_door(int current_room)
 {
-	return 0 ;
+	int i = 0;
+	for (Door &door : nominal_rooms[current_room].doors)
+	{
+		if (door.visited == false )
+		{
+			current_door = i;
+			break;
+		}
+		i ++;
+	}
+	if (i >= nominal_rooms[current_room].doors.size() )
+	{
+		for (auto &door : nominal_rooms[current_room].doors)
+		{
+			door.visited = false;
+		}
+		current_door = 0;
+	}
 }
 
 SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
@@ -442,9 +474,6 @@ SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 	if (success)
 	{
 		room_index = current_room;
-
-		habitacion = viewer_room->scene.addRect(nominal_rooms[room_index].rect(), QPen(Qt::black, 30));
-		robot_room_draw->show();
 
 		const auto m = hungarian.match(corners,nominal_rooms[room_index].corners() );
 		if (m.empty())
@@ -488,13 +517,22 @@ SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 
 			nominal_rooms[room_index].doors[door_crossing.entering_door_index].connect_to_door = door_crossing.leaving_room_index;
 
+			qInfo() << door_crossing.entering_door_index << "----------ENTERING DOOR----------";
+
 			current_door = (door_crossing.entering_door_index + 1) % nominal_rooms[room_index].doors.size();
 			door_crossing.leaving_door_index = current_door;
 
-			// choose door to go
-			//current_door = choose_next_door(room_index); // TODO crear metodo para elegir puerta
+			// nominal_rooms[door_crossing.entering_room_index].doors[door_crossing.entering_door_index].visited = true;
+		 //    //choose door to go
+		 //    choose_next_door(room_index); // TODO crear metodo para elegir puerta
 
 			qInfo() << current_door << "--------------------";
+
+			Door d = doorsy[current_door];
+			d.p1_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p1.cast<float>());
+			d.p2_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p2.cast<float>());
+
+			puertas.emplace_back(viewer_room->scene.addLine(d.p1_global.x(), d.p1_global.y(), d.p2_global.x(), d.p2_global.y(), QPen(Qt::blue,150)));
 
 			// we need to match the current selected nominal door to the successive local doors detected during the approach
 			// select the local door closest to the selected nominal door
@@ -524,6 +562,9 @@ SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 		// 	nominal_rooms[current_room].doors[door_crossing.entering_door_index].connect_to_room = door_crossing.leaving_room_index;
 		// 	door_crossing.valid = false;
 		// }
+
+		habitacion = viewer_room->scene.addRect(nominal_rooms[room_index].rect(), QPen(Qt::black, 30));
+		robot_room_draw->show();
 
 		localised = true;
 		return {STATE::GOTO_DOOR, 0.0f, 0.0f};  // SUCCESS
@@ -913,190 +954,6 @@ std::optional<std::pair<Eigen::Affine2f, float>> SpecificWorker::update_robot_po
 	return {{r_pose_copy, max_match_error}};
 }
 
-
-
-
-/**
- * @brief Determines the robot's next movement state based on the closest lidar point.
- *
- * This method analyzes the provided set of lidar points to determine how the robot should move.
- * It finds the point with the minimum distance (r value) and decides the next movement state
- * based on that distance:
- * - If the closest object is nearer than 800 units, the robot switches to the TURN state.
- * - If the closest object is farther than 1100 units, the robot switches to the SPIRAL state.
- * - Otherwise, the robot remains in the FORWARD state, moving straight ahead.
- *
- * The method also returns associated speed and rotational values depending on the selected state.
- *
- * @param points The collection of lidar points to analyze.
- * @return std::tuple<SpecificWorker::State, float, float> containing:
- *         - The next movement state of the robot (FORWARD, TURN, or SPIRAL).
- *         - The linear velocity value.
- *         - The rotational velocity value.
- */
-// std::tuple<SpecificWorker::State, float, float> SpecificWorker::FORWARD_method(const RoboCompLidar3D::TPoints& points)
-// {
-// 	auto min_dist = std::min_element(std::begin(points), std::end(points),[](const auto& p1, const auto& p2)
-// 			{ return p1.r < p2.r; });
-//
-// 	qInfo() << "Punto actual: " << min_dist->r;
-//
-// 	if (min_dist->r < 800)  // Objeto cerca → gira
-// 	{
-// 		qInfo() << "CHANGE FROM FORWARD TO TURN";
-// 		return {State::TURN, 0.0f, 0.0f};
-// 	}
-// 	if (min_dist->r > 1100)
-// 	{
-// 		bajada = 0.6f;
-// 		subida = 1000.f;
-// 		qInfo() << "-----------------------------Bajada_FORWARD: " << bajada << " subida: " << subida;
-// 		return {State::SPIRAL, 0.0f, 0.0f};
-// 	}
-//
-// 	/// What I do when I stay
-// 	return {State::FORWARD, 1000.0f, 0.0f};
-//
-// }
-//
-// /**
-//  * @brief Controls the robot's turning behavior based on lidar data.
-//  *
-//  * This method determines how the robot should turn when an obstacle is detected nearby.
-//  * It analyzes the provided lidar points to find the closest point (with the minimum distance, r value)
-//  * and decides whether to keep turning or transition to another movement state:
-//  *
-//  * - If no obstacle is closer than 800 units, the robot may stop turning and either:
-//  *   - Switch to the FOLLOW_WALL state (with 50% probability), or
-//  *   - Switch to the FORWARD state, adjusting its rotation direction based on the angle (phi) of the closest point.
-//  * - If an obstacle is still detected within 800 units, the robot continues turning in place.
-//  *   The direction of rotation (left or right) depends on whether the closest point's angle (phi) is negative or positive.
-//  *
-//  * The method also includes a counter (`contador_turn`) to control how long the robot stays in the TURN state.
-//  * If the counter exceeds a threshold (15 iterations), the robot performs a stronger turn.
-//  *
-//  * @param points The collection of lidar points used to determine proximity and turning direction.
-//  * @return std::tuple<SpecificWorker::State, float, float> containing:
-//  *         - The next movement state of the robot (TURN, FOLLOW_WALL, or FORWARD).
-//  *         - The linear velocity value.
-//  *         - The rotational velocity value.
-//  */
-
-//
-// /**
-//  * @brief Controls the robot’s behavior while following a wall using lidar data.
-//  *
-//  * This method adjusts the robot’s movement to maintain a consistent distance from a wall or obstacle.
-//  * It analyzes the provided lidar points to find the closest point (with the minimum distance, r value)
-//  * and decides how to proceed based on that distance:
-//  *
-//  * - If the closest point is between 770 and 810 units away, the robot maintains a stable forward motion
-//  *   while continuing to follow the wall.
-//  * - If the closest point is farther than 810 units, the robot adjusts its trajectory to move closer to the wall:
-//  *   - If the closest point’s angle (phi) is negative, it turns slightly right.
-//  *   - If the angle (phi) is positive, it turns slightly left.
-//  * - If none of these conditions are met, the robot transitions back to the FORWARD state to continue moving straight.
-//  *
-//  * This behavior helps the robot navigate parallel to obstacles, maintaining an optimal distance for safe movement.
-//  *
-//  * @param points The collection of lidar points used to measure the robot’s distance from nearby walls.
-//  * @return std::tuple<SpecificWorker::State, float, float> containing:
-//  *         - The next movement state of the robot (FOLLOW_WALL or FORWARD).
-//  *         - The linear velocity value.
-//  *         - The rotational velocity value.
-//  */
-// std::tuple<SpecificWorker::State, float, float> SpecificWorker::FOLLOW_WALL_method(const RoboCompLidar3D::TPoints& points)
-// {
-//
-// 	auto min_dist = std::min_element(std::begin(points), std::end(points),[](const auto& p1, const auto& p2)
-// 		{ return p1.r < p2.r; });
-//
-// 	// Si ya no hay obstáculo cerca, volvemos a FORWARD
-// 	if (min_dist->r > 770 and min_dist->r < 810)
-// 	{
-// 		qInfo() << "CHANGE FROM FOLLOW WALL TO FORWARD";
-// 		return {State::FOLLOW_WALL, 1000.0f, 0.0f};  // Podemos avanzar
-// 	}
-//
-// 	qInfo() << "CONTINUE FOLLOWING WALL";
-//
-// 	// What I do if I Stay
-// 	if (min_dist->r > 810)
-// 	{
-// 		if (min_dist->phi < 0)
-// 		{
-// 			qInfo() << "FOLLOW WALL 1";
-//
-// 			return {State::FOLLOW_WALL, 800.0f, -0.4f};
-// 		}
-// 		else
-// 		{
-// 			qInfo() << "FOLLOW WALL 2";
-//
-// 			return {State::FOLLOW_WALL, 800.0f, 0.4f};  // Desplazamiento lateral + rotación
-// 		}
-// 	}
-//
-// 	qInfo() << "FOLLOW WALL 3";
-// 	return {State::FORWARD, 1000.0f, 0.0f};
-// }
-//
-// /**
-//  * @brief Controls the robot’s movement in a spiral pattern based on lidar data.
-//  *
-//  * This method adjusts the robot’s movement to perform a spiral motion, gradually increasing
-//  * its forward speed (`subida`) and decreasing its rotation speed (`bajada`) as long as there
-//  * are no obstacles within 800 units. The robot continues to adjust these speeds as it moves in a spiral.
-//  * If an obstacle is detected within 800 units, the robot will switch to the FORWARD state and move straight ahead.
-//  *
-//  * The method also ensures that the `subida` (forward speed) and `bajada` (rotational speed) values
-//  * remain within specific limits to control the robot's motion:
-//  * - `subida` increases with a fixed increment (`delta_subida`) and is clamped between 0 and 1000.
-//  * - `bajada` decreases with a fixed increment (`delta_bajada`) and is clamped between 0 and 1.
-//  *
-//  * This behavior allows the robot to gradually expand its movement in a spiral shape while avoiding obstacles.
-//  *
-//  * @param points The collection of lidar points used to measure proximity to obstacles and determine movement.
-//  * @return std::tuple<SpecificWorker::State, float, float> containing:
-//  *         - The next movement state of the robot (SPIRAL or FORWARD).
-//  *         - The forward velocity value (`subida`).
-//  *         - The rotational velocity value (`bajada`).
-//  */
-// std::tuple<SpecificWorker::State, float, float> SpecificWorker::SPIRAL_method(const RoboCompLidar3D::TPoints& points)
-// {
-//
-// 	qInfo() << "-----------------------------Bajada_SPIRAL: " << bajada << " subida: " << subida;
-//
-// 	if (points.empty())
-// 	{
-// 		qInfo() << __FUNCTION__ << "No points";
-// 		return {State::SPIRAL, 0.0f, 0.0f};
-// 	}
-// 	auto min_dist = std::min_element(std::begin(points), std::end(points),[](const auto& p1, const auto& p2)
-// 			{ return p1.r < p2.r; });
-//
-// 	constexpr float delta_subida = 3.f;
-// 	constexpr float delta_bajada = 0.001f;
-//
-// 	qInfo() << "Punto actual: " << min_dist->r;
-// 	if (min_dist -> r < 800)
-// 	{
-// 		return {State::FORWARD, 1000.0f, 0.0f};
-// 	}
-// 	else
-// 	{
-// 		bajada -= delta_bajada;
-// 		subida += delta_subida;
-// 		bajada = std::clamp(bajada, 0.f, 1.f);
-// 		subida = std::clamp(subida, 0.f, 1000.f);
-// 		qInfo() << "-----------------------------Bajada: " << bajada << " subida: " << subida;
-// 		return {State::SPIRAL, subida, bajada };
-// 	}
-//
-// 	return {State::FORWARD, 1000.0f, 0.0f};
-//
-// }
-
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 void SpecificWorker::emergency()
@@ -1123,94 +980,3 @@ int SpecificWorker::startup_check()
 	QTimer::singleShot(200, QCoreApplication::instance(), SLOT(quit()));
 	return 0;
 }
-
-
-/**************************************/
-// From the RoboCompDifferentialRobot you can call this methods:
-// RoboCompDifferentialRobot::void this->differentialrobot_proxy->correctOdometer(int x, int z, float alpha)
-// RoboCompDifferentialRobot::void this->differentialrobot_proxy->getBasePose(int x, int z, float alpha)
-// RoboCompDifferentialRobot::void this->differentialrobot_proxy->getBaseState(RoboCompGenericBase::TBaseState state)
-// RoboCompDifferentialRobot::void this->differentialrobot_proxy->resetOdometer()
-// RoboCompDifferentialRobot::void this->differentialrobot_proxy->setOdometer(RoboCompGenericBase::TBaseState state)
-// RoboCompDifferentialRobot::void this->differentialrobot_proxy->setOdometerPose(int x, int z, float alpha)
-// RoboCompDifferentialRobot::void this->differentialrobot_proxy->setSpeedBase(float adv, float rot)
-// RoboCompDifferentialRobot::void this->differentialrobot_proxy->stopBase()
-
-/**************************************/
-// From the RoboCompDifferentialRobot you can use this types:
-// RoboCompDifferentialRobot::TMechParams
-
-/**************************************/
-// From the RoboCompLaser you can call this methods:
-// RoboCompLaser::TLaserData this->laser_proxy->getLaserAndBStateData(RoboCompGenericBase::TBaseState bState)
-// RoboCompLaser::LaserConfData this->laser_proxy->getLaserConfData()
-// RoboCompLaser::TLaserData this->laser_proxy->getLaserData()
-
-/**************************************/
-// From the RoboCompLaser you can use this types:
-// RoboCompLaser::LaserConfData
-// RoboCompLaser::TData
-
-    // // ===============================
-    // // Parámetros del controlador
-    // // ===============================
-    // const float Kp = 0.1;                      // Ganancia proporcional
-    // static float Kd = 0.0f;                       // Ganancia derivativa
-    //
-    // const float vmax = 300.0f;                     // Velocidad lineal máxima (mm/s)
-    //
-    // const float sigma_theta = M_PI / 4.0f;         // σθ del freno gaussiano (45º)
-    // const float d_stop = 500.0f;                   // Distancia para comenzar frenado (mm)
-    // const float k_sigmoid = 10.0f;                 // Steepness de la sigmoide
-    //
-    // // Guardamos el error angular anterior para el término derivativo
-    // static float prev_theta_e = 0.0f;
-    // static QElapsedTimer timer;
-    // if (!timer.isValid())
-    //     timer.start();
-    // float dt = timer.restart() / 1000.0f;          // Tiempo en segundos
-    //
-    //
-    // // ===============================
-    // // 1. Distancia al objetivo
-    // // ===============================
-    // float tx = target.x();
-    // float ty = target.y();
-    // float d = std::sqrt(tx*tx + ty*ty);
-    //
-    // // ===============================
-    // // 2. Error angular
-    // // ===============================
-    // float theta_e = std::atan2(ty, tx);
-    //
-    // // Normalizar [-PI, PI]
-    // while(theta_e >  M_PI) theta_e -= 2 * M_PI;
-    // while(theta_e < -M_PI) theta_e += 2 * M_PI;
-    //
-    // // ===============================
-    // // 3. Derivada del error angular
-    // // ===============================
-    // float theta_dot = (theta_e - prev_theta_e) / std::max(0.001f, dt);
-    // prev_theta_e = theta_e;
-    //
-    // // ===============================
-    // // 4. Control PD de rotación
-    // // ===============================
-    // float w = Kp * theta_e + Kd * theta_dot;
-    //
-    // // ===============================
-    // // 5. Freno gaussiano (ángulo)
-    // // ===============================
-    // float f_theta = std::exp(-(theta_e*theta_e) / (2.0f * sigma_theta * sigma_theta));
-    //
-    // // ===============================
-    // // 6. Freno de distancia (sigmoide)
-    // // ===============================
-    // float f_d = 1.0f / (1.0f + std::exp(k_sigmoid * (d - d_stop)));
-    //
-    // // ===============================
-    // // 7. Velocidad final
-    // // ===============================
-    // float v = vmax * f_theta * f_d;
-    //
-    // return std::make_tuple(v, w);

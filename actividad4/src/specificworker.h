@@ -210,7 +210,7 @@ class SpecificWorker final : public GenericWorker
                                                                        bool transform_corners);
         void move_robot(float adv, float rot, float max_match_error);
 
-        int choose_next_door(int current_room);
+    void choose_next_door(int current_room);
 
         RetVal TURN_method(const Corners &corners);
         Eigen::Vector3d solve_pose(const Corners &corners, const Match &match);
