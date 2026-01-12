@@ -100,9 +100,7 @@
       <change beforePath="$PROJECT_DIR$/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/chocachoca" beforeDir="false" afterPath="$PROJECT_DIR$/bin/chocachoca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/ParseCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/generated/CMakeFiles/chocachoca_autogen.dir/ParseCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/door_detector.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/door_detector.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/specificworker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/specificworker.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/specificworker.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/specificworker.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -493,7 +491,8 @@
       <workItem from="1766069249121" duration="6151000" />
       <workItem from="1766075649690" duration="6613000" />
       <workItem from="1767882870860" duration="11248000" />
-      <workItem from="1767971475261" duration="11383000" />
+      <workItem from="1767971475261" duration="11833000" />
+      <workItem from="1768230822590" duration="6417000" />
     </task>
     <servers />
   </component>

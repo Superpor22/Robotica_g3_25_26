@@ -206,6 +206,7 @@ void SpecificWorker::compute()
 	qInfo() << "Estado inicial --------------" << to_string(state);
 	const auto &[st, adv, rot] = state_machine(state, filter_data, measured_corners); // Machine states method
 	qInfo() << "St -------------------------" << to_string(st);
+	//qInfo() << "p1_global -----------------" << nominal_rooms[room_index].doors[current_door].p1_global.x() << "-------------" << nominal_rooms[room_index].doors[current_door].p1_global.y();
 	state = st;
 	qInfo() << "Estado salida ---------------" << to_string(state);
 	try{ omnirobot_proxy->setSpeedBase(0, adv, rot);}
@@ -242,6 +243,8 @@ void SpecificWorker::compute()
 SpecificWorker::RetVal SpecificWorker::goto_door()
 {
 	// 1. Puertas detectadas en el frame del robot (LIDAR)
+	static QGraphicsLineItem* puerta;
+	static int prim_it = 0;
 	Doors doors = door_detector.doors();
 	if (doors.empty())
 	{
@@ -249,17 +252,23 @@ SpecificWorker::RetVal SpecificWorker::goto_door()
 		return {STATE::GOTO_DOOR, 0.f, 0.f};
 	}
 
+	//if (prim_it != 0) viewer_room->scene.removeItem(puerta);
+	prim_it ++;
+
 	qInfo() << "CURRENT DOOR -------------" << current_door;
+	qInfo() << "NUMBER OF NOMINAL DOORS --------------" << nominal_rooms[room_index].doors.size();
+	qInfo() << "NUMBER OF LIDAR DOORS  ---------------" << doors.size();
 
 	// 2. Puerta objetivo en GLOBAL (la nominal que queremos cruzar)
-	const Door nominal_door = nominal_rooms[room_index].doors[current_door];
+	const Door &nominal_door = nominal_rooms[room_index].doors[current_door];
+
 	// Eigen::Vector2f nominal_center_global = nominal_door.global_center();
-	//
+
 	// // 3. Convertir centro nominal GLOBAL → FRAME DEL ROBOT
 	// Eigen::Vector2f nominal_center_robot =
 	// 	robot_pose.inverse().cast<float>() * nominal_center_global;
 	//
-	// // 4. Elegir la puerta detectada más cercana a la nominal (en frame robot)
+	// // // 4. Elegir la puerta detectada más cercana a la nominal (en frame robot)
 	// auto target_it = std::ranges::min_element(
 	// 	doors,
 	// 	[&](const Door &a, const Door &b)
@@ -269,12 +278,17 @@ SpecificWorker::RetVal SpecificWorker::goto_door()
 	// 	});
 
 	const auto target_it = std::ranges::min_element(doors, [nominal_door, this](const auto& a, const auto& b)
-{
+	{
 	return (a.center() - robot_pose.inverse().cast<float>() * nominal_door.global_center()).norm() <
 		(b.center() - robot_pose.inverse().cast<float>() * nominal_door.global_center()).norm();
-});
+	});
 
 	Door target_door = *target_it;
+
+	target_door.p1_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * target_door.p1.cast<float>());
+	target_door.p2_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * target_door.p2.cast<float>());
+
+	//puerta = viewer_room->scene.addLine(target_door.p1_global.x(), target_door.p1_global.y(), target_door.p2_global.x(), target_door.p2_global.y(), QPen(Qt::darkGreen,150));
 
 	// 5. Centro de la puerta objetivo EN FRAME DEL ROBOT
 	Eigen::Vector2f centro = target_door.center();
@@ -505,14 +519,16 @@ SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 		auto doorsy = door_detector.doors();
 		if (doorsy.empty()) { qWarning() << __FUNCTION__ << "empty doors"; return{STATE::TURN, 0.0f, left_right*params.RELOCAL_ROT_SPEED};}
 
-			for (auto d : doorsy)
+			for (auto &d : doorsy)
 			{
 				d.p1_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p1.cast<float>());
 				d.p2_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p2.cast<float>());
 				puertas.emplace_back(viewer_room->scene.addLine(d.p1_global.x(), d.p1_global.y(), d.p2_global.x(), d.p2_global.y(), QPen(Qt::red, 90)));
+				qInfo() << "p1_global -----------------" << d.p1_global.x() << "-------------" << d.p1_global.y();
 			}
 
 			nominal_rooms[room_index].doors = doorsy;
+
 			door_crossing.set_entering_data(room_index, nominal_rooms);
 
 			nominal_rooms[room_index].doors[door_crossing.entering_door_index].connect_to_door = door_crossing.leaving_room_index;
@@ -521,6 +537,9 @@ SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 
 			current_door = (door_crossing.entering_door_index + 1) % nominal_rooms[room_index].doors.size();
 			door_crossing.leaving_door_index = current_door;
+
+			qInfo() << "p1_global -----------------" << nominal_rooms[room_index].doors[current_door].p1_global.x() << "-------------" << nominal_rooms[room_index].doors[current_door].p1_global.y();
+
 
 			// nominal_rooms[door_crossing.entering_room_index].doors[door_crossing.entering_door_index].visited = true;
 		 //    //choose door to go
