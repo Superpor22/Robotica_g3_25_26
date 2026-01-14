@@ -166,9 +166,6 @@ void SpecificWorker::initialize()
 		plotConfig.yMax = 1000;
 		time_series_plotter = std::make_unique<TimeSeriesPlotter>(frame_plot_error, plotConfig);
 		match_error_graph = time_series_plotter->addGraph("", Qt::blue);
-
-		// stop robot
-		//move_robot(0, 0, 0);
 	}
 }
 
@@ -180,8 +177,6 @@ void SpecificWorker::compute()
 	// Read data from lidar
 	auto filter_data = read_data();
 
-	// doors = door_detector.detect(filter_data, &viewer->scene);
-	// draw_doors(doors, &viewer->scene);
 	// filtrar con el filtro de huecos
 	filter_data = door_detector.filter_points(filter_data, &viewer->scene);
 	draw_lidar(filter_data, &viewer->scene);
@@ -192,7 +187,6 @@ void SpecificWorker::compute()
 
 	float max_match_error = -1;
 
-	//Match match;
 	if (localised)
 	{
 		if (const auto res = update_robot_pose(room_index, measured_corners, robot_pose, true); res.has_value())
@@ -203,12 +197,9 @@ void SpecificWorker::compute()
 		}
 	}
 
-	qInfo() << "Estado inicial --------------" << to_string(state);
 	const auto &[st, adv, rot] = state_machine(state, filter_data, measured_corners); // Machine states method
-	qInfo() << "St -------------------------" << to_string(st);
-	//qInfo() << "p1_global -----------------" << nominal_rooms[room_index].doors[current_door].p1_global.x() << "-------------" << nominal_rooms[room_index].doors[current_door].p1_global.y();
 	state = st;
-	qInfo() << "Estado salida ---------------" << to_string(state);
+	qInfo() << "Estado actual ---------------" << to_string(state);
 	try{ omnirobot_proxy->setSpeedBase(0, adv, rot);}
 	catch (const Ice::Exception &e){ std::cout << e << " " << "Conexión con Laser" << std::endl; return;}
 
@@ -244,7 +235,6 @@ SpecificWorker::RetVal SpecificWorker::goto_door()
 {
 	// 1. Puertas detectadas en el frame del robot (LIDAR)
 	static QGraphicsLineItem* puerta;
-	static int prim_it = 0;
 	Doors doors = door_detector.doors();
 	if (doors.empty())
 	{
@@ -252,30 +242,8 @@ SpecificWorker::RetVal SpecificWorker::goto_door()
 		return {STATE::GOTO_DOOR, 0.f, 0.f};
 	}
 
-	//if (prim_it != 0) viewer_room->scene.removeItem(puerta);
-	prim_it ++;
-
-	qInfo() << "CURRENT DOOR -------------" << current_door;
-	qInfo() << "NUMBER OF NOMINAL DOORS --------------" << nominal_rooms[room_index].doors.size();
-	qInfo() << "NUMBER OF LIDAR DOORS  ---------------" << doors.size();
-
 	// 2. Puerta objetivo en GLOBAL (la nominal que queremos cruzar)
 	const Door &nominal_door = nominal_rooms[room_index].doors[current_door];
-
-	// Eigen::Vector2f nominal_center_global = nominal_door.global_center();
-
-	// // 3. Convertir centro nominal GLOBAL → FRAME DEL ROBOT
-	// Eigen::Vector2f nominal_center_robot =
-	// 	robot_pose.inverse().cast<float>() * nominal_center_global;
-	//
-	// // // 4. Elegir la puerta detectada más cercana a la nominal (en frame robot)
-	// auto target_it = std::ranges::min_element(
-	// 	doors,
-	// 	[&](const Door &a, const Door &b)
-	// 	{
-	// 		return (a.center() - nominal_center_robot).norm() <
-	// 			   (b.center() - nominal_center_robot).norm();
-	// 	});
 
 	const auto target_it = std::ranges::min_element(doors, [nominal_door, this](const auto& a, const auto& b)
 	{
@@ -287,8 +255,6 @@ SpecificWorker::RetVal SpecificWorker::goto_door()
 
 	target_door.p1_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * target_door.p1.cast<float>());
 	target_door.p2_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * target_door.p2.cast<float>());
-
-	//puerta = viewer_room->scene.addLine(target_door.p1_global.x(), target_door.p1_global.y(), target_door.p2_global.x(), target_door.p2_global.y(), QPen(Qt::darkGreen,150));
 
 	// 5. Centro de la puerta objetivo EN FRAME DEL ROBOT
 	Eigen::Vector2f centro = target_door.center();
@@ -308,56 +274,6 @@ SpecificWorker::RetVal SpecificWorker::goto_door()
 	const float adv   = 1000.f * brake;
 
 	return {STATE::GOTO_DOOR, adv, vrot};
-
-
-	// Doors doorsy = door_detector.doors();
-	// if (doorsy.empty()) return {STATE::GOTO_DOOR, 0.f, 0.f};
-	//
-	// Door target_door;
-	// const auto dn = nominal_rooms[room_index].doors[current_door];
-	//
-	// const auto sd = std::ranges::min_element(doorsy, [dn, this](const auto &a, const auto &b)
-	// {  return (a.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm() <(b.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm(); });
-	// target_door = *sd;
-	// target_door.p1_global = dn.p1_global;
-	// target_door.p2_global = dn.p2_global;
-	//
-	// // distance to target is less than threshold, stop and switch to ORIENT_TO_DOOR
-	// const auto target = robot_pose.inverse() * target_door.center_before(robot_pose.translation(), params.RELOCAL_MIN_DISTANCE_TO_DOOR);
-	// //auto target = target_door.center_before(Eigen::Vector2f(robot_pose.translation().x(), robot_pose.translation().y()));
-	// const auto dist_to_door = target.norm();
-	//
-	// // draw target
-	// static QGraphicsItem *door_target_draw = nullptr;
-	// if (door_target_draw != nullptr)
-	// 	viewer->scene.removeItem(door_target_draw);
-	// door_target_draw = viewer->scene.addEllipse(-50, -50, 100, 100, QPen(Qt::magenta), QBrush(Qt::magenta));
-	// door_target_draw->setPos(target.x(), target.y());
-	//
-	// // Exit condition
-	// qInfo() << "DIST TO DOOR: " << dist_to_door;
-	// if (dist_to_door < params.DOOR_REACHED_DIST)
-	// {
-	// 	viewer->scene.removeItem(door_target_draw);
-	// 	return {STATE::ORIENT_TO_DOOR, 0.f, 0.f};
-	// }
-	//
-	// const auto &[adv, rot] = robot_controller(target);
-	//
-	// return {STATE::GOTO_DOOR, adv*0.2, rot};
-}
-
-int SpecificWorker::get_corresponding_door(const Door& door_nominal)
-{
-	// assuming tobot is localised
-	const auto door_local = robot_pose.inverse() * door_nominal.global_center();
-	const auto direction_local = atan2(door_local.x(), door_local.y());
-	const auto min = std::ranges::min_element(doors, [direction_local](auto &p1, auto &p2)
-	{
-		return abs(direction_local - p1.center_angle()) < abs(direction_local - p2.center_angle());
-	});
-	return static_cast<int>( std::distance(doors.begin(), min));
-
 }
 
 SpecificWorker::RetVal SpecificWorker::orient_to_door()
@@ -383,29 +299,6 @@ SpecificWorker::RetVal SpecificWorker::orient_to_door()
 	float vrot = k * angulo;
 
 	return {STATE::ORIENT_TO_DOOR, 0.0, vrot};
-
-	// if (localised)
-	// {
-	// 	const auto dn = nominal_rooms[room_index].doors[current_door];
-	// 	const auto sd = std::ranges::min_element(door_detector.doors(), [dn, this](const auto &a, const auto &b)
-	// 		{  return (a.center() - robot_pose.inverse() * dn.global_center()).norm() <
-	// 				  (b.center() - robot_pose.inverse() * dn.global_center()).norm(); });
-	// 	//qInfo() << __FUNCTION__ << "Localised, selecting door closest to nominal door" << sd->center_angle() << params.RELOCAL_MAX_ORIENTED_ERROR << doors.size();
-	// 	if ( abs(sd->center_angle()) < params.RELOCAL_MAX_ORIENTED_ERROR)
-	// 		return {STATE::CROSS_DOOR, 0.1, 0.f};
-	// 	else
-	// 		return {STATE::ORIENT_TO_DOOR, 0.f, std::get<1>(robot_controller(sd->center()))};
-	// }
-	// else  // select the one closest to the robot's heading direction
-	// {
-	// 	qInfo() << __FUNCTION__ << "Not localised, selecting door closest to robot heading";
-	// 	const auto sd = std::ranges::min_element(doors, [](const auto &a, const auto &b)
-	// 		   {  return std::fabs(a.center_angle()) < std::fabs(b.center_angle());} );
-	// 	if (abs(sd->center_angle()) < params.RELOCAL_MAX_ORIENTED_ERROR)
-	// 		return {STATE::CROSS_DOOR, 0.5f, 0.f};
-	// 	else
-	// 		return {STATE::ORIENT_TO_DOOR, 0.f, std::get<1>(robot_controller(sd->center()))};
-	// }
 }
 
 SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints& points)
@@ -420,15 +313,12 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 		contador = 0;
 		qInfo() << "REMOVING ROOM RECT";
 		viewer_room->scene.removeItem(habitacion);
-		// delete habitacion;
-		// habitacion = nullptr;
-		// habitacion = viewer_room->scene.addRect(nominal_rooms[room_index].rect(), QPen(Qt::black, 30));
+
 		for (auto puerta : puertas)
 		{
 			viewer_room->scene.removeItem(puerta);
 		}
 
-		// door_detector.detect(points);
 		nominal_rooms[room_index].doors = door_detector.doors();
 		if (!nominal_rooms[room_index].doors.empty())
 		{
@@ -513,8 +403,6 @@ SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 		else return{STATE::TURN, 0.0f, left_right*params.RELOCAL_ROT_SPEED/2};
 
 		// save doors to nominal_room if not previously visited
-		// if (not nominal_rooms[room_index].visited)
-		// {
 		nominal_rooms[room_index].name = image_processor.room_name_from_index(room_index);
 		auto doorsy = door_detector.doors();
 		if (doorsy.empty()) { qWarning() << __FUNCTION__ << "empty doors"; return{STATE::TURN, 0.0f, left_right*params.RELOCAL_ROT_SPEED};}
@@ -524,7 +412,6 @@ SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 				d.p1_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p1.cast<float>());
 				d.p2_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p2.cast<float>());
 				puertas.emplace_back(viewer_room->scene.addLine(d.p1_global.x(), d.p1_global.y(), d.p2_global.x(), d.p2_global.y(), QPen(Qt::red, 90)));
-				qInfo() << "p1_global -----------------" << d.p1_global.x() << "-------------" << d.p1_global.y();
 			}
 
 			nominal_rooms[room_index].doors = doorsy;
@@ -533,54 +420,18 @@ SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 
 			nominal_rooms[room_index].doors[door_crossing.entering_door_index].connect_to_door = door_crossing.leaving_room_index;
 
-			qInfo() << door_crossing.entering_door_index << "----------ENTERING DOOR----------";
-
 			current_door = (door_crossing.entering_door_index + 1) % nominal_rooms[room_index].doors.size();
 			door_crossing.leaving_door_index = current_door;
-
-			qInfo() << "p1_global -----------------" << nominal_rooms[room_index].doors[current_door].p1_global.x() << "-------------" << nominal_rooms[room_index].doors[current_door].p1_global.y();
-
 
 			// nominal_rooms[door_crossing.entering_room_index].doors[door_crossing.entering_door_index].visited = true;
 		 //    //choose door to go
 		 //    choose_next_door(room_index); // TODO crear metodo para elegir puerta
-
-			qInfo() << current_door << "--------------------";
 
 			Door d = doorsy[current_door];
 			d.p1_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p1.cast<float>());
 			d.p2_global = nominal_rooms[room_index].get_projection_of_point_on_closest_wall(robot_pose.cast<float>() * d.p2.cast<float>());
 
 			puertas.emplace_back(viewer_room->scene.addLine(d.p1_global.x(), d.p1_global.y(), d.p2_global.x(), d.p2_global.y(), QPen(Qt::blue,150)));
-
-			// we need to match the current selected nominal door to the successive local doors detected during the approach
-			// select the local door closest to the selected nominal door
-
-			// const auto dn = nominal_rooms[room_index].doors[current_door];
-			// const auto ds = doors;
-			// const auto sd = std::ranges::min_element(ds, [dn, this](const auto &a, const auto &b)
-			// 		{  return (a.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm() <
-			// 				  (b.center() - robot_pose.inverse().cast<float>() * dn.global_center()).norm(); });
-			//
-			// // sd is the closest local door to the selected nominal door. Update nominal door with local values
-			// nominal_rooms[room_index].doors[current_door].p1 = sd->p1;
-			// nominal_rooms[room_index].doors[current_door].p2 = sd->p2;
-			//
-			// nominal_rooms[room_index].visited = true;
-
-		//}
-
-		// finish door tracking and update door crossing info
-		// if (door_crossing.valid)
-		// {
-		// 	door_crossing.set_entering_data(current_room, nominal_rooms);
-		// 	nominal_rooms[door_crossing.leaving_room_index].doors[door_crossing.leaving_door_index].connect_to_door = door_crossing.entering_door_index;
-		// 	nominal_rooms[door_crossing.leaving_room_index].doors[door_crossing.leaving_door_index].connect_to_room = door_crossing.entering_room_index;
-		// 	nominal_rooms[current_room].doors[door_crossing.entering_door_index].visited = true;
-		// 	nominal_rooms[current_room].doors[door_crossing.entering_door_index].connect_to_door = door_crossing.leaving_door_index;
-		// 	nominal_rooms[current_room].doors[door_crossing.entering_door_index].connect_to_room = door_crossing.leaving_room_index;
-		// 	door_crossing.valid = false;
-		// }
 
 		habitacion = viewer_room->scene.addRect(nominal_rooms[room_index].rect(), QPen(Qt::black, 30));
 		robot_room_draw->show();
@@ -606,8 +457,6 @@ SpecificWorker::RetVal SpecificWorker::goto_room_center(const RoboCompLidar3D::T
 	auto dist = center.value().norm();
 	// exit condition:
 	if (dist < 100.f) return {STATE::TURN,0.f, 0.f};
-
-	// Do my thing
 
 	// 1. Convertir Vector2d → Vector2f
 	Eigen::Vector2f center_f = center.value().cast<float>();
@@ -690,30 +539,6 @@ std::tuple<float, float> SpecificWorker::robot_controller(const Eigen::Vector2f 
 	float adv = 1000.f * angle_break;
 
 	return {adv, rot};
-}
-
-void SpecificWorker::draw_doors(const Doors& doors, QGraphicsScene* scene)
-{
-	static std::vector<QGraphicsItem*> items;
-	for (const auto i: items)
-	{
-		scene->removeItem(i);
-		delete i;
-	}
-	items.clear();
-
-	for (const auto &d: doors )
-	{
-		auto item = scene->addEllipse(-100, -100, 200, 200, QPen(Qt::red), QBrush(Qt::red));
-		item->setPos(d.p1.x(), d.p1.y());
-		items.emplace_back(item);
-		item = scene->addEllipse(-100, -100, 200, 200, QPen(Qt::red), QBrush(Qt::red));
-		item->setPos(d.p2.x(), d.p2.y());
-		items.emplace_back(item);
-		auto line = scene->addLine(d.p1.x(), d.p1.y(), d.p2.x(), d.p2.y(), QPen(Qt::red, 30));
-		items.emplace_back(line);
-	}
-
 }
 
 RoboCompLidar3D::TPoints SpecificWorker::read_data()
@@ -807,63 +632,6 @@ void SpecificWorker::draw_lidar(const  RoboCompLidar3D::TPoints &points, QGraphi
 		items.push_back(text_item);
 	}
 }
-
-    // compute and draw minimum distance point in frontal range
-    // auto offset_begin = closest_lidar_index_to_given_angle(points, -params.LIDAR_FRONT_SECTION);
-    // auto offset_end = closest_lidar_index_to_given_angle(points, params.LIDAR_FRONT_SECTION);
-    // if(not offset_begin or not offset_end)
-    // { std::cout << offset_begin.error() << " " << offset_end.error() << std::endl; return ;}    // abandon the ship
-    // auto min_point = std::min_element(std::begin(points) + offset_begin.value(), std::begin(points) + offset_end.value(), [](auto &a, auto &b)
-    // { return a.distance2d < b.distance2d; });
-    // QColor dcolor;
-    // if(min_point->distance2d < params.STOP_THRESHOLD)
-    //     dcolor = QColor(Qt::red);
-    // else
-    //     dcolor = QColor(Qt::magenta);
-    // auto ditem = scene->addRect(-100, -100, 200, 200, dcolor, QBrush(dcolor));
-    // ditem->setPos(min_point->x, min_point->y);
-    // items.push_back(ditem);
-
-    // compute and draw minimum distance point to wall
-    // auto wall_res_right = closest_lidar_index_to_given_angle(points, params.LIDAR_RIGHT_SIDE_SECTION);
-    // auto wall_res_left = closest_lidar_index_to_given_angle(points, params.LIDAR_LEFT_SIDE_SECTION);
-    // if(not wall_res_right or not wall_res_left)   // abandon the ship
-    // {
-    //     qWarning() << "No valid lateral readings" << QString::fromStdString(wall_res_right.error()) << QString::fromStdString(wall_res_left.error());
-    //     return;
-    // }
-    // auto right_point = points[wall_res_right.value()];
-    // auto left_point = points[wall_res_left.value()];
-    // // compare both to get the one with minimum distance
-    // auto min_obj = (right_point.distance2d < left_point.distance2d) ? right_point : left_point;
-    // auto item = scene->addRect(-100, -100, 200, 200, QColor(QColorConstants::Svg::orange), QBrush(QColor(QColorConstants::Svg::orange)));
-    // item->setPos(min_obj.x, min_obj.y);
-    // items.push_back(item);
-    // // draw a line from the robot to the minimum distance point
-    // auto item_line = scene->addLine(QLineF(QPointF(0.f, 0.f), QPointF(min_obj.x, min_obj.y)), QPen(QColorConstants::Svg::orange, 10));
-    // items.push_back(item_line);
-
-    // Draw two lines coming out from the robot at angles given by params.LIDAR_OFFSET
-    // Calculate the end points of the lines
-	// auto res_right = closest_lidar_index_to_given_angle(points, params.LIDAR_FRONT_SECTION);
-	// auto res_left = closest_lidar_index_to_given_angle(points, -params.LIDAR_FRONT_SECTION);
- //    if(not res_right or not res_left)
- //    { std::cout << res_right.error() << " " << res_left.error() << std::endl; return ;}
- //    // draw two lines at the edges of the range
- //    float right_line_length = points[res_right.value()].distance2d;
- //    float left_line_length = points[res_left.value()].distance2d;
- //    float angle1 = points[res_left.value()].phi;
- //    float angle2 = points[res_right.value()].phi;
- //    QLineF line_left{QPointF(0.f, 0.f),
- //                     robot_draw->mapToScene(left_line_length * sin(angle1), left_line_length * cos(angle1))};
- //    QLineF line_right{QPointF(0.f, 0.f),
- //                      robot_draw->mapToScene(right_line_length * sin(angle2), right_line_length * cos(angle2))};
- //    QPen left_pen(Qt::blue, 10); // Blue color pen with thickness 3
- //    QPen right_pen(Qt::red, 10); // Blue color pen with thickness 3
- //    auto line1 = scene->addLine(line_left, left_pen);
- //    auto line2 = scene->addLine(line_right, right_pen);
- //    items.push_back(line1);
- //    items.push_back(line2);
 
 //
 // /**

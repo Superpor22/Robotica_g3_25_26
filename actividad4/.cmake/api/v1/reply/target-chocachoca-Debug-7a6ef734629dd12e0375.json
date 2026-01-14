@@ -26,9 +26,9 @@
 		"files" : 
 		[
 			"generated/CMakeLists.txt",
-			"/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindOpenGL.cmake",
+			"/snap/clion/411/bin/cmake/linux/x64/share/cmake-4.1/Modules/FindOpenGL.cmake",
 			"/usr/lib/x86_64-linux-gnu/cmake/Qt6/FindWrapOpenGL.cmake",
-			"/snap/clion/409/bin/cmake/linux/x64/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake",
+			"/snap/clion/411/bin/cmake/linux/x64/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake",
 			"/usr/lib/x86_64-linux-gnu/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"/usr/lib/x86_64-linux-gnu/cmake/Qt6Gui/Qt6GuiDependencies.cmake",
 			"/usr/lib/x86_64-linux-gnu/cmake/Qt6Gui/Qt6GuiConfig.cmake",

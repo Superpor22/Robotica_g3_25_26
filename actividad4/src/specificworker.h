@@ -150,7 +150,6 @@ class SpecificWorker final : public GenericWorker
         STATE state = STATE::LOCALISE;
         using RetVal = std::tuple<STATE, float, float>;
         RetVal goto_door();
-    int get_corresponding_door(const Door& door);
     RetVal orient_to_door();
         RetVal cross_door(const RoboCompLidar3D::TPoints &points);
         RetVal localise(const RoboCompLidar3D::TPoints& points, QGraphicsScene* scene);
@@ -162,7 +161,6 @@ class SpecificWorker final : public GenericWorker
 
         // draw
         void draw_lidar(const RoboCompLidar3D::TPoints &filtered_points, std::optional<Eigen::Vector2d> center, QGraphicsScene *scene);
-        void draw_doors(const Doors &doors, QGraphicsScene *scene);
 
         std::tuple<SpecificWorker::STATE, float, float> state_machine(STATE state, const RoboCompLidar3D::TPoints& filter_data, const Corners& corners);
 
