@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/LiveTemplatesHousekeeping/HotspotSessionHintIsShown/@EntryValue" value="true" type="bool" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-G &quot;Unix Makefiles&quot;" BUILD_OPTIONS="-j21" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="af02c26e-21b2-4b8d-a327-745b7d0e470d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../actividad3/.cmake/api/v1/reply/cache-v2-5003e678066839b125a7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/.cmake/api/v1/reply/cmakeFiles-v1-6b6e2fb6e7d112f6d18c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/.cmake/api/v1/reply/codemodel-v2-50fe13bcf5d341f9804d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/.cmake/api/v1/reply/index-2025-12-02T14-43-56-0265.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/.cmake/api/v1/reply/target-ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated-Debug-3bd2aac5c2e5fd82ce4c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/.cmake/api/v1/reply/target-ICE_Camera360RGB_target-Debug-f4dc76e5a3dc97f814f9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/.cmake/api/v1/reply/target-ICE_GenericBase_target-Debug-9f173fd6d6f7ba33363a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/.cmake/api/v1/reply/target-ICE_Lidar3D_target-Debug-b231c5aae2c8bc86f660.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/.cmake/api/v1/reply/target-ICE_OmniRobot_target-Debug-4bdaf86b90ce12625ab5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/.cmake/api/v1/reply/target-chocachoca-Debug-6f7b0a2982dc3e486602.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/.cmake/api/v1/reply/target-chocachoca_autogen_timestamp_deps-Debug-fcaed0fe0f95176fe6ae.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/CMakeFiles/CMakeRuleHashes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/bin/chocachoca" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/bin/chocachoca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad3_generated.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/ICE_Camera360RGB_target.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/ICE_Camera360RGB_target.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/ICE_GenericBase_target.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/ICE_GenericBase_target.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/ICE_Lidar3D_target.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/ICE_Lidar3D_target.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/ICE_OmniRobot_target.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/ICE_OmniRobot_target.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/compiler_depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/main.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca.dir/main.cpp.o.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/AutogenInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/AutogenInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/AutogenUsed.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/AutogenUsed.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/ParseCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/ParseCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/CMakeFiles/chocachoca_autogen_timestamp_deps.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/4B7W4TDGLD/moc_abstract_graphic_viewer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/4B7W4TDGLD/moc_abstract_graphic_viewer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/4B7W4TDGLD/moc_abstract_graphic_viewer.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/4B7W4TDGLD/moc_abstract_graphic_viewer.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/UITLZZOD3R/moc_GRAFCETStep.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/UITLZZOD3R/moc_GRAFCETStep.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/UITLZZOD3R/moc_GRAFCETStep.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/UITLZZOD3R/moc_GRAFCETStep.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/deps" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/include/moc_sigwatch.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/include/moc_sigwatch.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/include/moc_sigwatch.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/chocachoca_autogen/include/moc_sigwatch.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actividad3/generated/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../actividad3/generated/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/QtSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/actividad2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../localiser/localiser.cdsl" beforeDir="false" afterPath="$PROJECT_DIR$/../localiser/localiser.cdsl" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JairoFarfanC&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Superpor22/Robotica_g3_25_26.git&quot;,
+    &quot;accountId&quot;: &quot;46e91ef3-ca56-40bf-9f0e-23593100d022&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/generated/chocachoca_autogen/include/ui_mainUI.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/specificworker.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/specificworker.h" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="XCCdGkOs" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2025" />
+    <option name="minorVersion" value="2.4" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="35Nljz0pcsocfS3HrbKjycmdeL3" />
+  <component name="ProjectStatusUIService">{
+  &quot;uiKindId&quot;: &quot;Widget&quot;
+}</component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.chocachoca.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/usuario/robotica_G3/Robotica_g3_25_26/localiser",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_generated" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_generated" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ICE_Camera360RGB_target" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="ICE_Camera360RGB_target" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ICE_GenericBase_target" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="ICE_GenericBase_target" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ICE_Lidar3D_target" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="ICE_Lidar3D_target" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ICE_OmniRobot_target" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="ICE_OmniRobot_target" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="chocachoca" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="etc/config" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project" TARGET_NAME="chocachoca" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Project" RUN_TARGET_NAME="chocachoca">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="chocachoca" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="etc/config" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="chocachoca" TARGET_NAME="chocachoca" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="chocachoca" RUN_TARGET_NAME="chocachoca">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="af02c26e-21b2-4b8d-a327-745b7d0e470d" name="Changes" comment="" />
+      <created>1762958548898</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762958548898</updated>
+      <workItem from="1762958549974" duration="372000" />
+      <workItem from="1762959357476" duration="334000" />
+      <workItem from="1762964036316" duration="966000" />
+      <workItem from="1763044834584" duration="14664000" />
+      <workItem from="1763476482135" duration="7547000" />
+      <workItem from="1763649766241" duration="13210000" />
+      <workItem from="1764081042504" duration="6844000" />
+      <workItem from="1764254164447" duration="12131000" />
+      <workItem from="1764686635203" duration="3576000" />
+      <workItem from="1764691556479" duration="999000" />
+      <workItem from="1764865350326" duration="8148000" />
+      <workItem from="1765290839520" duration="7535000" />
+      <workItem from="1765384617141" duration="25000" />
+      <workItem from="1765463189464" duration="14708000" />
+      <workItem from="1765815151070" duration="8299000" />
+      <workItem from="1765985936520" duration="10203000" />
+      <workItem from="1766069249121" duration="6151000" />
+      <workItem from="1766075649690" duration="6613000" />
+      <workItem from="1767882870860" duration="11248000" />
+      <workItem from="1767971475261" duration="11833000" />
+      <workItem from="1768230822590" duration="6691000" />
+      <workItem from="1768402409444" duration="2060000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

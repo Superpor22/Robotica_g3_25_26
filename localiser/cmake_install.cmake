@@ -1,4 +1,4 @@
-# Install script for directory: /home/usuario/robotica_G3/Robotica_g3_25_26/actividad4
+# Install script for directory: /home/usuario/robotica_G3/Robotica_g3_25_26/localiser
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -51,19 +51,19 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "/home/robocomp/robocomp/etc-default" TYPE FILE RENAME "chocachoca.conf" FILES "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/etc/config")
+  file(INSTALL DESTINATION "/home/robocomp/robocomp/etc-default" TYPE FILE RENAME "chocachoca.conf" FILES "/home/usuario/robotica_G3/Robotica_g3_25_26/localiser/etc/config")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/cmake_install.cmake")
+  include("/home/usuario/robotica_G3/Robotica_g3_25_26/localiser/generated/cmake_install.cmake")
 
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/install_local_manifest.txt"
+  file(WRITE "/home/usuario/robotica_G3/Robotica_g3_25_26/localiser/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -79,6 +79,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/usuario/robotica_G3/Robotica_g3_25_26/localiser/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

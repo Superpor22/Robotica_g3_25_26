@@ -172,6 +172,7 @@ class SpecificWorker final : public GenericWorker
         RoboCompLidar3D::TPoints filter_same_phi(const RoboCompLidar3D::TPoints &points);
         RoboCompLidar3D::TPoints filter_isolated_points(const RoboCompLidar3D::TPoints &points, float d);
         void print_match(const Match &match, const float error =1.f) const;
+        std::tuple<bool, int, int> read_number()
 
         // random number generator
         std::random_device rd;

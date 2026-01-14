@@ -12,6 +12,7 @@
 #include <QPixmap>
 #include <cmath>
 #include <Camera360RGB.h>
+#include <MNIST.h>
 
 namespace rc
 {
@@ -115,118 +116,15 @@ namespace rc
                 default: return "UNKNOWN";
             }
         }
+
+        static std::tuple<bool, int, int> check_number_patch_in_image(RoboCompCamera360RGB::Camera360RGBPrxPtr proxy,
+                                                                      QLabel *label_img = nullptr,
+                                                                      int min_nonzero = 1000)
+        {
+
+        }
     };
 }
-
-// SpecificWorker::RetVal SpecificWorker::turn(const Corners &corners)
-// {
-//     const auto &[success, room_index, left_right] = image_processor.check_colour_patch_in_image(camera360rgb_proxy, this->label_img);
-//     if (success)
-//     {
-//         current_room = room_index;
-//         const auto m = hungarian.match(corners,nominal_rooms[current_room].corners() );
-//         if (m.empty())
-//         {
-//             qInfo() << __FUNCTION__ << "empty match";
-//         };
-//         if (m.size() < 3)
-//         {
-//             qInfo() << __FUNCTION__ << "m size < 3";
-//             return{STATE::TURN, 0.0f, left_right*params.RELOCAL_ROT_SPEED};
-//         }
-//         const auto max_error_iter = std::ranges::max_element(m, [](const auto &a, const auto &b)
-//                                 { return std::get<2>(a) < std::get<2>(b); });
-//         if (const auto max_match_error = std::get<2>(*max_error_iter); max_match_error > params.RELOCAL_DONE_MATCH_MAX_ERROR)
-//         {
-//             qInfo() << __FUNCTION__ << "match error > " << params.RELOCAL_DONE_MATCH_MAX_ERROR;
-//             return{STATE::TURN, 0.0f, left_right*params.RELOCAL_ROT_SPEED};
-//         }
-//         // update robot pose to have a fresh value
-//         update_robot_pose(corners, m);
-//
-//         ///////////////////////////////////////////////////////////////////////
-//         // save doors to nominal_room
-//         auto doors = door_detector.doors();
-//         if (doors.empty()) { qWarning() << __FUNCTION__ << "empty doors"; return{STATE::TURN, 0.0f, left_right*params.RELOCAL_ROT_SPEED};}
-//         for (auto &d : doors)
-//         {
-//             d.p1_global = nominal_rooms[current_room].get_projection_of_point_on_closest_wall(robot_pose * d.p1);
-//             d.p2_global = nominal_rooms[current_room].get_projection_of_point_on_closest_wall(robot_pose * d.p2);
-//         }
-//         nominal_rooms[current_room].doors = doors;
-//         // choose door to go
-//         current_door = 0; // TODO: more sophisticated choice
-//         // we need to match the current selected nominal door to the successive local doors detected during the approach
-//         // select the local door closest to the selected nominal door
-//         const auto dn = nominal_rooms[current_room].doors[current_door];
-//         const auto ds = door_detector.doors();
-//         const auto sd = std::ranges::min_element(ds, [dn, this](const auto &a, const auto &b)
-//                 {  return (a.center() - robot_pose.inverse() * dn.center_global()).norm() <
-//                           (b.center() - robot_pose.inverse() * dn.center_global()).norm(); });
-//         // sd is the closest local door to the selected nominal door. Update nominal door with local values
-//         nominal_rooms[current_room].doors[current_door].p1 = sd->p1;
-//         nominal_rooms[current_room].doors[current_door].p2 = sd->p2;
-//         draw_nominal_room(current_room, &viewer_room->scene);
-//         draw_nominal_doors(current_room, current_door, &viewer_room->scene);
-//         localised = true;
-//         return {STATE::GOTO_DOOR, 0.0f, 0.0f};  // SUCCESS
-//     }
-//     // continue turning
-//     return {STATE::TURN, 0.0f, left_right*params.RELOCAL_ROT_SPEED};
-// }
-
-// SpecificWorker::RetVal SpecificWorker::goto_door(const RoboCompLidar3D::TPoints &points, QGraphicsScene *scene)
-// {
-//     Doors doors;
-//     // Exit conditions
-//     if ( doors = door_detector.doors(); doors.empty())
-//     {
-//         qInfo() << __FUNCTION__ << "No doors detected, switching to UPDATE_POSE";
-//         return {STATE::GOTO_DOOR, 0.f, 0.f};  // TODO: keep moving for a while?
-//     }
-//     // select from doors, the one closest to the nominal door
-//     Door target_door;
-//     if (localised)
-//     {
-//         qInfo() << __FUNCTION__ << "Localised, selecting door closest to nominal door";
-//         const auto dn = nominal_rooms[current_room].doors[current_door];
-//         const auto sd = std::ranges::min_element(doors, [dn, this](const auto &a, const auto &b)
-//                {  return (a.center() - robot_pose.inverse() * dn.center_global()).norm() <
-//                          (b.center() - robot_pose.inverse() * dn.center_global()).norm(); });
-//         target_door = *sd;
-//     }
-//     else  // select the one closest to the robot's heading direction
-//     {
-//         qInfo() << __FUNCTION__ << "Not localised, selecting door closest to robot heading";
-//         const auto sd = std::ranges::min_element(doors, [](const auto &a, const auto &b)
-//                {  return abs(a.p1_angle) < abs(b.p1_angle); });
-//         target_door = *sd;
-//     }
-//     qInfo() << target_door.p1.x() << target_door.p1.y();
-//
-//     // distance to target is less than threshold, stop and switch to ORIENT_TO_DOOR
-//     constexpr float offset = 600.f;
-//     const auto target = target_door.center_before(robot_pose.translation(), offset);
-//     const auto dist_to_door = target.norm();
-//
-//     // draw target
-//     static QGraphicsItem *door_target_draw = nullptr;
-//     if (door_target_draw != nullptr)
-//         scene->removeItem(door_target_draw);
-//     door_target_draw = scene->addEllipse(-50, -50, 100, 100, QPen(Qt::magenta), QBrush(Qt::magenta));
-//     door_target_draw->setPos(target.x(), target.y());
-//
-//    // Exit condition
-//     if (dist_to_door < params.DOOR_REACHED_DIST)
-//     {
-//         qInfo() << __FUNCTION__ << "Door reached at distance " << dist_to_door << ", switching to ORIENT_TO_DOOR";
-//         return {STATE::ORIENT_TO_DOOR, 0.f, 0.f};
-//     }
-//
-//     qInfo() << __FUNCTION__ << "moving to door at " << target.x() << "," << target.y() << " dist: " << dist_to_door;
-//     const auto &[adv, rot] = robot_controller(target); // go to first detected door
-//     return {STATE::GOTO_DOOR, adv, rot};
-// }
 
 //connect to room y connect to door nuevos atributos de las puertas
 //connect to room-> habitación con la que conecta

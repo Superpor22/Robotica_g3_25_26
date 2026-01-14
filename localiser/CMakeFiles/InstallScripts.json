@@ -1,8 +1,8 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/cmake_install.cmake",
-		"/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/generated/cmake_install.cmake"
+		"/home/usuario/robotica_G3/Robotica_g3_25_26/localiser/cmake_install.cmake",
+		"/home/usuario/robotica_G3/Robotica_g3_25_26/localiser/generated/cmake_install.cmake"
 	],
 	"Parallel" : false
 }
