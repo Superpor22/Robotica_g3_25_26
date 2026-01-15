@@ -1,0 +1,8 @@
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/mnist_detector/CMakeFiles/ICES__home_usuario_robotica_G3_Robotica_g3_25_26_actividad4_mnist_detector.dir
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/mnist_detector/CMakeFiles/ICE_Camera360RGB_target.dir
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/mnist_detector/CMakeFiles/ICE_MNIST_target.dir
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/mnist_detector/CMakeFiles/create_symlink.dir
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/mnist_detector/CMakeFiles/edit_cache.dir
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/mnist_detector/CMakeFiles/rebuild_cache.dir
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/mnist_detector/src/CMakeFiles/edit_cache.dir
+/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/mnist_detector/src/CMakeFiles/rebuild_cache.dir

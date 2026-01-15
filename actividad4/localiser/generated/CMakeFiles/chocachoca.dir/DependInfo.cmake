@@ -1,0 +1,54 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "" "generated/chocachoca_autogen/timestamp" "custom" "generated/chocachoca_autogen/deps"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/Camera360RGB.cpp" "generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/Camera360RGB.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/GenericBase.cpp" "generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/GenericBase.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/Lidar3D.cpp" "generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/Lidar3D.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/MNIST.cpp" "generated/CMakeFiles/chocachoca.dir/MNIST.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/MNIST.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/OmniRobot.cpp" "generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/OmniRobot.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/src/door_detector.cpp" "generated/CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/__/src/door_detector.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/src/hungarian.cpp" "generated/CMakeFiles/chocachoca.dir/__/src/hungarian.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/__/src/hungarian.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/src/pointcloud_center_estimator.cpp" "generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/__/src/pointcloud_center_estimator.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/src/qcustomplot.cpp" "generated/CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/__/src/qcustomplot.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/src/ransac_line_detector.cpp" "generated/CMakeFiles/chocachoca.dir/__/src/ransac_line_detector.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/__/src/ransac_line_detector.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/src/room_detector.cpp" "generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/__/src/room_detector.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/src/specificworker.cpp" "generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/__/src/specificworker.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/src/time_series_plotter.cpp" "generated/CMakeFiles/chocachoca.dir/__/src/time_series_plotter.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/__/src/time_series_plotter.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/chocachoca_autogen/mocs_compilation.cpp" "generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/chocachoca_autogen/mocs_compilation.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/genericworker.cpp" "generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/genericworker.cpp.o.d"
+  "/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp" "generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/ConfigLoader/ConfigLoader.cpp.o.d"
+  "/home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp" "generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.cpp.o.d"
+  "/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp" "generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/grafcetStep/GRAFCETStep.cpp.o.d"
+  "/home/usuario/robocomp/classes/rapplication/rapplication.cpp" "generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/rapplication/rapplication.cpp.o.d"
+  "/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp" "generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/home/usuario/robocomp/classes/sigwatch/sigwatch.cpp.o.d"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/main.cpp" "generated/CMakeFiles/chocachoca.dir/main.cpp.o" "gcc" "generated/CMakeFiles/chocachoca.dir/main.cpp.o.d"
+  )
+
+# Pairs of files generated by the same build rule.
+set(CMAKE_MULTIPLE_OUTPUT_PAIRS
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/Camera360RGB.h" "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/Camera360RGB.cpp"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/GenericBase.h" "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/GenericBase.cpp"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/Lidar3D.h" "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/Lidar3D.cpp"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/MNIST.h" "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/MNIST.cpp"
+  "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/OmniRobot.h" "/home/usuario/robotica_G3/Robotica_g3_25_26/actividad4/localiser/generated/OmniRobot.cpp"
+  )
+
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")
