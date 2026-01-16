@@ -116,13 +116,6 @@ namespace rc
                 default: return "UNKNOWN";
             }
         }
-
-        static std::tuple<bool, int, int> check_number_patch_in_image(RoboCompCamera360RGB::Camera360RGBPrxPtr proxy,
-                                                                      QLabel *label_img = nullptr,
-                                                                      int min_nonzero = 1000)
-        {
-
-        }
     };
 }
 

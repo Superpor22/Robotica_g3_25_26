@@ -110,7 +110,7 @@ class SpecificWorker final : public GenericWorker
             float RELOCAL_DELTA = 5.0f * M_PI/180.f; // small probe angle in radians
             float RELOCAL_MATCH_MAX_DIST = 2000.f;   // mm for Hungarian gating
             float RELOCAL_DONE_COST = 500.f;
-            float RELOCAL_DONE_MATCH_MAX_ERROR = 2000.f;
+            float RELOCAL_DONE_MATCH_MAX_ERROR = 3000.f;
             float RELOCAL_MIN_DISTANCE_TO_DOOR = 700.0f;
             float RELOCAL_MAX_ORIENTED_ERROR = 0.1f;
         };

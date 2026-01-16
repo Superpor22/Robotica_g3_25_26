@@ -38,7 +38,6 @@
  * 1. **Startup Check:**
  *    If `startup_check` is `true`, the constructor calls the `startup_check()` method to perform
  *    any required initial verification before proceeding.
-/*
 *    Copyright (C) 2025 by G3 {Guadalupe González Santos, Máximo Bueno Martínez & José Antonio Bravo Romero}
  *
  *    This file is part of RoboComp
@@ -239,7 +238,6 @@ void SpecificWorker::compute()
 SpecificWorker::RetVal SpecificWorker::goto_door()
 {
 	// 1. Puertas detectadas en el frame del robot (LIDAR)
-	static QGraphicsLineItem* puerta;
 	Doors doors = door_detector.doors();
 	if (doors.empty())
 	{
@@ -355,7 +353,7 @@ SpecificWorker::RetVal SpecificWorker::cross_door(const RoboCompLidar3D::TPoints
 
 void SpecificWorker::choose_next_door(int current_room)
 {
-	int i = 0;
+	long unsigned int i = 0;
 	for (Door &door : nominal_rooms[current_room].doors)
 	{
 		if (door.visited == false )
@@ -379,7 +377,7 @@ SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 {
 	// exit condition
 	door_crossing.track_entering_door(door_detector.doors());
-	ROBOCOMPMNIST::MNISTResult mnist_result;
+	ROBOCOMPMNIST::MNISTResult mnist_result = {};
 	try
 	{
 		mnist_result = mnist_proxy->getNumber();
@@ -392,7 +390,7 @@ SpecificWorker::RetVal SpecificWorker::TURN_method(const Corners &corners)
 
 	//const auto &[success, current_room, left_right] = image_processor.check_colour_patch_in_image(camera360rgb_proxy, label_img);
 
-	if (mnist_result.number != -1 && mnist_result.center > 800)
+	if (mnist_result.number != -1 && mnist_result.center < 800 && mnist_result.center > 500)
 	{
 		if (mnist_result.number != 0 && mnist_result.number != 1){
 			return{STATE::TURN, 0.0f, params.RELOCAL_ROT_SPEED};
